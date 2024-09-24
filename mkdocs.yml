@@ -15,6 +15,7 @@ nav:
     - Call Tree panel: call-tree-panel.md
     - Caller/Callee panel: caller-panel.md
   - Additional functionality:
+    - Marking: marking.md
     - Workspaces: workspaces.md
     - Previewe popups: workspaces.md
     - Viewing multiple functions: workspaces.md
