@@ -6,15 +6,15 @@ nav:
     - Loading a trace: trace-loading.md
     - Recording a trace: trace-recording.md
     - Profiling UI overview: profiling-ui.md
-  - Profiling panels and views:
-    - Summary panel: summary-panel.md
+  - Profiling views:
+    - Summary view: summary-panel.md
     - Assembly view: assembly-view.md
-    - Source File panel: source-panel.md
-    - Flame Graph panel: flame-graph-panel.md
-    - Timeline panel: timeline-panel.md
-    - Call Tree panel: call-tree-panel.md
-    - Caller/Callee panel: caller-panel.md
-    - Flow Graph panel: flow-graph-panel.md
+    - Source File view: source-panel.md
+    - Flame Graph view: flame-graph-panel.md
+    - Timeline view: timeline-panel.md
+    - Call Tree view: call-tree-panel.md
+    - Caller/Callee view: caller-panel.md
+    - Flow Graph view: flow-graph-panel.md
   - Additional functionality:
     - Marking: marking.md
     - Workspaces: workspaces.md
