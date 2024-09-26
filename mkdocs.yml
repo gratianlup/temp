@@ -14,6 +14,7 @@ nav:
     - Timeline panel: timeline-panel.md
     - Call Tree panel: call-tree-panel.md
     - Caller/Callee panel: caller-panel.md
+    - Flow Graph panel: flow-graph-panel.md
   - Additional functionality:
     - Marking: marking.md
     - Workspaces: workspaces.md
