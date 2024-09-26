@@ -6,6 +6,7 @@ nav:
     - Loading a trace: trace-loading.md
     - Recording a trace: trace-recording.md
     - Profiling UI overview: profiling-ui.md
+    - Demos: demos.md
   - Profiling views:
     - Summary view: summary-panel.md
     - Assembly view: assembly-view.md
@@ -21,7 +22,6 @@ nav:
     - Previewe popups: workspaces.md
     - Viewing multiple functions: workspaces.md
     - Viewing indirect calls: workspaces.md
-  - Demos: demos.md
 theme:
   name: 'material'
   font:
