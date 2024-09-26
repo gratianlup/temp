@@ -2,30 +2,30 @@
   "Topics": [
     {
       "Title": "Home",
-      "URL": "index.html",
+      "URL": "intro.html",
       "SubTopics": null
     },
     {
       "Title": "Flame Graph",
-      "URL": "flameGraph\\flameGraphHelp.html",
+      "URL": "flame-graph-panel.html",
       "SubTopics": null
     }
   ],
   "PanelTopics": {
     "flameGraph": {
       "Title": "Flame Graph",
-      "URL": "flameGraph\\flameGraphHelp.html",
+      "URL": "flame-graph-panel.html",
       "SubTopics": null
     },
     "timeline": {
       "Title": "Timeline",
-      "URL": "timeline\\timelineHelp.html",
+      "URL": "timeline-panel.html",
       "SubTopics": null
     }
   },
   "HomeTopic": {
     "Title": "Home",
-    "URL": "index.html",
+    "URL": "intro.html",
     "SubTopics": null
   }
 }

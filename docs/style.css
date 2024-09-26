@@ -1,0 +1,16 @@
+.md-typeset h1,
+  .md-content__button {
+    display: none;
+}
+
+.md-content__inner {
+    padding-top: 0;
+}
+
+.md-main__inner {
+    margin-top: 0;
+}
+
+html {
+    font-size:larger
+}

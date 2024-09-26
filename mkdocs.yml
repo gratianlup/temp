@@ -24,12 +24,22 @@ nav:
   - Demos: demos.md
 theme:
   name: 'material'
-  font: false
+  font:
+    text: Roboto
+    code: Roboto Mono
   palette:
     primary: 'blue'
     accent: 'white'
   features:
     - navigation.expand
+    - navigation.instant
+    - navigation.top
+    - header.autohide
+    - navigation.footer
+extra:
+  generator: false
+extra_css:
+  - style.css
 markdown_extensions:
   - admonition
   - attr_list
