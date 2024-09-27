@@ -22,6 +22,7 @@ nav:
     - Working with multiple functions: workspaces.md
     - Viewing function instances: function-instances.md
     - Viewing indirect calls: workspaces.md
+    - Report exporting: reports.md
     - Workspaces: workspaces.md
     - Application options: options.md
 theme:
