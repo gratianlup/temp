@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="trace-recording.html">
+        <link rel="prev" href="intro.html">
       
       
-        <link rel="next" href="summary-panel.html">
+        <link rel="next" href="trace-loading.html">
       
       
       <link rel="icon" href="assets/images/favicon.png">
@@ -38,7 +38,15 @@
     
     
       
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
     
+    
+      <link rel="stylesheet" href="style.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -62,6 +70,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#trace-views" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -243,6 +256,81 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Profiling UI overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="profiling-ui.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Profiling UI overview
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trace-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trace views
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-function-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single function views
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -285,26 +373,18 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="profiling-ui.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="demos.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Profiling UI overview
+    Demos
   </span>
   
 
       </a>
-      
     </li>
   
 
@@ -340,7 +420,7 @@
             
   
   <span class="md-ellipsis">
-    Profiling panels and views
+    Profiling views
   </span>
   
 
@@ -350,7 +430,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Profiling panels and views
+            Profiling views
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -365,7 +445,7 @@
         
   
   <span class="md-ellipsis">
-    Summary panel
+    Summary view
   </span>
   
 
@@ -407,7 +487,7 @@
         
   
   <span class="md-ellipsis">
-    Source File panel
+    Source File view
   </span>
   
 
@@ -428,7 +508,7 @@
         
   
   <span class="md-ellipsis">
-    Flame Graph panel
+    Flame Graph view
   </span>
   
 
@@ -449,7 +529,7 @@
         
   
   <span class="md-ellipsis">
-    Timeline panel
+    Timeline view
   </span>
   
 
@@ -470,7 +550,7 @@
         
   
   <span class="md-ellipsis">
-    Call Tree panel
+    Call Tree view
   </span>
   
 
@@ -491,7 +571,28 @@
         
   
   <span class="md-ellipsis">
-    Caller/Callee panel
+    Caller/Callee view
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="flow-graph-panel.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flow Graph view
   </span>
   
 
@@ -556,28 +657,7 @@
         
   
   <span class="md-ellipsis">
-    Marking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="workspaces.md" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Workspaces
+    Function/module marking
   </span>
   
 
@@ -619,7 +699,28 @@
         
   
   <span class="md-ellipsis">
-    Viewing multiple functions
+    Working with multiple functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="function-instances.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Viewing function instances
   </span>
   
 
@@ -650,29 +751,72 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="demos.md" class="md-nav__link">
+      <a href="reports.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Demos
+    Report exporting
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="workspaces.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workspaces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="options.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Application options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -695,6 +839,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trace-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trace views
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-function-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single function views
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -710,7 +880,24 @@
 
   <h1>Profiling UI overview</h1>
 
-
+<h3 id="trace-views">Trace views</h3>
+<p>Once a trace is loaded, the Summary, Flame Graph, and Timeline views provide a high-level overview of the profiled application's slowest parts. These views allow you to identify the functions where most time is spent and when they execute.</p>
+<p><a href="img/profiling-ui_1998x1377.png" target="_blank"><img alt="Profiling UI screenshot" src="img/profiling-ui-labels.png" /></a></p>
+<ul>
+<li><a href="summary-panel.html">Summary view</a>: displays all the functions with profiling data, which are sorted by default based on their exclusive (self) duration. The left side of the panel lists the modules (binaries) with profiling data, sorted based on the total time used by the functions part of the module.</li>
+<li><a href="flame-graph-panel.html">Flame Graph view</a>: displays an interacitve flame graph view of the call tree. The right side of the panel shows detailed information about the selected node(s).</li>
+<li><a href="timeline-panel.html">Timeline view</a>: displays the thread activity during the entire duration of the trace and allows filtering of the displayed profiling data to specific threads and time ranges.</li>
+<li><a href="call-tree-panel.html">Call Tree view</a>: displays nested call tree view showing the function call sequence for the entire trace.</li>
+<li><a href="caller-panel.html">Caller/Callee view</a>: displays for the function selected in the Summary view the list of callers (functions calling the selected one) and callees (functions called by the selected one).</li>
+</ul>
+<h3 id="single-function-views">Single function views</h3>
+<p>Open a function to display the Assembly, Source file, and Flow graph views and see which parts take the most time (a double-click or the Return key in any of the views opens the function's Assembly view).</p>
+<p><a href="img/profiling-ui2_1998x1377.png" target="_blank"><img alt="Profiling UI screenshot" src="img/profiling-ui2-labels.png" /></a></p>
+<ul>
+<li><a href="assembly-view.html">Assembly view</a>: displays the function's assembly code, where each instruction is annotated with the corresponding source line number and inlining information. The right side shows the time percentage (relative to the function's time) and time taken by each instruction. The slowest instructions are marked with colors and flame icons. Clicking on an instruction selects its corresponding source line in the Source File view.</li>
+<li><a href="source-panel.html">Source File view</a>: displays the function's source file and, optionally, the assembly code generated for each line. The right side shows the time percentage (relative to the function's time) and time taken by each line. The slowest lines are marked with colors and flame icons. Clicking on a line selects the corresponding instructions in the Assembly view.</li>
+<li><a href="source-panel.html">Flow Graph view</a>: displays the function's <a href="https://en.wikipedia.org/wiki/Control-flow_graph" target="_blank">control-flow graph</a>, constructed by analyzing the assembly code and forming basic blocks (a sequence of instructions that starts with jump targets and ends with jumps or branch instructions). The slowest blocks are marked with colors and labeled with the time percentage (relative to the function's time). Blocks forming a loop are marked with a green arrow.</li>
+</ul>
 
 
 
@@ -731,19 +918,60 @@
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="intro.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="trace-loading.html" class="md-footer__link md-footer__link--next" aria-label="Next: Loading a trace">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Loading a trace
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
   
 </div>
       
@@ -757,7 +985,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.instant", "navigation.top", "header.autohide", "navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
