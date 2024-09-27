@@ -1,3 +1,5 @@
+### Trace views
+
 Once a trace is loaded, the Summary, Flame Graph, and Timeline views provide a high-level overview of the profiled application's slowest parts. These views allow you to identify the functions where most time is spent and when they execute.
 
 [![Profiling UI screenshot](img/profiling-ui-labels.png)](img/profiling-ui_1998x1377.png){:target="_blank"}
@@ -8,7 +10,7 @@ Once a trace is loaded, the Summary, Flame Graph, and Timeline views provide a h
 - [Call Tree view](call-tree-panel.md): displays nested call tree view showing the function call sequence for the entire trace.
 - [Caller/Callee view](caller-panel.md): displays for the function selected in the Summary view the list of callers (functions calling the selected one) and callees (functions called by the selected one).
 
-#### Single function views
+### Single function views
 
 Open a function to display the Assembly, Source file, and Flow graph views and see which parts take the most time (a double-click or the Return key in any of the views opens the function's Assembly view).
 

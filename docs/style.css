@@ -11,6 +11,14 @@
     margin-top: 0;
 }
 
+.md-typeset__table {
+    line-height: 1;
+}
+
+.md-typeset__table table:not([class]) {
+    font-size: .7rem;
+}
+
 html {
     font-size:larger
 }

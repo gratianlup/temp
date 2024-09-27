@@ -1,4 +1,4 @@
-The Flame Graph view
+
 
 ???+ note "Flame graphs"
     A flame graph is an alternative, more compact way of viewing a call tree. In this view, function instances are nodes with a size proportional to the time spent relative to the parent (caller) function and makes it easier to identify the portions of the app that take most of the time.  

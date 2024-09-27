@@ -3,9 +3,9 @@ use_directory_urls: false
 nav:
   - Getting started:
     - Introduction: intro.md
+    - Profiling UI overview: profiling-ui.md
     - Loading a trace: trace-loading.md
     - Recording a trace: trace-recording.md
-    - Profiling UI overview: profiling-ui.md
     - Demos: demos.md
   - Profiling views:
     - Summary view: summary-panel.md
@@ -17,11 +17,13 @@ nav:
     - Caller/Callee view: caller-panel.md
     - Flow Graph view: flow-graph-panel.md
   - Additional functionality:
-    - Marking: marking.md
-    - Workspaces: workspaces.md
+    - Function/module marking: marking.md
     - Previewe popups: workspaces.md
-    - Viewing multiple functions: workspaces.md
+    - Working with multiple functions: workspaces.md
+    - Viewing function instances: function-instances.md
     - Viewing indirect calls: workspaces.md
+    - Workspaces: workspaces.md
+    - Application options: options.md
 theme:
   name: 'material'
   font:
