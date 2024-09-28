@@ -31,7 +31,8 @@ Each node has the function name, optionally prepended with the module name, foll
 
 By default, the nodes are color-coded based on the module names to which the functions belong. Nodes for functions executing in the kernel/managed context are marked with a different text and border color (blue by default). The displayed text fields and colors can be customized in the Flame graph options.  
 
-Note that when the called function nodes are too small to be visible in the view, they are collapsed under a placeholder node rendered with a hatch pattern. Placeholder nodes are expanded/collapsed when zooming in/out of the view.  
+!!! note ""
+    Note that when the called function nodes are too small to be visible in the view, they are collapsed under a placeholder node rendered with a hatch pattern. Placeholder nodes are expanded into individual nodes when zooming in the view.  
 
 ##### Navigating the Flame graph
 
@@ -43,11 +44,11 @@ The node enlarging can be repeated to go deeper down the call path. The *Back* b
 [![Profiling UI screenshot](img/flame-graph-expand2_947x456.png)](img/flame-graph-expand2_947x456.png){:target="_blank"}
 
 !!! note ""
-    Notice how in the screenshot above the nodes starting with *ntoskrnl.exe!KiPageFault* use a different style to mark code executiong in kernel mode.
+    Notice how in the screenshot above the nodes starting with *ntoskrnl.exe!KiPageFault* use a different style to mark code executiong in kernel mode. The user mode and kernel mode call stacks are automatically combined.
 
 ##### Changing the root node
 
-It can be useful to view only a subregion of the Flame graph. By changing the root node, only nodes for functions starting with the new root are displayed and time percentages are computed relative to the new root at 100%.
+It can be useful to view only a subregion of the Flame graph. By changing the root node, only nodes for functions starting with the new root are displayed and execution time percentages are computed relative to the new root starting at 100%.
 
 To change the root node, from the right-click context menu, select *Set Function as Root* (alternatively, use the Alt+Double-click shortcut). After the switch, the toolbar displays the name of the current root node. Setting a new root node can be repeated in the new view.
 
@@ -60,12 +61,12 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
 
 | Button | Description |
 | ------ | ------------|
-| ![](img/flame-graph-toolbar-back.png) | Undo the previous action, such as enlarging a node or changing the root node. |
-| ![](img/flame-graph-toolbar-reset.png) | Reset the view to it's original state, displaying the entire Flame graph. |
-| ![](img/flame-graph-toolbar-minus.png) | Zoom out the view around the center point. |
-| ![](img/flame-graph-toolbar-plus.png) | Zoom in the view around the center point. |
-| ![](img/flame-graph-toolbar-sync.png) | If enabled, selecting a node also selects the associated function the other profiling views. |
-| ![](img/flame-graph-toolbar-source.png) | If enabled, selecting a node also displays the associated function in the Source file view, with the profiling data annotated on source lines. |
+| ![](img/flame-graph-toolbar-back.png) | Undoes the previous action, such as enlarging a node or changing the root node. |
+| ![](img/flame-graph-toolbar-reset.png) | Resets the view to it's original state, displaying the entire Flame graph. |
+| ![](img/flame-graph-toolbar-minus.png) | Zooms out the view around the center point. |
+| ![](img/flame-graph-toolbar-plus.png) | Zooms in the view around the center point. |
+| ![](img/flame-graph-toolbar-sync.png) | If enabled, selecting a node also selects the associated function in the other profiling views. |
+| ![](img/flame-graph-toolbar-source.png) | If enabled, selecting a node also displays the associated function in the Source file view, with the source lines annotated with profiling data. |
 | ![](img/flame-graph-toolbar-module.png) | If enabled, display the module name before the function name in the nodes as module!function. |
 | ![](img/flame-graph-toolbar-details.png) | If enabled, display the Details panel on the right side of the Flame graph view. |
 | Search box | Search for nodes with a specific function name using a case-insensitive substring search. Press the *Escape* key to reset the search or the *X* button next to the input box. |
@@ -74,8 +75,8 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
 
 | Action | Description |
 | ------ | ------------|
-| Hover | Hovering over a node briefly displays a preview popup showing the complete function name and total/self execution times. Clicking the *Pin button* or dragging the popup expands it into a panel equivalent to the *Details panel*. Multiple such panels can be kept open at the same time.  |
-| Click | Selects the pointed node and deselects any previously selected node. The *Details panel* is updated and, if *Sync* is enabled, the function is selected in the other panels.<br><br>Clicking an empty part of the view deselects all nodes. |
+| Hover | Hovering over a node briefly displays a preview popup with the complete function name and total/self execution times. Clicking the *Pin button* or dragging the popup expands it into a panel equivalent to the *Details panel*. Multiple such panels can be kept open at the same time. |
+| Click | Selects the pointed node and deselects any previously selected nodes. The *Details panel* is updated and, if *Sync* is enabled, the function is selected in the other panels.<br><br>Clicking an empty part of the view deselects all nodes. |
 | Ctrl+Click | Selects the pointed node and keeps the previously selected nodes (append). The *Details panel* is updated to display a combined view of all selected nodes. |
 | Shift+Click | When a node is selected, it expands the selection to include all nodes in the call stack between the pointed node and the selected one. The *Details panel* is updated to display a combined view of all selected nodes. |
 | Double-click | Enlarges (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly. |
@@ -89,7 +90,6 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
 | Shift+Scroll wheel | Scrolls the view horizontally if the flame graph is larger than the view |
 | Ctrl+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
 | Click+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
-| Ctrl+C | Copy to clipboard a HTML/Markdown table with a summary of the selected nodes. |
 
 #### Keyboard shortcuts
 
@@ -100,6 +100,7 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
 | Ctrl+Shift+Return | Opens the Assembly view of the selected function in a new tab. |
 | Alt+Return | Opens a preview popup with the assembly of the selected function. Press the *Escape* key to close the popup.<br><br>Multiple preview popups can be can be kept open at the same time. |
 | Alt+Shift+Return | Opens a preview popup with the assembly of the selected function, with profile data filtered to include only the selected instance. |
+| Ctrl+C | Copies to clipboard a HTML and Markdown table with a summary of the selected nodes. |
 | Ctrl+Shift+C | Copies to clipboard the function names of the selected nodes. |
 | Ctrl+Alt+C | Copies to clipboard the mangled/decorated function names of the selected nodes. |
 | Backspace | Undoes the previous action, such as enlarging a node (double-click) or changing the root node. |
