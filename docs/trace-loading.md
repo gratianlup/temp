@@ -1,4 +1,4 @@
-### Loading a new trace
+#### Loading a new trace
 
 There are several ways to open a new ETW trace file (*.etl):
 
@@ -12,19 +12,19 @@ Once the trace file is selected in the *Open File dialog*, the **Load profile tr
 
 From the list, select the process you want to analyze and press the **Load Profile** button (alternatively, use double-click or the Return key). The selected process is loaded from the trace file, any required binary and symbol files are downloaded and the profiling data is analyzed. Once loading is completed, the window closes and the profiling views are populated, as described in [Profiling UI overview](profiling-ui.md).
 
-### Loading a previosly opened trace
+#### Loading a previosly opened trace
 
 Previously opened traces are saved as sessions. Recent sessions can be quickly opened again for the same process using either the *Start page* or the session list on the left of the *Load profile trace* window (use double-click or the Return key).
 
 [![Start page screenshot](img/start-page_825x459.png)](img/start-page_825x459.png){:target="_blank"}
 
-### Symbols configuration
+#### Symbols configuration
 
 Symbols are the binary (EXE/DLL) and debug information (PDB) files required to analyze the processes recorded in a trace. The binaries are used to disassembly individual functions and the debug files are used to resolve function names and provide the source file and line number information.
 
 [![Load profile window options screenshot](img/symbols_1332x826.png)](img/symbols_1332x826.png){:target="_blank"}
 
-#### Symbol paths
+##### Symbol paths
 
 Symbols are searched in the locations indicated by the **Symbol Paths** list, found in the **Symbols** tab of the *Load profile trace* window. Symbol locations can be of two types:  
 
@@ -35,7 +35,7 @@ Symbols are searched in the locations indicated by the **Symbol Paths** list, fo
     More information about symbol servers and the symbol path syntax is available here:  
     [https://learn.microsoft.com/en-us/windows/win32/debug/using-symsrv](https://learn.microsoft.com/en-us/windows/win32/debug/using-symsrv)
 
-#### Additional symbol options
+##### Additional symbol options
 
 | Option | Description |
 | ------ | ------------|
@@ -45,7 +45,7 @@ Symbols are searched in the locations indicated by the **Symbol Paths** list, fo
 | Don't load symbols that failed in previous sessions | Skip downloading and loading of symbols that could not be found in previous sessions (for example, due to offline symbol servers). The list of skipped symbols can be viewed and cleared. |
 | Cache processed symbol files | Cache the processed debug symbol files and use them to speed up loading of traces requiring the same symbols. The cache files are saved in the temporary directory and can be viewed and cleared. |
 
-### Trace processing options
+#### Trace processing options
 
 [![Load profile window options screenshot](img/load-options__1332x648.png)](img/load-options__1332x648.png){:target="_blank"}
 
@@ -55,10 +55,10 @@ Symbols are searched in the locations indicated by the **Symbol Paths** list, fo
 | Handle CPU performance counter samples | Process CPU performance counter (PMC) events and display them in the Summary, Assembly and Source File views using additional columns. |
 | Download source files from Source Server | Automatically attempt to download source files from the location indicated by the debug info file. If the download URL requires authentication, it can be configured in the Authentication section found below. |
 
-#### Authentication
+##### Authentication
 
 Authentication using an user/email address and Personal Autehnticaion token (PAT) can be configured for both source file servers and symbol servers.
 
-#### Binary files
+##### Binary files
 
 Additional local directory paths for searching binary files can be configured. The binary files to process in a trace can be restricted to only the ones in the accepted list.
