@@ -990,7 +990,7 @@
 <ul>
 <li>a toolbar at the top, with action buttons and the <em>Search</em> input box.</li>
 <li>the Modules panel on the left side. Its visibility can be toggled using the <em>Modules</em> button in the toolbar.</li>
-<li>The list of functions from either the entire trace or filtered to display only the functions part of a single module. By default the list is sorted by self (exclusive) time in descending order.</li>
+<li>the list of functions from either the entire trace or filtered to display only the functions part of a single module. By default the list is sorted by self (exclusive) time in descending order.</li>
 </ul>
 <p><a href="img/summary-panel_1233x417.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-panel_1233x417.png" /></a></p>
 <h5 id="modules-list">Modules list</h5>
@@ -1071,6 +1071,9 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p>When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.</p>
+</div>
 </details>
 <details class="abstract" open="open">
 <summary>Keyboard shortcuts</summary>
@@ -1124,17 +1127,20 @@
 <h4 id="exporting-the-function-list">Exporting the function list</h4>
 <p>The current function list can be exported and saved into multiple formats, with the slowest functions marked using a similar style as in the application:</p>
 <ul>
-<li>Excel worksheet (*.xlsx)</li>
-<li>HTML table (*.html)</li>
-<li>Markdown table (*.md)</li>
+<li>Excel worksheet (*.xlsx)<br />
+<a href="img/summary-export-excel_1366x327.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-export-excel_1366x327.png" /></a></li>
+<li>HTML table (*.html)<br />
+<a href="img/summary-export-html_1209x287.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-export-html_1209x287.png" /></a></li>
+<li>Markdown table (*.md)<br />
+<a href="img/summary-export-markdown_1003x172.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-export-markdown_1003x172.png" /></a></li>
 </ul>
+<p>The <em>Export</em> menu in the toolbar also has an option to copy to clipboard the current function list as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).</p>
 <h4 id="more-documentation-in-progress">More documentation in progress</h4>
 <ul>
 <li>Context menu</li>
 <li>Marking functions</li>
 <li>Options</li>
 </ul>
-<p>??? TODO - fix left/right shortcuts context menu</p>
 
 
 

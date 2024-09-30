@@ -1007,7 +1007,7 @@
 <summary>Introduction to flame graphs</summary>
 <p>A flame graph is an alternative, more compact way of viewing a call tree. In this view, function instances are nodes with a size proportional to the time spent relative to the caller (parent) function and makes it easier to identify the portions of the app that take most of the time.  </p>
 <p>Nodes are sorted in the horizontal direction based on decreasing time relative to their parent node, while the ordering in the vertical direction forms a stack trace (a path in the call tree). The function taking the most time in the application is then found in the leftmost, bottom part of the Flame graph.</p>
-<p><img alt="Flame graph diagram" src="img/flame-graph.png" style="width:320px" /><br />
+<p><img alt="Flame graph diagram" src="img/flame-graph.png" style="max-width:320px" /><br />
 In the example above, the <em>main</em> function is considered the process entry point, calling <em>foo</em> and <em>bar</em>, with <em>foo</em> taking 60% of the time and <em>bar</em> 40%. Function <em>foo</em> spends a part of its total (inclusive) time in the calls to <em>baz</em> and <em>etc1</em>, while the rest is self (exclusive) time, meaning instructions part of <em>foo</em> which are not calls to other functions.  </p>
 <p>Note that there are two instances of the function <em>baz</em> with different execution time, each with a unique path to it in the call tree starting from <em>main</em> (all other functions have a single instance). You can see the time of each instance by hovering with the mouse over it or in the <em>Details panel</em> after it's selected.</p>
 <p>The following links provide an introduction to the flame graph visualization concept, its history, and how it's being used across the industry for performance investigations.  </p>
@@ -1168,6 +1168,10 @@ In the example above, the <em>main</em> function is considered the process entry
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p>When multiple nodes are selected, the application status bar displays the sum of their execution time as a percentage and value.<br />
+<a href="img/flame-graph-selection_619x155.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-selection_619x155.png" style="max-width:450px" /></a></p>
+</div>
 </details>
 <details class="abstract" open="open">
 <summary>Keyboard shortcuts</summary>
@@ -1236,19 +1240,21 @@ In the example above, the <em>main</em> function is considered the process entry
 </details>
 <details class="abstract" open="open">
 <summary>Right-click context menu</summary>
-<p><a href="img/flame-graph-context-menu_539x651.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-context-menu_539x651.png" style="width:380px" /></a>  </p>
+<p><a href="img/flame-graph-context-menu_539x651.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-context-menu_539x651.png" style="max-width:380px" /></a>  </p>
 </details>
 <h4 id="details-panel">Details panel</h4>
 <p>The Details panel shows extended information about the selected node(s) in the Flame graph. It provides a quick overview of the slowest functions and modules being called directly or through other functions starting with the selection.  </p>
 <p>The top shows the <em>Total</em> (inclusive) execution time and <em>Self</em> (exclusive) execution time values for the selected node (function instance). The right side shows the index of the chosen instance, among all instances, with the slowest instance having the lowest index. Use the left/right arrow buttons to switch to the previous/next function instance.  </p>
 <p>The information displayed in the tabs below is for the selected function instance only; the Info tab displays statistics for all instances.</p>
 <div class="admonition note">
-<p>All function nodes in the lists have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. <em>Double-click/Ctrl+Return</em> opens the Assembly view for the selected function. Combine these shortcuts with the <em>Shift</em> key to open the Assembly view in a new tab instead.</p>
+<p class="admonition-title">Note</p>
+<p>All functions in the lists have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. <em>Double-click/Ctrl+Return</em> opens the Assembly view for the selected function. Combine these shortcuts with the <em>Shift</em> key to open the Assembly view in a new tab instead.  </p>
+<p>When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Info</label><label for="__tabbed_1_2">Stack</label><label for="__tabbed_1_3">Functions</label><label for="__tabbed_1_4">Modules</label><label for="__tabbed_1_5">Categories</label><label for="__tabbed_1_6">Instances</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><a href="img/details-panel-info_565x786.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-info_565x786.png" style="width:380px" /></a>  </p>
+<p><a href="img/details-panel-info_565x786.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-info_565x786.png" style="max-width:380px" /></a>  </p>
 <p>The Info tab displays statistics about all function instance nodes.  </p>
 <table>
 <thead>
@@ -1272,39 +1278,40 @@ In the example above, the <em>main</em> function is considered the process entry
 </tr>
 <tr>
 <td>Module</td>
-<td>Displays the name of the module to which the function belongs. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <td><img alt="" src="img/details-panel-mark-module.png" style="width:24px" /></td>  <td>Marks all function nodes belonging to the module with a color.</td>  </tr> <tr>  <td><img alt="" src="img/details-panel-copy.png" style="width:24px" /></td>  <td>Copies to clipboard the module name.</td>  </tr>   </tbody>  </table></td>
+<td>Displays the name of the module to which the function belongs. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <td><img alt="" src="img/details-panel-mark-module.png" style="max-width:24px" /></td>  <td>Marks all function nodes belonging to the module with a color.</td>  </tr> <tr>  <td><img alt="" src="img/details-panel-copy.png" style="max-width:24px" /></td>  <td>Copies to clipboard the module name.</td>  </tr>   </tbody>  </table></td>
 </tr>
 <tr>
 <td>Function</td>
-<td>Displays the complete function name, followed by the execution context as U/K/M standing for User/Kernel/Managed mode. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <tr>  <td><img alt="" src="img/details-panel-preview.png" style="width:24px" /></td>  <td>Opens a preview popup with the function's assembly.</td>  </tr>  <tr>  <td><img alt="" src="img/details-panel-tab.png" style="width:24px" /></td>  <td>Opens the function's Assembly view in a new tab.</td>  </tr>  <td><img alt="" src="img/details-panel-mark-module.png" style="width:24px" /></td>  <td>Marks all function nodes with a color.</td>  </tr> <tr>  <td><img alt="" src="img/details-panel-copy.png" style="width:24px" /></td>  <td>Copies to clipboard the function name.</td>  </tr>   </tbody>  </table></td>
+<td>Displays the complete function name, followed by the execution context as U/K/M standing for User/Kernel/Managed mode. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <tr>  <td><img alt="" src="img/details-panel-preview.png" style="max-width:24px" /></td>  <td>Opens a preview popup with the function's assembly.</td>  </tr>  <tr>  <td><img alt="" src="img/details-panel-tab.png" style="max-width:24px" /></td>  <td>Opens the function's Assembly view in a new tab.</td>  </tr>  <td><img alt="" src="img/details-panel-mark-module.png" style="max-width:24px" /></td>  <td>Marks all function nodes with a color.</td>  </tr> <tr>  <td><img alt="" src="img/details-panel-copy.png" style="max-width:24px" /></td>  <td>Copies to clipboard the function name.</td>  </tr>   </tbody>  </table></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="tabbed-block">
-<p><a href="img/details-panel-stack_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-stack_565x706.png" style="width:380px" /></a>  </p>
+<p><a href="img/details-panel-stack_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-stack_565x706.png" style="max-width:380px" /></a>  </p>
 <p>The Stack tab displays the call stack (stack trace) leading to the selected function instance node.</p>
 </div>
 <div class="tabbed-block">
-<p><a href="img/details-panel-functions_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-functions_565x706.png" style="width:380px" /></a>  </p>
+<p><a href="img/details-panel-functions_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-functions_565x706.png" style="max-width:380px" /></a>  </p>
 <p>The Functions tab lists the slowest functions being called directly or through other functions, starting with the selected function instance node. By default, the list is sorted by self (exclusive) time in descending order. The Flame graph options can change the sorting to consider total (inclusive) time instead.</p>
 </div>
 <div class="tabbed-block">
-<p><a href="img/details-panel-modules_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-modules_565x706.png" style="width:380px" /></a>  </p>
+<p><a href="img/details-panel-modules_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-modules_565x706.png" style="max-width:380px" /></a>  </p>
 <p>The Modules tab is similar to the Functions tab, with the difference that functions are first grouped by the module they belong to, and the execution time per module is also displayed. Selecting a module shows the list of the slowest functions.</p>
 </div>
 <div class="tabbed-block">
-<p><a href="img/details-panel-categories_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-categories_565x706.png" style="width:380px" /></a>  </p>
+<p><a href="img/details-panel-categories_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-categories_565x706.png" style="max-width:380px" /></a>  </p>
 <p>The Categories tab is similar to the Functions tab, with the difference that functions are first grouped by the category they belong to, and the execution time per category is also displayed. Selecting a category shows the list of the slowest functions.<br><br><em>Right-click</em> on a category shows options to export a report as a HTML/Markdown file and copy the report to clipboard.</p>
 </div>
 <div class="tabbed-block">
-<p><a href="img/details-panel-instances_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-instances_565x706.png" style="width:380px" /></a>  </p>
+<p><a href="img/details-panel-instances_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-instances_565x706.png" style="max-width:380px" /></a>  </p>
 <p>The Instances tab lists all instances of the function, sorted by total (inclusive) execution time.</p>
 </div>
 </div>
 </div>
 <h4 id="more-documentation-in-progress">More documentation in progress</h4>
 <ul>
+<li>Selection of multiple nodes in FG or list view time in status bar</li>
 <li>Context menu</li>
 <li>Marking nodes</li>
 <li>Searching</li>

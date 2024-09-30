@@ -458,6 +458,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#assembly-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly view
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assembly view">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source lines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inlinees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inlinees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic blocks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-and-profiling-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug and profiling annotations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -866,6 +917,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#assembly-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly view
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assembly view">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source lines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inlinees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inlinees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic blocks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-and-profiling-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug and profiling annotations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -884,8 +986,44 @@
   <h1>Assembly view</h1>
 
 <h4 id="overview">Overview</h4>
+<p>The Assembly view shows the function's machine code after disassembly, with syntax highlighting for x86_64/ARM64 architectures. The view is interactive, with the text being parsed into instructions with operands and higher-level constructs such as <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> and loops.</p>
+<p>The assembly instructions are augmented with annotations from the debug information files, such as source line numbers and inlinees, and combined with the execution time from the profile trace.</p>
+<p>The view has four parts:  </p>
 <ul>
-<li>disassembly with syntax highlighting for x64 and arm64 arch</li>
+<li>a main toolbar at the top, with general action buttons.</li>
+<li>a secondary toolbar underneath with profiling-specific info and action buttons.</li>
+<li>the text view with the function's assembly</li>
+<li>several columns on the right side with the profiling data. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  </li>
+</ul>
+<p><a href="img/assembly-view_1164x473.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-view_1164x473.png" /></a></p>
+<h4 id="assembly-view">Assembly view</h4>
+<p>The function assembly area can be considere a read-only code editor, as such it follows the usual conventions. Each line corresponds to one instruction, with the following values left to right:</p>
+<ul>
+<li>instruction number (line number in the text)</li>
+<li>instruction virtual address (blue text)</li>
+<li>instruction opcode (bold text)</li>
+<li>a list of instruction operands</li>
+<li>source line number associated with the instruction from the debug info (gray text).</li>
+<li>inlinees (inlined functions) associated with the instruction from the debug info (green text).</li>
+</ul>
+<h5 id="source-lines">Source lines</h5>
+<p>The debug information files usually contain a mapping between the source line numbers and the instructions that were generated for those lines. If avaliable, the source line number is appended at the end of an instruction. Note that accuracy of this mapping usually depends on the compiler optimization level, with higher levels being less accurate or even lacking the mapping for some instructions.</p>
+<p>Hovering over the source line shows a tooltip with the name and path of the source file. To copy this info to clipboard, first <em>click</em> the source line, then press <em>Ctrl+C</em>.</p>
+<h5 id="inlinees">Inlinees</h5>
+<p>During function inlining, the compiler may preserve additional details about the code being inlined so that the origin of an instruction can be saved into the debug information file. If avaliable, the inlinees are appended after the source line number.</p>
+<p>For example, if the function contains a call chain like foo() -&gt; bar(), with both calls being inlined, the final instructions will record the fact that they originate from bar(), which got inlined into foo(), then foo() into the function.</p>
+<p>Hovering over the inlinee shows a tooltip with the call path (stack trace) of the functions inlined at that point. To copy this info to clipboard, first <em>click</em> the inlinee, then press <em>Ctrl+C</em>. Example:  </p>
+<div class="highlight"><pre><span></span><code>Inlined functions
+name:line (file) in calling order:
+
+std::uniform_int&lt;int&gt;::operator():2031 (random)
+std::uniform_int&lt;int&gt;::_Eval:2077 (random)
+std::_Rng_from_urng_v2&lt;unsigned int,std::mersenne_twister_engine&lt;unsigned int,32..:1866 (random)
+</code></pre></div>
+<h5 id="basic-blocks">Basic blocks</h5>
+<p>The assembly is parsed and analyzed to recover the function's <a href="https://en.wikipedia.org/wiki/Control-flow_graph">control-flow graph (CFG)</a>, identifying <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> and loops. This information is used to split the aseembly text into blocks and for the Flow Graph view.</p>
+<h5 id="debug-and-profiling-annotations">Debug and profiling annotations</h5>
+<ul>
 <li>basic blocks, collapse, time annotation</li>
 <li>jump targets</li>
 <li>line numbers, inlinees</li>
@@ -924,6 +1062,7 @@
 <li>call target arrow markings</li>
 <li>call target double-click</li>
 </ul>
+<p>Exporting examples like in summary 3</p>
 <p>TODO later:
 - options panel</p>
 
