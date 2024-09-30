@@ -58,7 +58,7 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
 
 #### Flame graph view interaction
 
-???+ note "Toolbar"
+???+ abstract "Toolbar"
     | Button | Description |
     | ------ | ------------|
     | ![](img/flame-graph-toolbar-back.png) | Undoes the previous action, such as enlarging a node or changing the root node. |
@@ -71,7 +71,7 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
     | ![](img/flame-graph-toolbar-details.png) | If enabled, display the Details panel on the right side of the Flame graph view. |
     | Search box | Search for nodes with a specific function name using a case-insensitive substring search. Press the *Escape* key to reset the search or the *X* button next to the input box. |
 
-???+ note "Mouse shortcuts"
+???+ abstract "Mouse shortcuts"
     | Action | Description |
     | ------ | ------------|
     | Hover | Hovering over a node briefly displays a preview popup with the complete function name and total/self execution times. Clicking the *Pin button* or dragging the popup expands it into a panel equivalent to the *Details panel*. Multiple such panels can be kept open at the same time. |
@@ -90,7 +90,7 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
     | Ctrl+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
     | Click+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
 
-???+ note "Keyboard shortcuts"
+???+ abstract "Keyboard shortcuts"
     | Keys | Description |
     | ------ | ------------|
     | Return | Enlarges (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly. |
@@ -106,6 +106,9 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
     | Ctrl+- | Zooms out the view around the center point. |
     | Ctrl+0<br> Ctrl+R | Resets the view to the initial state. |
     | Arrow keys | Scrolls the view in the horizontal and vertical directions if the flame graph is larger than the view. |
+
+???+ abstract "Right-click context menu"
+    [![Profiling UI screenshot](img/flame-graph-context-menu_539x651.png){: style="width:380px"}](img/flame-graph-context-menu_539x651.png){:target="_blank"}  
 
 #### Details panel
 
@@ -146,12 +149,11 @@ The information displayed in the tabs below is for the selected function instanc
 === "Categories"
     [![Profiling UI screenshot](img/details-panel-categories_565x706.png){: style="width:380px"}](img/details-panel-categories_565x706.png){:target="_blank"}  
 
-    The Categories tab is similar to the Functions tab, with the difference that functions are first grouped by the category they belong to, and the execution time per category is also displayed. Selecting a category shows the list of the slowest functions.
+    The Categories tab is similar to the Functions tab, with the difference that functions are first grouped by the category they belong to, and the execution time per category is also displayed. Selecting a category shows the list of the slowest functions.<br><br>*Right-click* on a category shows options to export a report as a HTML/Markdown file and copy the report to clipboard.
 === "Instances"
     [![Profiling UI screenshot](img/details-panel-instances_565x706.png){: style="width:380px"}](img/details-panel-instances_565x706.png){:target="_blank"}  
 
     The Instances tab lists all instances of the function, sorted by total (inclusive) execution time.
-
 
 
 #### More documentation in progress

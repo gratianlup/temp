@@ -6,6 +6,8 @@ The summary view displays all modules (binaries) and functions that have profile
 - the Modules panel on the left side. Its visibility can be toggled using the *Modules* button in the toolbar.
 - The list of functions from either the entire trace or filtered to display only the functions part of a single module. By default the list is sorted by self (exclusive) time in descending order.
 
+[![Profiling UI screenshot](img/summary-panel_1233x417.png)](img/summary-panel_1233x417.png){:target="_blank"}
+
 ##### Modules list
 
 The modules list has an entry for each module with profile data and starts with an *All* entry representing all modules combined. Each entry has the module name, execution time percentage relative to the entire trace and execution time value. Modules are sorted by their execution time in descending order.
@@ -16,13 +18,13 @@ By default the *All* entry is active and the function list displays all function
 
 ##### Functions list
 
-The function list has an entry for each function with profile data. Each entry has the demangled (undecorated) function name, module and self (exclusive) execution time and total (inclusive) execution time. The list is filtered based on the active module.
+The function list has an entry for each function with profile data. Each entry has the demangled (undecorated) function name, module and self (exclusive) execution time and total (inclusive) execution time. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  
 
-If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.
+The list is filtered based on the active module. The displayed columns and style can be customized in the Summary options.
 
 The function list is by default sorted by the self (exlusive) execution time in decreasing order.  
 *Click* the same column header to toggle between decreasing and  increasing order.  
-*Click* another column to sort the list based on it instead.  
+*Click* on a column to sort the list based on its values.  
 
 !!! note
     The same sorting actions apply to other list views in the application. Not all list views support sorting currently.  
@@ -34,15 +36,15 @@ If marking of functions based on their name or module is active, the function en
 #### Summary view interaction
     
 
-???+ note "Toolbar"
+???+ abstract "Toolbar"
     | Button | Description |
     | ------ | ------------|
     | ![](img/flame-graph-toolbar-sync.png) | If enabled, selecting a function also selects it in the other profiling views. |
     | ![](img/flame-graph-toolbar-source.png) | If enabled, selecting a function also displays the source in the Source file view, with the source lines annotated with profiling data. |
-    | Export | Export the current function list into one of multiple formats, including Excel, HTML and Markdown. |
+    | Export | Export the current function list into one of multiple formats (Excel, HTML and Markdown) or copy to clipboard the function list as  a HTML/Markdown table. |
     | Search box | Search for functions with a specific name using a case-insensitive substring search. Searching filters the list down to display only the matching entries. Press the *Escape* key to reset the search or the *X* button next to the input box. |
 
-???+ note "Mouse shortcuts"
+???+ abstract "Mouse shortcuts"
     | Action | Description |
     | ------ | ------------|
     | Hover | Hovering over a function displays a popup with the stack trace (call path) end with the slowest function's instance. Pin or drag the popup to keep it open. |
@@ -51,17 +53,22 @@ If marking of functions based on their name or module is active, the function en
     | Shift+Double-click | Opens the Assembly view of the selected function in a new tab. |
     | Right-click | Shows the context menu for the selected functions. |
 
-???+ note "Keyboard shortcuts"
+???+ abstract "Keyboard shortcuts"
     | Keys | Description |
     | ------ | ------------|
     | Return | Opens the Assembly view of the selected function in the current tab. |
     | Shift+Return | Opens the Assembly view of the selected function in a new tab. |
+    | Ctrl+Shift+Left | Opens the Assembly view of the selected function in a new tab docked to the left of the active tab. |
+    | Ctrl+Shift+Right | Opens the Assembly view of the selected function in a new tab docked to the right of the active tab. |
     | Alt+Return | Opens a preview popup with the assembly of the selected function. Press the *Escape* key to close the popup.<br><br>Multiple preview popups can be can be kept open at the same time. |
     | Ctrl+C | Copies to clipboard a HTML and Markdown table with a summary of the selected functions. |
     | Ctrl+Shift+C | Copies to clipboard the function names of the selected functions. |
     | Ctrl+Alt+C | Copies to clipboard the mangled/decorated function names of the selected functions. |
 
-#### Exporting function list
+???+ abstract "Right-click context menu"
+    [![Profiling UI screenshot](img/summary-context-menu_569x661.png){: style="width:380px"}](img/summary-context-menu_569x661.png){:target="_blank"}  
+
+#### Exporting the function list
 
 The current function list can be exported and saved into multiple formats, with the slowest functions marked using a similar style as in the application:
 
