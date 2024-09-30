@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -725,6 +725,27 @@
   
   
     <li class="md-nav__item">
+      <a href="trace-overview.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trace overview report
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="workspaces.md" class="md-nav__link">
         
   
@@ -1026,7 +1047,7 @@ In the example above, the <em>main</em> function is considered the process entry
 <p>To remove the root node and view the entire Flame graph, click the <em>X</em> button next to its name in the toolbar. If multiple nested root nodes were set, removing the current node activates the previous one.</p>
 <p><a href="img/flame-graph-root_946x435.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-root_946x435.png" /></a></p>
 <h4 id="flame-graph-view-interaction">Flame graph view interaction</h4>
-<details class="note" open="open">
+<details class="abstract" open="open">
 <summary>Toolbar</summary>
 <table>
 <thead>
@@ -1075,7 +1096,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tbody>
 </table>
 </details>
-<details class="note" open="open">
+<details class="abstract" open="open">
 <summary>Mouse shortcuts</summary>
 <table>
 <thead>
@@ -1148,7 +1169,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tbody>
 </table>
 </details>
-<details class="note" open="open">
+<details class="abstract" open="open">
 <summary>Keyboard shortcuts</summary>
 <table>
 <thead>
@@ -1213,6 +1234,10 @@ In the example above, the <em>main</em> function is considered the process entry
 </tbody>
 </table>
 </details>
+<details class="abstract" open="open">
+<summary>Right-click context menu</summary>
+<p><a href="img/flame-graph-context-menu_539x651.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-context-menu_539x651.png" style="width:380px" /></a>  </p>
+</details>
 <h4 id="details-panel">Details panel</h4>
 <p>The Details panel shows extended information about the selected node(s) in the Flame graph. It provides a quick overview of the slowest functions and modules being called directly or through other functions starting with the selection.  </p>
 <p>The top shows the <em>Total</em> (inclusive) execution time and <em>Self</em> (exclusive) execution time values for the selected node (function instance). The right side shows the index of the chosen instance, among all instances, with the slowest instance having the lowest index. Use the left/right arrow buttons to switch to the previous/next function instance.  </p>
@@ -1270,7 +1295,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </div>
 <div class="tabbed-block">
 <p><a href="img/details-panel-categories_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-categories_565x706.png" style="width:380px" /></a>  </p>
-<p>The Categories tab is similar to the Functions tab, with the difference that functions are first grouped by the category they belong to, and the execution time per category is also displayed. Selecting a category shows the list of the slowest functions.</p>
+<p>The Categories tab is similar to the Functions tab, with the difference that functions are first grouped by the category they belong to, and the execution time per category is also displayed. Selecting a category shows the list of the slowest functions.<br><br><em>Right-click</em> on a category shows options to export a report as a HTML/Markdown file and copy the report to clipboard.</p>
 </div>
 <div class="tabbed-block">
 <p><a href="img/details-panel-instances_565x706.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-instances_565x706.png" style="width:380px" /></a>  </p>
@@ -1380,7 +1405,7 @@ In the example above, the <em>main</em> function is considered the process entry
     <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.instant", "navigation.top", "header.autohide", "navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>

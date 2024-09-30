@@ -18,6 +18,7 @@ nav:
     - Flow Graph view: flow-graph-panel.md
   - Additional functionality:
     - Function/module marking: marking.md
+    - Trace overview report: trace-overview.md
     - Previewe popups: workspaces.md
     - Working with multiple functions: workspaces.md
     - Viewing function instances: function-instances.md

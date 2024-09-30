@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -471,9 +471,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exporting-function-list" class="md-nav__link">
+  <a href="#exporting-the-function-list" class="md-nav__link">
     <span class="md-ellipsis">
-      Exporting function list
+      Exporting the function list
     </span>
   </a>
   
@@ -716,6 +716,27 @@
   
   
     <li class="md-nav__item">
+      <a href="trace-overview.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trace overview report
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="workspaces.md" class="md-nav__link">
         
   
@@ -930,9 +951,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exporting-function-list" class="md-nav__link">
+  <a href="#exporting-the-function-list" class="md-nav__link">
     <span class="md-ellipsis">
-      Exporting function list
+      Exporting the function list
     </span>
   </a>
   
@@ -971,16 +992,17 @@
 <li>the Modules panel on the left side. Its visibility can be toggled using the <em>Modules</em> button in the toolbar.</li>
 <li>The list of functions from either the entire trace or filtered to display only the functions part of a single module. By default the list is sorted by self (exclusive) time in descending order.</li>
 </ul>
+<p><a href="img/summary-panel_1233x417.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-panel_1233x417.png" /></a></p>
 <h5 id="modules-list">Modules list</h5>
 <p>The modules list has an entry for each module with profile data and starts with an <em>All</em> entry representing all modules combined. Each entry has the module name, execution time percentage relative to the entire trace and execution time value. Modules are sorted by their execution time in descending order.</p>
 <p>By default the <em>All</em> entry is active and the function list displays all functions with profile data in the trace.  </p>
 <p><em>Double-click</em> a module (or use the Return key) to display only its functions. Selecting a module while the <em>All</em> entry is active selects its functions in the list.</p>
 <h5 id="functions-list">Functions list</h5>
-<p>The function list has an entry for each function with profile data. Each entry has the demangled (undecorated) function name, module and self (exclusive) execution time and total (inclusive) execution time. The list is filtered based on the active module.</p>
-<p>If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.</p>
+<p>The function list has an entry for each function with profile data. Each entry has the demangled (undecorated) function name, module and self (exclusive) execution time and total (inclusive) execution time. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  </p>
+<p>The list is filtered based on the active module. The displayed columns and style can be customized in the Summary options.</p>
 <p>The function list is by default sorted by the self (exlusive) execution time in decreasing order.<br />
 <em>Click</em> the same column header to toggle between decreasing and  increasing order.<br />
-<em>Click</em> another column to sort the list based on it instead.  </p>
+<em>Click</em> on a column to sort the list based on its values.  </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The same sorting actions apply to other list views in the application. Not all list views support sorting currently.  </p>
@@ -988,7 +1010,7 @@
 </div>
 <p>If marking of functions based on their name or module is active, the function entries use the marking background color.</p>
 <h4 id="summary-view-interaction">Summary view interaction</h4>
-<details class="note" open="open">
+<details class="abstract" open="open">
 <summary>Toolbar</summary>
 <table>
 <thead>
@@ -1008,7 +1030,7 @@
 </tr>
 <tr>
 <td>Export</td>
-<td>Export the current function list into one of multiple formats, including Excel, HTML and Markdown.</td>
+<td>Export the current function list into one of multiple formats (Excel, HTML and Markdown) or copy to clipboard the function list as  a HTML/Markdown table.</td>
 </tr>
 <tr>
 <td>Search box</td>
@@ -1017,7 +1039,7 @@
 </tbody>
 </table>
 </details>
-<details class="note" open="open">
+<details class="abstract" open="open">
 <summary>Mouse shortcuts</summary>
 <table>
 <thead>
@@ -1050,7 +1072,7 @@
 </tbody>
 </table>
 </details>
-<details class="note" open="open">
+<details class="abstract" open="open">
 <summary>Keyboard shortcuts</summary>
 <table>
 <thead>
@@ -1067,6 +1089,14 @@
 <tr>
 <td>Shift+Return</td>
 <td>Opens the Assembly view of the selected function in a new tab.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Left</td>
+<td>Opens the Assembly view of the selected function in a new tab docked to the left of the active tab.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Right</td>
+<td>Opens the Assembly view of the selected function in a new tab docked to the right of the active tab.</td>
 </tr>
 <tr>
 <td>Alt+Return</td>
@@ -1087,7 +1117,11 @@
 </tbody>
 </table>
 </details>
-<h4 id="exporting-function-list">Exporting function list</h4>
+<details class="abstract" open="open">
+<summary>Right-click context menu</summary>
+<p><a href="img/summary-context-menu_569x661.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-context-menu_569x661.png" style="width:380px" /></a>  </p>
+</details>
+<h4 id="exporting-the-function-list">Exporting the function list</h4>
 <p>The current function list can be exported and saved into multiple formats, with the slowest functions marked using a similar style as in the application:</p>
 <ul>
 <li>Excel worksheet (*.xlsx)</li>
@@ -1191,7 +1225,7 @@
     <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.instant", "navigation.top", "header.autohide", "navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>
