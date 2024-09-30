@@ -3,7 +3,7 @@
 
     Nodes are sorted in the horizontal direction based on decreasing time relative to their parent node, while the ordering in the vertical direction forms a stack trace (a path in the call tree). The function taking the most time in the application is then found in the leftmost, bottom part of the Flame graph.
    
-    ![Flame graph diagram](img/flame-graph.png){: style="width:320px"}  
+    ![Flame graph diagram](img/flame-graph.png){: style="max-width:320px"}  
     In the example above, the *main* function is considered the process entry point, calling *foo* and *bar*, with *foo* taking 60% of the time and *bar* 40%. Function *foo* spends a part of its total (inclusive) time in the calls to *baz* and *etc1*, while the rest is self (exclusive) time, meaning instructions part of *foo* which are not calls to other functions.  
 
     Note that there are two instances of the function *baz* with different execution time, each with a unique path to it in the call tree starting from *main* (all other functions have a single instance). You can see the time of each instance by hovering with the mouse over it or in the *Details panel* after it's selected.
@@ -90,6 +90,10 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
     | Ctrl+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
     | Click+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
 
+    !!! note ""
+        When multiple nodes are selected, the application status bar displays the sum of their execution time as a percentage and value.  
+        [![Profiling UI screenshot](img/flame-graph-selection_619x155.png){: style="max-width:450px"}](img/flame-graph-selection_619x155.png){:target="_blank"}
+    
 ???+ abstract "Keyboard shortcuts"
     | Keys | Description |
     | ------ | ------------|
@@ -108,7 +112,7 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
     | Arrow keys | Scrolls the view in the horizontal and vertical directions if the flame graph is larger than the view. |
 
 ???+ abstract "Right-click context menu"
-    [![Profiling UI screenshot](img/flame-graph-context-menu_539x651.png){: style="width:380px"}](img/flame-graph-context-menu_539x651.png){:target="_blank"}  
+    [![Profiling UI screenshot](img/flame-graph-context-menu_539x651.png){: style="max-width:380px"}](img/flame-graph-context-menu_539x651.png){:target="_blank"}  
 
 #### Details panel
 
@@ -118,11 +122,13 @@ The top shows the *Total* (inclusive) execution time and *Self* (exclusive) exec
 
 The information displayed in the tabs below is for the selected function instance only; the Info tab displays statistics for all instances.
 
-!!! note ""
-    All function nodes in the lists have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. *Double-click/Ctrl+Return* opens the Assembly view for the selected function. Combine these shortcuts with the *Shift* key to open the Assembly view in a new tab instead.
+!!! note
+    All functions in the lists have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. *Double-click/Ctrl+Return* opens the Assembly view for the selected function. Combine these shortcuts with the *Shift* key to open the Assembly view in a new tab instead.  
+    
+    When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.
 
 === "Info"
-    [![Profiling UI screenshot](img/details-panel-info_565x786.png){: style="width:380px"}](img/details-panel-info_565x786.png){:target="_blank"}  
+    [![Profiling UI screenshot](img/details-panel-info_565x786.png){: style="max-width:380px"}](img/details-panel-info_565x786.png){:target="_blank"}  
 
     The Info tab displays statistics about all function instance nodes.  
 
@@ -131,32 +137,33 @@ The information displayed in the tabs below is for the selected function instanc
     | Instances | Displays total execution time (sum), average, and median across all function instances, as a total/self execution time percentage relative to the entire trace and execution time value. |
     | Histogram | The histogram displays the time distribution across all function instances. Instances with similar times are grouped, and the number of instances in each group is shown above, with more details when hovering over a group with the mouse.<br><br>*Clicking* on a group selects the first node from the group in the Flame graph view. The *Total/Self* radio buttons switch between using the total time or self time for the histogram.<br><br>In the above example, there are 3 instances of function *genString*, one with an execution time of ~1.5ms and two, binned together, with ~1sec each. The time of the selected instance is marked with a green arrow, and the average/median times are indicated by red/blue dotted lines. |
     | Threads | Displays the list of threads on which all function instances execute, with each thread's total/self execution time percentage and execution time value.<br><br>*Right-clicking* a thread shows a context menu with options to open the Assembly view with profile data filtered to include only the selected thread and multiple options for changing the thread filtering for the entire trace.<br><br>*Double-clicking* a thread filters the entire trace to show only code executing on that thread. |
-    | Module | Displays the name of the module to which the function belongs. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <td>![](img/details-panel-mark-module.png){: style="width:24px"}</td>  <td>Marks all function nodes belonging to the module with a color.</td>  </tr> <tr>  <td>![](img/details-panel-copy.png){: style="width:24px"}</td>  <td>Copies to clipboard the module name.</td>  </tr>   </tbody>  </table> |
-    | Function | Displays the complete function name, followed by the execution context as U/K/M standing for User/Kernel/Managed mode. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <tr>  <td>![](img/details-panel-preview.png){: style="width:24px"}</td>  <td>Opens a preview popup with the function's assembly.</td>  </tr>  <tr>  <td>![](img/details-panel-tab.png){: style="width:24px"}</td>  <td>Opens the function's Assembly view in a new tab.</td>  </tr>  <td>![](img/details-panel-mark-module.png){: style="width:24px"}</td>  <td>Marks all function nodes with a color.</td>  </tr> <tr>  <td>![](img/details-panel-copy.png){: style="width:24px"}</td>  <td>Copies to clipboard the function name.</td>  </tr>   </tbody>  </table> |
+    | Module | Displays the name of the module to which the function belongs. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <td>![](img/details-panel-mark-module.png){: style="max-width:24px"}</td>  <td>Marks all function nodes belonging to the module with a color.</td>  </tr> <tr>  <td>![](img/details-panel-copy.png){: style="max-width:24px"}</td>  <td>Copies to clipboard the module name.</td>  </tr>   </tbody>  </table> |
+    | Function | Displays the complete function name, followed by the execution context as U/K/M standing for User/Kernel/Managed mode. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <tr>  <td>![](img/details-panel-preview.png){: style="max-width:24px"}</td>  <td>Opens a preview popup with the function's assembly.</td>  </tr>  <tr>  <td>![](img/details-panel-tab.png){: style="max-width:24px"}</td>  <td>Opens the function's Assembly view in a new tab.</td>  </tr>  <td>![](img/details-panel-mark-module.png){: style="max-width:24px"}</td>  <td>Marks all function nodes with a color.</td>  </tr> <tr>  <td>![](img/details-panel-copy.png){: style="max-width:24px"}</td>  <td>Copies to clipboard the function name.</td>  </tr>   </tbody>  </table> |
 
 === "Stack"
-    [![Profiling UI screenshot](img/details-panel-stack_565x706.png){: style="width:380px"}](img/details-panel-stack_565x706.png){:target="_blank"}  
+    [![Profiling UI screenshot](img/details-panel-stack_565x706.png){: style="max-width:380px"}](img/details-panel-stack_565x706.png){:target="_blank"}  
 
     The Stack tab displays the call stack (stack trace) leading to the selected function instance node.
 === "Functions"
-    [![Profiling UI screenshot](img/details-panel-functions_565x706.png){: style="width:380px"}](img/details-panel-functions_565x706.png){:target="_blank"}  
+    [![Profiling UI screenshot](img/details-panel-functions_565x706.png){: style="max-width:380px"}](img/details-panel-functions_565x706.png){:target="_blank"}  
 
     The Functions tab lists the slowest functions being called directly or through other functions, starting with the selected function instance node. By default, the list is sorted by self (exclusive) time in descending order. The Flame graph options can change the sorting to consider total (inclusive) time instead.
 === "Modules"
-    [![Profiling UI screenshot](img/details-panel-modules_565x706.png){: style="width:380px"}](img/details-panel-modules_565x706.png){:target="_blank"}  
+    [![Profiling UI screenshot](img/details-panel-modules_565x706.png){: style="max-width:380px"}](img/details-panel-modules_565x706.png){:target="_blank"}  
 
     The Modules tab is similar to the Functions tab, with the difference that functions are first grouped by the module they belong to, and the execution time per module is also displayed. Selecting a module shows the list of the slowest functions.
 === "Categories"
-    [![Profiling UI screenshot](img/details-panel-categories_565x706.png){: style="width:380px"}](img/details-panel-categories_565x706.png){:target="_blank"}  
+    [![Profiling UI screenshot](img/details-panel-categories_565x706.png){: style="max-width:380px"}](img/details-panel-categories_565x706.png){:target="_blank"}  
 
     The Categories tab is similar to the Functions tab, with the difference that functions are first grouped by the category they belong to, and the execution time per category is also displayed. Selecting a category shows the list of the slowest functions.<br><br>*Right-click* on a category shows options to export a report as a HTML/Markdown file and copy the report to clipboard.
 === "Instances"
-    [![Profiling UI screenshot](img/details-panel-instances_565x706.png){: style="width:380px"}](img/details-panel-instances_565x706.png){:target="_blank"}  
+    [![Profiling UI screenshot](img/details-panel-instances_565x706.png){: style="max-width:380px"}](img/details-panel-instances_565x706.png){:target="_blank"}  
 
     The Instances tab lists all instances of the function, sorted by total (inclusive) execution time.
 
 
 #### More documentation in progress
+- Selection of multiple nodes in FG or list view time in status bar
 - Context menu
 - Marking nodes
 - Searching

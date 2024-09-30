@@ -4,7 +4,7 @@ The summary view displays all modules (binaries) and functions that have profile
 
 - a toolbar at the top, with action buttons and the *Search* input box.
 - the Modules panel on the left side. Its visibility can be toggled using the *Modules* button in the toolbar.
-- The list of functions from either the entire trace or filtered to display only the functions part of a single module. By default the list is sorted by self (exclusive) time in descending order.
+- the list of functions from either the entire trace or filtered to display only the functions part of a single module. By default the list is sorted by self (exclusive) time in descending order.
 
 [![Profiling UI screenshot](img/summary-panel_1233x417.png)](img/summary-panel_1233x417.png){:target="_blank"}
 
@@ -53,6 +53,9 @@ If marking of functions based on their name or module is active, the function en
     | Shift+Double-click | Opens the Assembly view of the selected function in a new tab. |
     | Right-click | Shows the context menu for the selected functions. |
 
+    !!! note ""
+        When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.
+
 ???+ abstract "Keyboard shortcuts"
     | Keys | Description |
     | ------ | ------------|
@@ -72,13 +75,16 @@ If marking of functions based on their name or module is active, the function en
 
 The current function list can be exported and saved into multiple formats, with the slowest functions marked using a similar style as in the application:
 
-- Excel worksheet (*.xlsx)
-- HTML table (*.html)
-- Markdown table (*.md)
+- Excel worksheet (*.xlsx)  
+  [![Profiling UI screenshot](img/summary-export-excel_1366x327.png)](img/summary-export-excel_1366x327.png){:target="_blank"}
+- HTML table (*.html)  
+  [![Profiling UI screenshot](img/summary-export-html_1209x287.png)](img/summary-export-html_1209x287.png){:target="_blank"}
+- Markdown table (*.md)  
+  [![Profiling UI screenshot](img/summary-export-markdown_1003x172.png)](img/summary-export-markdown_1003x172.png){:target="_blank"}
+
+The *Export* menu in the toolbar also has an option to copy to clipboard the current function list as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).
 
 #### More documentation in progress
 - Context menu
 - Marking functions
 - Options
-
-??? TODO - fix left/right shortcuts context menu

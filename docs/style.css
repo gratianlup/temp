@@ -40,6 +40,10 @@
     font-size: .7rem;
 }
 
+.md-typeset table:not([class]) {
+    overflow: hidden;
+}
+
 html {
-    font-size:larger
+    font-size:larger;
 }
