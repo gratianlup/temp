@@ -1,12 +1,14 @@
 #### Overview
 
-The summary view displays all modules (binaries) and functions that have profile data in the trace, and makes it easy to identify the functions where most time spent. The view has three parts:  
+The summary view displays all modules (binaries) and functions that have profile data in the trace, and makes it easy to identify the functions where most time spent. 
+
+[![Profiling UI screenshot](img/summary-panel_1233x417.png)](img/summary-panel_1233x417.png){:target="_blank"}
+
+The view has three parts:  
 
 - a toolbar at the top, with action buttons and the *Search* input box.
 - the Modules panel on the left side. Its visibility can be toggled using the *Modules* button in the toolbar.
 - the list of functions from either the entire trace or filtered to display only the functions part of a single module. By default the list is sorted by self (exclusive) time in descending order.
-
-[![Profiling UI screenshot](img/summary-panel_1233x417.png)](img/summary-panel_1233x417.png){:target="_blank"}
 
 ##### Modules list
 

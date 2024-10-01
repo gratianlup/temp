@@ -15,13 +15,15 @@
 
 #### Overview
 
-The Flame graph view is the main means of identifying the parts of the application where most time is spent. The view has three parts:
+The Flame graph view is the main means of identifying the parts of the application where most time is spent. 
+
+[![Profiling UI screenshot](img/flame-graph-panel.png)](img/flame-graph-panel.png){:target="_blank"}
+
+The view has three parts:
 
 - a toolbar at the top, with action buttons and the *Search* input box.
 - the interactive flame graph itself.
 - the Details panel on the right side. The panel displays detailed info about the selected node(s), and its visibility can be toggled using the *Details* button in the toolbar.
-
-[![Profiling UI screenshot](img/flame-graph-panel.png)](img/flame-graph-panel.png){:target="_blank"}
 
 ##### Flame graph nodes
 
