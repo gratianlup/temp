@@ -22,11 +22,11 @@ The function list has an entry for each function with profile data. Each entry h
 
 The list is filtered based on the active module. The displayed columns and style can be customized in the Summary options.
 
-The function list is by default sorted by the self (exlusive) execution time in decreasing order.  
+The function list is by default sorted by the self (exclusive) execution time in decreasing order.  
 *Click* the same column header to toggle between decreasing and  increasing order.  
 *Click* on a column to sort the list based on its values.  
 
-!!! note
+???+ note
     The same sorting actions apply to other list views in the application. Not all list views support sorting currently.  
     
     The columns in all list views can be resized and reorder.   The new layout is saved across sessions when closing the application.
@@ -34,7 +34,6 @@ The function list is by default sorted by the self (exlusive) execution time in 
 If marking of functions based on their name or module is active, the function entries use the marking background color.
 
 #### Summary view interaction
-    
 
 ???+ abstract "Toolbar"
     | Button | Description |
@@ -48,12 +47,12 @@ If marking of functions based on their name or module is active, the function en
     | Action | Description |
     | ------ | ------------|
     | Hover | Hovering over a function displays a popup with the stack trace (call path) end with the slowest function's instance. Pin or drag the popup to keep it open. |
-    | Click | Selectes the function in the other views if *Sync* is enabled in the toolbar and displays the source in the Source file view if *Source* is enabled in the toolbar.  |
+    | Click | Selects the function in the other views if *Sync* is enabled in the toolbar and displays the source in the Source file view if *Source* is enabled in the toolbar.  |
     | Double-click | Opens the Assembly view of the selected function in the current tab. |
     | Shift+Double-click | Opens the Assembly view of the selected function in a new tab. |
     | Right-click | Shows the context menu for the selected functions. |
 
-    !!! note ""
+    ???+ note ""
         When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.
 
 ???+ abstract "Keyboard shortcuts"

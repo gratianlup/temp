@@ -496,9 +496,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#debug-and-profiling-annotations" class="md-nav__link">
+  <a href="#profiling-annotations" class="md-nav__link">
     <span class="md-ellipsis">
-      Debug and profiling annotations
+      Profiling annotations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call targets
     </span>
   </a>
   
@@ -506,6 +515,84 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profiling-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling toolbar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Profiling toolbar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blocks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inlinees_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inlinees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threads
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exporting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembly-view-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly view interaction
+    </span>
+  </a>
   
 </li>
       
@@ -955,9 +1042,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#debug-and-profiling-annotations" class="md-nav__link">
+  <a href="#profiling-annotations" class="md-nav__link">
     <span class="md-ellipsis">
-      Debug and profiling annotations
+      Profiling annotations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call targets
     </span>
   </a>
   
@@ -965,6 +1061,84 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profiling-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling toolbar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Profiling toolbar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blocks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inlinees_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inlinees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threads
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exporting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembly-view-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly view interaction
+    </span>
+  </a>
   
 </li>
       
@@ -986,9 +1160,9 @@
   <h1>Assembly view</h1>
 
 <h4 id="overview">Overview</h4>
-<p>The Assembly view shows the function's machine code after disassembly, with syntax highlighting for x86_64/ARM64 architectures. The view is interactive, with the text being parsed into instructions with operands and higher-level constructs such as <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> and loops.</p>
+<p>The Assembly view shows the function's machine code after disassembly, with syntax highlighting for x86_64/ARM64 architectures. The view is interactive, with the text being parsed into instructions with operands and higher-level constructs such as <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> and loops are recovered.</p>
 <p>The assembly instructions are augmented with annotations from the debug information files, such as source line numbers and inlinees, and combined with the execution time from the profile trace.</p>
-<p>The view has four parts:  </p>
+<p>The Assembly view has four parts:  </p>
 <ul>
 <li>a main toolbar at the top, with general action buttons.</li>
 <li>a secondary toolbar underneath with profiling-specific info and action buttons.</li>
@@ -996,8 +1170,13 @@
 <li>several columns on the right side with the profiling data. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  </li>
 </ul>
 <p><a href="img/assembly-view_1164x473.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-view_1164x473.png" /></a></p>
+<details class="note" open="open">
+<summary>Note</summary>
+<p>When a function is opened in the Assembly view, its corresponding source file is automatically loaded in the <em>Source File</em> view and its <a href="https://en.wikipedia.org/wiki/Control-flow_graph">control-flow graph (CFG)</a> displayed in the <em>Flow Graph</em> view.<br>
+<a href="img/assembly-source_1073x279.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-source_1073x279.png" /></a></p>
+</details>
 <h4 id="assembly-view">Assembly view</h4>
-<p>The function assembly area can be considere a read-only code editor, as such it follows the usual conventions. Each line corresponds to one instruction, with the following values left to right:</p>
+<p>The function assembly area can be considered a read-only code editor, as such it follows the usual conventions. Each line corresponds to one instruction, with the following values left to right:</p>
 <ul>
 <li>instruction number (line number in the text)</li>
 <li>instruction virtual address (blue text)</li>
@@ -1007,41 +1186,193 @@
 <li>inlinees (inlined functions) associated with the instruction from the debug info (green text).</li>
 </ul>
 <h5 id="source-lines">Source lines</h5>
-<p>The debug information files usually contain a mapping between the source line numbers and the instructions that were generated for those lines. If avaliable, the source line number is appended at the end of an instruction. Note that accuracy of this mapping usually depends on the compiler optimization level, with higher levels being less accurate or even lacking the mapping for some instructions.</p>
-<p>Hovering over the source line shows a tooltip with the name and path of the source file. To copy this info to clipboard, first <em>click</em> the source line, then press <em>Ctrl+C</em>.</p>
+<p>The debug information files usually contain a mapping between the source line numbers and the instructions that were generated for those lines. If available, the source line number is appended at the end of an instruction. Note that accuracy of this mapping usually depends on the compiler optimization level, with higher levels being less accurate or even lacking the mapping for some instructions.</p>
+<p>Hovering over the source line shows a tooltip with the name and path of the source file. To copy this info to clipboard, first <em>click</em> the source line, then press <em>Ctrl+C</em>.  </p>
+<p><a href="img/assemlby-line-number_816x106.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assemlby-line-number_816x106.png" style="width:500px" /></a>  </p>
+<details class="note" open="open">
+<summary>Note</summary>
+<p>Clicking an instruction selects and brings into view its corresponding source line number in the <em>Source File</em> view and its basic block in the <em>Flow Graph</em> view.</p>
+</details>
 <h5 id="inlinees">Inlinees</h5>
-<p>During function inlining, the compiler may preserve additional details about the code being inlined so that the origin of an instruction can be saved into the debug information file. If avaliable, the inlinees are appended after the source line number.</p>
+<p>During function inlining, the compiler may preserve additional details about the code being inlined so that the origin of an instruction can be saved into the debug information file. If available, the inlinees are appended after the source line number.</p>
 <p>For example, if the function contains a call chain like foo() -&gt; bar(), with both calls being inlined, the final instructions will record the fact that they originate from bar(), which got inlined into foo(), then foo() into the function.</p>
-<p>Hovering over the inlinee shows a tooltip with the call path (stack trace) of the functions inlined at that point. To copy this info to clipboard, first <em>click</em> the inlinee, then press <em>Ctrl+C</em>. Example:  </p>
-<div class="highlight"><pre><span></span><code>Inlined functions
-name:line (file) in calling order:
-
-std::uniform_int&lt;int&gt;::operator():2031 (random)
-std::uniform_int&lt;int&gt;::_Eval:2077 (random)
-std::_Rng_from_urng_v2&lt;unsigned int,std::mersenne_twister_engine&lt;unsigned int,32..:1866 (random)
-</code></pre></div>
+<p>Hovering over the inlinee shows a tooltip with the call path (stack trace) of the functions inlined at that point. To copy this info to clipboard, first <em>click</em> the inlinee, then press <em>Ctrl+C</em>:  </p>
+<p><a href="img/assembly-inlinees_926x222.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-inlinees_926x222.png" style="width:500px" /></a></p>
 <h5 id="basic-blocks">Basic blocks</h5>
-<p>The assembly is parsed and analyzed to recover the function's <a href="https://en.wikipedia.org/wiki/Control-flow_graph">control-flow graph (CFG)</a>, identifying <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> and loops. This information is used to split the aseembly text into blocks and for the Flow Graph view.</p>
-<h5 id="debug-and-profiling-annotations">Debug and profiling annotations</h5>
+<p>The assembly is parsed and analyzed to recover the function's <a href="https://en.wikipedia.org/wiki/Control-flow_graph">control-flow graph (CFG)</a>, identifying <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> and loops. This information is used to split the assembly text into basic blocks and for the Flow Graph view.</p>
+<p>The example below shows a subset of a function's basic blocks, with the corresponding control-flow graph part from the <em>Flow Graph</em> view. The basic blocks B3-B6 are marked on the left side and can be collapsed/expanded by <em>clicking</em> the -/+ buttons.</p>
+<p>Notice how B5 is recognized for being a loop (the last instruction in the block jumps to the start of the block). The Flow Graph view uses a green arrow to mark loops - B4 is also the start block of a larger loop.</p>
+<p><a href="img/assembly-flow-graph_579x600.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-flow-graph_579x600.png" style="width:500px" /></a>  </p>
+<h5 id="profiling-annotations">Profiling annotations</h5>
+<p>Instruction execution time is displayed and annotated on several parts of the assembly instructions, columns, basic blocks and the control-flow graph, using text, colors and flame icons:</p>
 <ul>
-<li>basic blocks, collapse, time annotation</li>
-<li>jump targets</li>
-<li>line numbers, inlinees</li>
-<li>selection, time in status bar</li>
-<li>tooltip over tab name</li>
-<li>click on instr selects line in source panel, block in flow graph</li>
+<li>the <em>Time (%)</em> column displays the instruction's execution time percentage relative to the total function execution time. The column style can be changed in the Assembly options.</li>
+<li>the <em>Time (ms)</em> column displays the instruction's execution time value. The time unit and column style can be changed in the Assembly options.</li>
+<li>the instruction background is colored based on its execution time - the slowest instruction has a red color, next slowest orange, then shades of yellow. The instruction location is also marked in the vertical text scrollbar.</li>
+<li>the three slowest instructions also have a flame icon in the <em>Time (%)</em> column using the same color coding.</li>
 </ul>
-<p>MULTIPLE SELECTION IN FLAME GRAPH, SOURCE FILE and other lists also shows time in status bar!</p>
+<p><a href="img/assembly-marking_1235x202.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-marking_1235x202.png" /></a> </p>
 <ul>
-<li>sync with source line</li>
+<li>the basic blocks have a label with the block's execution time percentage, as a sum of its instruction's execution time (in the example above, the 55.73% label for B4). Hovering over the label shows the block's execution time value. The label background color uses the same color coding.</li>
+<li>the basic blocks in the <em>Flow Graph</em> view have below the same execution time percentage label as in the Assembly view, with the corresponding background color.</li>
+</ul>
+<p><a href="img/assembly-marking-blocks_793x203.pngg" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-marking-blocks_793x203.png" /></a> </p>
+<details class="note" open="open">
+<summary>Note</summary>
+<p>When displaying a function for the first time, by default, the slowest instruction is selected and brought into view (this can be configured in the Assembly options). 
+When the function is displayed subsequently, the last vertical scroll position is used instead.</p>
+<p>To jump at any time to the slowest instruction, <em>click</em> the red <em>Flame</em> icon from the toolbar or the <em>Ctrl+H</em> keyboard shortcut.</p>
+</details>
+<h5 id="call-targets">Call targets</h5>
+<p>Combining the parsed assembly and profiling information, call instructions are marked with their target(s) using an arrow icon placed before the call opcode:  </p>
+<ul>
+<li>for direct calls (target is an function name/address), a black arrow is used.</li>
+<li>for indirect or virtual function calls (target is a register or memory operand), a green arrow is used.</li>
+</ul>
+<p>Hovering with the mouse over the arrow displays a list of the target functions, with details about the execution time. For example, the indirect call below at runtime has the <em>std::_Random_device</em> function as a sole target:</p>
+<p><a href="img/assembly-call-target_691x172.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-call-target_691x172.png" style="width:500px" /></a> </p>
+<details class="note" open="open">
+<summary>Note</summary>
+<p>Functions in the list have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. Double-click/Ctrl+Return opens the Assembly view for the selected function. Combine these shortcuts with the Shift key to open the Assembly view in a new tab instead.</p>
+</details>
+<div class="admonition bug">
+<p class="admonition-title">TODO</p>
+<p>Call target double-click to quick jump</p>
+</div>
+<h4 id="profiling-toolbar">Profiling toolbar</h4>
+<h5 id="profile">Profile</h5>
+<p><a href="img/assembly-profile_782x436.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-profile_782x436.png" style="width:550px" /></a>  </p>
+<h5 id="blocks">Blocks</h5>
+<p><a href="img/assembly-blocks_560x439.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-blocks_560x439.png" style="width:400px" /></a>  </p>
+<h5 id="inlinees_1">Inlinees</h5>
+<p><a href="img/assembly-inlinees_1303x459.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-inlinees_1303x459.png" /></a>  </p>
+<h5 id="instances">Instances</h5>
+<p><a href="img/assembly-instances_1027x182.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-instances_1027x182.png" /></a>  </p>
+<h5 id="threads">Threads</h5>
+<h4 id="exporting">Exporting</h4>
+<p>The function's assembly, combined with source line numbers and profiling annotations and execution time can be exported and saved into multiple formats, with the slowest instructions marked using a similar style as in the application:</p>
+<ul>
+<li>Excel worksheet (*.xlsx)<br />
+<a href="img/summary-export-excel_1366x327.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-export-excel_1366x327.png" /></a></li>
+<li>HTML table (*.html)<br />
+<a href="img/summary-export-html_1209x287.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-export-html_1209x287.png" /></a></li>
+<li>Markdown table (*.md)<br />
+<a href="img/summary-export-markdown_1003x172.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-export-markdown_1003x172.png" /></a></li>
+</ul>
+<h4 id="assembly-view-interaction">Assembly view interaction</h4>
+<details class="abstract" open="open">
+<summary>Toolbar</summary>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-sync.png" /></td>
+<td>If enabled, selecting a function also selects it in the other profiling views.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-source.png" /></td>
+<td>If enabled, selecting a function also displays the source in the Source file view, with the source lines annotated with profiling data.</td>
+</tr>
+<tr>
+<td>Export</td>
+<td>Export the current function list into one of multiple formats (Excel, HTML and Markdown) or copy to clipboard the function list as  a HTML/Markdown table.</td>
+</tr>
+<tr>
+<td>Search box</td>
+<td>Search for functions with a specific name using a case-insensitive substring search. Searching filters the list down to display only the matching entries. Press the <em>Escape</em> key to reset the search or the <em>X</em> button next to the input box.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="abstract" open="open">
+<summary>Mouse shortcuts</summary>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hover</td>
+<td>Hovering over a function displays a popup with the stack trace (call path) end with the slowest function's instance. Pin or drag the popup to keep it open.</td>
+</tr>
+<tr>
+<td>Click</td>
+<td>Selects the function in the other views if <em>Sync</em> is enabled in the toolbar and displays the source in the Source file view if <em>Source</em> is enabled in the toolbar.</td>
+</tr>
+<tr>
+<td>Double-click</td>
+<td>Opens the Assembly view of the selected function in the current tab.</td>
+</tr>
+<tr>
+<td>Shift+Double-click</td>
+<td>Opens the Assembly view of the selected function in a new tab.</td>
+</tr>
+<tr>
+<td>Right-click</td>
+<td>Shows the context menu for the selected functions.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p>When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.</p>
+</div>
+</details>
+<details class="abstract" open="open">
+<summary>Keyboard shortcuts</summary>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Return</td>
+<td>Opens the Assembly view of the selected function in the current tab.</td>
+</tr>
+<tr>
+<td>Shift+Return</td>
+<td>Opens the Assembly view of the selected function in a new tab.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Left</td>
+<td>Opens the Assembly view of the selected function in a new tab docked to the left of the active tab.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Right</td>
+<td>Opens the Assembly view of the selected function in a new tab docked to the right of the active tab.</td>
+</tr>
+<tr>
+<td>Alt+Return</td>
+<td>Opens a preview popup with the assembly of the selected function. Press the <em>Escape</em> key to close the popup.<br><br>Multiple preview popups can be can be kept open at the same time.</td>
+</tr>
+<tr>
+<td>Ctrl+C</td>
+<td>Copies to clipboard a HTML and Markdown table with a summary of the selected functions.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+C</td>
+<td>Copies to clipboard the function names of the selected functions.</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+C</td>
+<td>Copies to clipboard the mangled/decorated function names of the selected functions.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<ul>
 <li>
-<p>sync with flow graph</p>
-</li>
-<li>
-<p>profiling marking and columns, extra for perf counters</p>
-</li>
-<li>
-<p>jump to hottest instr by default</p>
+<p>tooltip over tab name</p>
 </li>
 <li>
 <p>toolbar</p>
