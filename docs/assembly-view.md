@@ -103,7 +103,7 @@ Hovering with the mouse over the arrow displays a target functions list, with de
 ???+ note
     Functions in the list have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. *Double-click/Ctrl+Return* opens the Assembly view for the selected function. Combine these shortcuts with the *Shift* key to open the Assembly view in a new tab instead.
 
- call instructions with a known target have the function name operand changed into a link (underlined, bold, blue text). The link makes it easy to navigate to the called function and the function history to go back to the caller.
+ Call instructions with a known target have the function name operand changed into a link (underlined, bold, blue text). The link makes it easy to navigate to the called function and the function history to go back to the caller.
 
 - *Double-click* on the function name (or the Return key with the name selected) opens the called function in the same tab.  
 - *Shift+Double-Click* (or Shift+Return) opens the called function in a new tab.  
@@ -117,23 +117,23 @@ Hovering with the mouse over the arrow displays a target functions list, with de
 
 When multiple functions are opened in the same tab, a history is kept per tab that makes it possible to go back/forward to a previous/next opened function. This is especially useful when navigating to a called function by double-clicking its name in the assembly, since it makes it easy to back to the caller.  
 
-*Click* the *Back* button in the toolbar to navigate back to the previous function in the sequence (or press the *Backspace* key or the optional *Back* button on the mouse). The back button also has a menu that lists the previous functions.  
+- *Click* the *Back* button in the toolbar to navigate back to the previous function in the sequence (or press the *Backspace* key or the optional *Back* button on the mouse). The back button also has a menu that lists the previous functions.  
 
-*Click* the > button in the toolbar to navigate to the next function in the sequence (or press the optional *Forward* button on the mouse).  
+- *Click* the > button in the toolbar to navigate to the next function in the sequence (or press the optional *Forward* button on the mouse).  
 
 [![Profiling UI screenshot](img/assembly-back-menu_608x154.png){: style="width:450px"}](img/assembly-back-menu_608x154.png){:target="_blank"}  
 
 #### Profiling toolbar
 
-The profiling toolbar provides more advanced functionality for identifying the slow parts of a function and filtering the profiling data based on a function instance and the threads the function executed on.
+The profiling toolbar provides more advanced functionality for identifying the slow parts of a function and filtering the profiling data based on a function instance and the threads the function executed on. The following sections document the main functionality.  
 
 ##### Profile
 
 Displays a menu with the slowest instructions, sorted by execution time in decreasing order.  
 
-*Click* on a menu entry to select and bring the instruction into view.  
-The red *Flame* icon jumps to the slowest instruction in the function.  
-The +/- buttons jump to the next/previous slowest instruction in the sequence.
+- *Click* on a menu entry to select and bring the instruction into view.  
+- The red *Flame* icon jumps to the slowest instruction in the function.  
+- The +/- buttons jump to the next/previous slowest instruction in the sequence.
 
 [![Profiling UI screenshot](img/assembly-profile_782x436.png){: style="width:550px"}](img/assembly-profile_782x436.png){:target="_blank"}  
 
