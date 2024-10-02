@@ -92,7 +92,7 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
     | Ctrl+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
     | Click+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
 
-    !!! note ""
+    !!! note
         When multiple nodes are selected, the application status bar displays the sum of their execution time as a percentage and value.  
         [![Profiling UI screenshot](img/flame-graph-selection_619x155.png){: style="width:450px"}](img/flame-graph-selection_619x155.png){:target="_blank"}
     

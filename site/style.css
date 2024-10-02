@@ -44,6 +44,16 @@
     overflow: hidden;
 }
 
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-bottom-width: 1px;
+}
+
+li + li {
+    margin-top: -5px;
+}
+
 html {
     font-size:larger;
 }

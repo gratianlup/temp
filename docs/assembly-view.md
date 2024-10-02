@@ -37,7 +37,10 @@ Hovering over the line number shows a tooltip with the name and path of the sour
 [![Profiling UI screenshot](img/assemlby-line-number_816x106.png){: style="width:500px"}](img/assemlby-line-number_816x106.png){:target="_blank"}  
 
 ???+ note
-    *Click* on an instruction selects and brings into view its corresponding source line in the *Source File* view and its basic block in the *Flow Graph* view.
+    *Click* on an instruction selects and brings into view its corresponding source line in the *Source File* view and its basic block in the *Flow Graph* view.  
+
+    When multiple instructions are selected, the application status bar displays the sum of their execution time as a percentage and value.  
+    [![Profiling UI screenshot](img/assembly-selection_868x170.png)](img/assembly-selection_868x170.png){:target="_blank"}
     
 ##### Inlinees
 
@@ -59,8 +62,9 @@ Notice how B5 is recognized for being a loop (the last instruction in the block 
 
 [![Profiling UI screenshot](img/assembly-flow-graph_579x600.png){: style="width:500px"}](img/assembly-flow-graph_579x600.png){:target="_blank"}  
 
-!!! note
+???+ note
     *Click* on the target address of a jump/branch instructions marks the target instruction and its basic block in the *Flow Graph* view (uses a green background color by default).  
+
     *Double-click* on a target address operand jumps to the target instruction.
 
 ##### Profiling annotations
@@ -101,20 +105,26 @@ Hovering with the mouse over the arrow displays a list of the target functions, 
 
  Direct call instructions with a known target change the function name operand into a link (underlined, bold, blue text). The link makes it easy to navigate to navigate to the called function and the history to go back.
 
- *Double-click* on the function name (or using the Return key) opens the called function in the same tab.
- *Shift+Double-Click* opens the called function in a new tab.
- *Alt+Return* shows a preview popup with the called function's assembly.
+- *Double-click* on the function name (or the Return key with the name selected) opens the called function in the same tab.  
+- *Shift+Double-Click* (or Shift+Return) opens the called function in a new tab.  
+- *Alt+Return* shows a preview popup with the called function's assembly.  
+- *Hovering* with the mouse over the function name also shows the preview popup.
+
+[![Profiling UI screenshot](img/assembly-call-hover_922x278.png)](img/assembly-call-hover_922x278.png){:target="_blank"}  
 
 ##### Opened functions history
 
 When multiple functions are opened in the same tab, a history is kept per tab that makes it possible to go back/forward to a previous/next opened function. This is especially useful when navigating to a called function by double-clicking its name in the assembly, since it makes it easy to back to the caller.  
 
-*Click* the *Back* button in the toolbar to navigate back to the previous function in the sequence (or press the *Backspace* key or the optional *Back* button on the mouse). The back button also has a menu that lists the previous functions.    
-*Click* the *Forward* button in the toolbar to navigate to the next function in the sequence (or press the optional *Forward* button on the mouse). 
+*Click* the *Back* button in the toolbar to navigate back to the previous function in the sequence (or press the *Backspace* key or the optional *Back* button on the mouse). The back button also has a menu that lists the previous functions.  
+
+*Click* the > button in the toolbar to navigate to the next function in the sequence (or press the optional *Forward* button on the mouse). 
+
+[![Profiling UI screenshot](img/assembly-back-menu_608x154.png){: style="width:450px"}](img/assembly-back-menu_608x154.png){:target="_blank"}  
 
 #### Profiling toolbar
 
-The profiling toolbar provides more advanced functionality for identifying the slow parts of a function and filtering the profiling data based on function instance and threads the function executed on.
+The profiling toolbar provides more advanced functionality for identifying the slow parts of a function and filtering the profiling data based on a function instance and the threads the function executed on.
 
 ##### Profile
 
@@ -139,11 +149,11 @@ The profiling toolbar provides more advanced functionality for identifying the s
 The function's assembly, combined with source line numbers and profiling annotations and execution time can be exported and saved into multiple formats, with the slowest instructions marked using a similar style as in the application:
 
 - Excel worksheet (*.xlsx)  
-  [![Profiling UI screenshot](img/summary-export-excel_1366x327.png)](img/summary-export-excel_1366x327.png){:target="_blank"}
+  [![Profiling UI screenshot](img/assembly-export-excel_780x441.png){: style="width:450px"}](img/assembly-export-excel_780x441.png){:target="_blank"}
 - HTML table (*.html)  
-  [![Profiling UI screenshot](img/summary-export-html_1209x287.png)](img/summary-export-html_1209x287.png){:target="_blank"}
+  [![Profiling UI screenshot](img/assembly-export-html_721x536.png){: style="width:450px"}](img/summary-export-html_1209x287.png){:target="_blank"}
 - Markdown table (*.md)  
-  [![Profiling UI screenshot](img/summary-export-markdown_1003x172.png)](img/summary-export-markdown_1003x172.png){:target="_blank"}
+  [![Profiling UI screenshot](img/assembly-export-markdown_984x365.png)](img/assembly-export-markdown_984x365.png){:target="_blank"}
 
 #### Assembly view interaction
 
@@ -191,12 +201,6 @@ The function's assembly, combined with source line numbers and profiling annotat
   - inlinees
   - instances
   - threads
-
-- back button, history, back/next mouse buttons
-- call target arrow markings
-- call target double-click
-
-Exporting examples like in summary 3
 
 TODO later:
 - options panel

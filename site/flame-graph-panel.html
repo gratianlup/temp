@@ -1017,13 +1017,14 @@ In the example above, the <em>main</em> function is considered the process entry
 </ul>
 </details>
 <h4 id="overview">Overview</h4>
-<p>The Flame graph view is the main means of identifying the parts of the application where most time is spent. The view has three parts:</p>
+<p>The Flame graph view is the main means of identifying the parts of the application where most time is spent. </p>
+<p><a href="img/flame-graph-panel.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-panel.png" /></a></p>
+<p>The view has three parts:</p>
 <ul>
 <li>a toolbar at the top, with action buttons and the <em>Search</em> input box.</li>
 <li>the interactive flame graph itself.</li>
 <li>the Details panel on the right side. The panel displays detailed info about the selected node(s), and its visibility can be toggled using the <em>Details</em> button in the toolbar.</li>
 </ul>
-<p><a href="img/flame-graph-panel.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-panel.png" /></a></p>
 <h5 id="flame-graph-nodes">Flame graph nodes</h5>
 <p>The flame graph displays nodes representing functions stacked top to bottom according to the call tree paths forming the stack traces. Each node is a unique instance of a function — a function having multiple instances means there are several paths in the call tree that call the function.  </p>
 <p>Each node has the function name, optionally prepended with the module name, followed by the execution time percentage relative to the entire trace and the execution time.  </p>
@@ -1169,6 +1170,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tbody>
 </table>
 <div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>When multiple nodes are selected, the application status bar displays the sum of their execution time as a percentage and value.<br />
 <a href="img/flame-graph-selection_619x155.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-selection_619x155.png" style="width:450px" /></a></p>
 </div>

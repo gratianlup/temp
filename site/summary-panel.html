@@ -986,13 +986,14 @@
   <h1>Summary view</h1>
 
 <h4 id="overview">Overview</h4>
-<p>The summary view displays all modules (binaries) and functions that have profile data in the trace, and makes it easy to identify the functions where most time spent. The view has three parts:  </p>
+<p>The summary view displays all modules (binaries) and functions that have profile data in the trace, and makes it easy to identify the functions where most time spent. </p>
+<p><a href="img/summary-panel_1233x417.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-panel_1233x417.png" /></a></p>
+<p>The view has three parts:  </p>
 <ul>
 <li>a toolbar at the top, with action buttons and the <em>Search</em> input box.</li>
 <li>the Modules panel on the left side. Its visibility can be toggled using the <em>Modules</em> button in the toolbar.</li>
 <li>the list of functions from either the entire trace or filtered to display only the functions part of a single module. By default the list is sorted by self (exclusive) time in descending order.</li>
 </ul>
-<p><a href="img/summary-panel_1233x417.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-panel_1233x417.png" /></a></p>
 <h5 id="modules-list">Modules list</h5>
 <p>The modules list has an entry for each module with profile data and starts with an <em>All</em> entry representing all modules combined. Each entry has the module name, execution time percentage relative to the entire trace and execution time value. Modules are sorted by their execution time in descending order.</p>
 <p>By default the <em>All</em> entry is active and the function list displays all functions with profile data in the trace.  </p>
@@ -1071,10 +1072,10 @@
 </tr>
 </tbody>
 </table>
-<details class="note" open="open">
-<summary></summary>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.</p>
-</details>
+</div>
 </details>
 <details class="abstract" open="open">
 <summary>Keyboard shortcuts</summary>

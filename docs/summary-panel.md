@@ -54,7 +54,7 @@ If marking of functions based on their name or module is active, the function en
     | Shift+Double-click | Opens the Assembly view of the selected function in a new tab. |
     | Right-click | Shows the context menu for the selected functions. |
 
-    ???+ note ""
+    !!! note
         When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.
 
 ???+ abstract "Keyboard shortcuts"
