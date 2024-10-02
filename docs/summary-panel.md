@@ -83,7 +83,9 @@ The current function list can be exported and saved into multiple formats, with 
 - Markdown table (*.md)  
   [![Profiling UI screenshot](img/summary-export-markdown_1003x172.png)](img/summary-export-markdown_1003x172.png){:target="_blank"}
 
-The *Export* menu in the toolbar also has an option to copy to clipboard the current function list as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).
+The *Export* menu in the toolbar also has an option to copy to clipboard the current function list as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).  
+
+The Ctrl+C keyboard shortcut copies to clipboard only the selected functions as a HTML/Markdown table.
 
 #### More documentation in progress
 - Context menu

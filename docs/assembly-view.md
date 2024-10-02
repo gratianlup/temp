@@ -1,6 +1,6 @@
 #### Overview
 
-The Assembly view shows the function's machine code after disassembly, with syntax highlighting for x86_64/ARM64 architectures. The view is interactive, with the text being parsed into instructions with operands and higher-level constructs such as [basic blocks](https://en.wikipedia.org/wiki/Basic_block) and loops are recovered.
+The Assembly Code view shows the function's machine code after disassembly, with syntax highlighting for x86_64/ARM64 architectures. The view is interactive, with the text being parsed into instructions with operands and higher-level constructs such as [basic blocks](https://en.wikipedia.org/wiki/Basic_block) and loops are recovered.
 
 The assembly instructions are augmented with annotations from the debug information files, such as source line numbers and inlinees, and combined with the execution time from the profile trace.
 
@@ -119,7 +119,7 @@ When multiple functions are opened in the same tab, a history is kept per tab th
 
 *Click* the *Back* button in the toolbar to navigate back to the previous function in the sequence (or press the *Backspace* key or the optional *Back* button on the mouse). The back button also has a menu that lists the previous functions.  
 
-*Click* the > button in the toolbar to navigate to the next function in the sequence (or press the optional *Forward* button on the mouse). 
+*Click* the > button in the toolbar to navigate to the next function in the sequence (or press the optional *Forward* button on the mouse).  
 
 [![Profiling UI screenshot](img/assembly-back-menu_608x154.png){: style="width:450px"}](img/assembly-back-menu_608x154.png){:target="_blank"}  
 
@@ -130,7 +130,8 @@ The profiling toolbar provides more advanced functionality for identifying the s
 ##### Profile
 
 Displays a menu with the slowest instructions, sorted by execution time in decreasing order.  
-*Click* on a menu entry selects and brings the instruction into view.  
+
+*Click* on a menu entry to select and bring the instruction into view.  
 The red *Flame* icon jumps to the slowest instruction in the function.  
 The +/- buttons jump to the next/previous slowest instruction in the sequence.
 
@@ -139,41 +140,39 @@ The +/- buttons jump to the next/previous slowest instruction in the sequence.
 ##### Blocks
 
 Displays a menu with the slowest blocks, sorted by execution time in decreasing order.  
-*Click* on a menu entry selects and brings start of the block into view.
+*Click* on a menu entry to select and bring the start of the block into view.
 
 [![Profiling UI screenshot](img/assembly-blocks_560x439.png){: style="width:400px"}](img/assembly-blocks_560x439.png){:target="_blank"}  
 
 ##### Inlinees
 
-Displays a menu with the inlinees (inlined functions) that directly contribute slow instructions, sorted by the execution time of all instructions originating from a particular inlinee in decreasing order.
-*Click* on a menu entry selects all instruction associated with the inlinee and brings the first one into view.
-
-In the example below, most of the execution time (46.79%) is taken by instructions originating in the *std::_Rng_from_...* inlinee, while only 3.60% of execution time is from non-inlined instructions.
+Displays a menu with the inlinees (inlined functions) that directly contribute slow instructions, sorted by the execution time of all instructions originating from a particular inlinee in decreasing order.  
 
 [![Profiling UI screenshot](img/assembly-inlinees_1303x459.png)](img/assembly-inlinees_1303x459.png){:target="_blank"}  
 
+*Click* on a menu entry to select all instruction associated with the inlinee and brings the first one into view.  
+
+In the example above, most of the execution time (46.79%) is taken by instructions originating in the *std::_Rng_from_...* inlinee, while only 3.60% of execution time is from non-inlined instructions.
+
 ##### Instances
 
-By default the Assembly view displays the instruction execution time accumulated across all instances the function (see the [Flame Graph view](flame-graph-panel.md) documentation for more details about instances).
+By default the Assembly view displays the function profile accumulated across all instances the function (see the [Flame Graph view](flame-graph-panel.md) documentation for more details about instances). Filtering the function profile based on an instance makes it possible to better understand when certain parts of the function dominate execution time (for example, based on a parameter passed by the caller, one part or another of the function executes).  
 
-The Instances menu displays the call paths leading to all instances of the function, with their execution time percentage and value. The menu entries use a compact form of the call path, hover over an entry to display a tooltip with the complete call path.
-
-*Click* on a menu entry to filter the profile data to include only the selected instance, updating the execution time and all profiling annotations for instructions and basic blocks.
+The Instances menu displays the call paths leading to all instances of the function, with their execution time percentage and value. The menu entries use a compact form of the call path, where the first name is the caller, then it's caller, going up the call tree. Hover over an entry to display a tooltip with the complete call path.
 
 [![Profiling UI screenshot](img/assembly-instances_1027x182.png)](img/assembly-instances_1027x182.png){:target="_blank"}  
 
+*Click* on a menu entry to filter the profile data to include only the selected instance, updating the execution time and all profiling annotations for instructions and basic blocks.  
+
+The menu entries are checkboxes which allows selecting multiple instances to be included.  
+Use the *All instances* entry or uncheck all instances to view the entire function profile again.
+
 ##### Threads
 
-#### Exporting
+By default the Assembly view displays the function profile accumulated across all threads the function executed on. Similar to instances, the profile can be filtered to consider only a subset of the threads. The Threads menu displays the threads IDs and their execution time percentage and value.
 
-The function's assembly, combined with source line numbers and profiling annotations and execution time can be exported and saved into multiple formats, with the slowest instructions marked using a similar style as in the application:
-
-- Excel worksheet (*.xlsx)  
-  [![Profiling UI screenshot](img/assembly-export-excel_780x441.png){: style="width:450px"}](img/assembly-export-excel_780x441.png){:target="_blank"}
-- HTML table (*.html)  
-  [![Profiling UI screenshot](img/assembly-export-html_721x536.png){: style="width:450px"}](img/summary-export-html_1209x287.png){:target="_blank"}
-- Markdown table (*.md)  
-  [![Profiling UI screenshot](img/assembly-export-markdown_984x365.png)](img/assembly-export-markdown_984x365.png){:target="_blank"}
+???+ note
+    Hovering with the mouse over the Assembly view'a tab displays a tooltip with details such as the total/self execution time, module and complete function name and if filtering is used, the name of the instances and threads included in the view. 
 
 #### Assembly view interaction
 
@@ -188,39 +187,49 @@ The function's assembly, combined with source line numbers and profiling annotat
 ???+ abstract "Mouse shortcuts"
     | Action | Description |
     | ------ | ------------|
-    | Hover | Hovering over a function displays a popup with the stack trace (call path) end with the slowest function's instance. Pin or drag the popup to keep it open. |
-    | Click | Selects the function in the other views if *Sync* is enabled in the toolbar and displays the source in the Source file view if *Source* is enabled in the toolbar.  |
-    | Double-click | Opens the Assembly view of the selected function in the current tab. |
-    | Shift+Double-click | Opens the Assembly view of the selected function in a new tab. |
-    | Right-click | Shows the context menu for the selected functions. |
-
-    !!! note ""
-        When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.
+    | Hover | Hovering over a call target function name displays a popup with the function's assembly. Pin or drag the popup to keep it open. |
+    | Click | Selects an instruction and also selects and brings into view its corresponding source line in the *Source File* view and its basic block in the *Flow Graph* view. |
+    | Double-click | If an instruction operand is selected, jumps to its definition.<br>For jump/branch target address, jumps to the destination basic block.<br>For call target function names, it opens the target function in the current tab. |
+    | Shift+Double-click | For call target function names, it opens the target function in a new tab.  |
+    | Right-click | Shows the context menu for the selected instructions. |
+    | Back | If the mouse has an optional *Back* button, navigates back to the previous opened function in the tab. |
+    | Forward | If the mouse has an optional *Forward* button, Navigates forward to the next opened function in the tab. |
 
 ???+ abstract "Keyboard shortcuts"
     | Keys | Description |
     | ------ | ------------|
-    | Return | Opens the Assembly view of the selected function in the current tab. |
-    | Shift+Return | Opens the Assembly view of the selected function in a new tab. |
-    | Ctrl+Shift+Left | Opens the Assembly view of the selected function in a new tab docked to the left of the active tab. |
-    | Ctrl+Shift+Right | Opens the Assembly view of the selected function in a new tab docked to the right of the active tab. |
-    | Alt+Return | Opens a preview popup with the assembly of the selected function. Press the *Escape* key to close the popup.<br><br>Multiple preview popups can be can be kept open at the same time. |
-    | Ctrl+C | Copies to clipboard a HTML and Markdown table with a summary of the selected functions. |
-    | Ctrl+Shift+C | Copies to clipboard the function names of the selected functions. |
-    | Ctrl+Alt+C | Copies to clipboard the mangled/decorated function names of the selected functions. |
+    | Return | If an instruction operand is selected, jumps to its definition.<br>For jump/branch target address, jumps to the destination basic block.<br>For call target function names, it opens the target function in the current tab. |
+    | Shift+Return | For call target function names, it opens the target function in a new tab. |
+    | Alt+Return | For direct call target function names, displays a preview popup with the target function's assembly. |
+    | Backspace | Navigates back to the previous opened function in the tab. |
+    | Shift+Backspace | Navigates forward to the next opened function in the tab. |
+    | Ctrl+H | Jumps to the slowest instruction. |
+    | F2 | Jumps to the next slowest instruction in the sequence. |
+    | Shift+F2 | Jumps to the next previous instruction in the sequence. |
+    | Ctrl+C | Copies to clipboard a HTML and Markdown table with a summary of the selected instructions. |
+    | Ctrl+Shift+C | Copies to clipboard the assembly text of the selected instructions. |
+    | Ctrl+F | Displays the text search panel, |
+    | F3 | Jumps to the next text search result. |
+    | Shift+F3 | Jumps to the previous text search result. |
+    | Escape | Resets text searching and closed the text search panel. |
+    | Ctrl+B | Add a bookmark associated with the selected instruction. |
+    | Ctrl+Arrow Up | Jumps to the previous basic block. |
+    | Ctrl+Arrow Down | Jumps to the next basic block. |
 
+#### Exporting
 
-- tooltip over tab name
+The function's assembly, combined with source line numbers and profiling annotations and execution time can be exported and saved into multiple formats, with the slowest instructions marked using a similar style as in the application:
 
-- toolbar
-- mouse, keyboard shortcuts
-- profiling toolbar
-  - jump to hottest
-  - elements
-  - blocks
-  - inlinees
-  - instances
-  - threads
+- Excel worksheet (*.xlsx)  
+  [![Profiling UI screenshot](img/assembly-export-excel_780x441.png){: style="width:450px"}](img/assembly-export-excel_780x441.png){:target="_blank"}
+- HTML table (*.html)  
+  [![Profiling UI screenshot](img/assembly-export-html_721x536.png){: style="width:450px"}](img/summary-export-html_1209x287.png){:target="_blank"}
+- Markdown table (*.md)  
+  [![Profiling UI screenshot](img/assembly-export-markdown_984x365.png)](img/assembly-export-markdown_984x365.png){:target="_blank"}
 
-TODO later:
+The Export menu in the toolbar also has an option to copy to clipboard the function's assembly as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).  
+
+The Ctrl+C keyboard shortcut copies to clipboard only the selected instructions as a HTML/Markdown table.
+
+#### More documentation in progress
 - options panel

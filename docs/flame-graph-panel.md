@@ -165,7 +165,6 @@ The information displayed in the tabs below is for the selected function instanc
 
 
 #### More documentation in progress
-- Selection of multiple nodes in FG or list view time in status bar
 - Context menu
 - Marking nodes
 - Searching
