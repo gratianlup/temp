@@ -26,7 +26,7 @@ The function assembly area can be treated a read-only code editor. Each line cor
 - instruction opcode (bold text)
 - an optional list of instruction operands
 - source line number associated with the instruction, obtained from the debug info (gray text).
-- inlinees (inlined functions) associated with the instructio, obtained from the debug info (green text).
+- inlinees (inlined functions) associated with the instruction, obtained from the debug info (green text).
 
 ##### Source lines
 
@@ -96,19 +96,20 @@ Combining the parsed assembly and profiling information, call instructions are m
 - for direct calls (target is an function name/address), a black arrow is used.
 - for indirect or virtual function calls (target is a register or memory operand), a green arrow is used.
 
-Hovering with the mouse over the arrow displays a list of the target functions, with details about the execution time. For example, the indirect call below at runtime has the *std::_Random_device* function as a sole target:
+Hovering with the mouse over the arrow displays a target functions list, with details about their execution time. For example, the indirect call below at runtime has the *std::_Random_device* function as the only target:
 
 [![Profiling UI screenshot](img/assembly-call-target_691x172.png){: style="width:500px"}](img/assembly-call-target_691x172.png){:target="_blank"} 
 
 ???+ note
-    Functions in the list have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. Double-click/Ctrl+Return opens the Assembly view for the selected function. Combine these shortcuts with the Shift key to open the Assembly view in a new tab instead.
+    Functions in the list have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. *Double-click/Ctrl+Return* opens the Assembly view for the selected function. Combine these shortcuts with the *Shift* key to open the Assembly view in a new tab instead.
 
- Direct call instructions with a known target change the function name operand into a link (underlined, bold, blue text). The link makes it easy to navigate to navigate to the called function and the history to go back.
+ call instructions with a known target have the function name operand changed into a link (underlined, bold, blue text). The link makes it easy to navigate to the called function and the function history to go back to the caller.
 
 - *Double-click* on the function name (or the Return key with the name selected) opens the called function in the same tab.  
 - *Shift+Double-Click* (or Shift+Return) opens the called function in a new tab.  
-- *Alt+Return* shows a preview popup with the called function's assembly.  
+- *Alt+Return* shows a preview popup with the called function's assembly. Press the *Escape* key to close hte popup.  
 - *Hovering* with the mouse over the function name also shows the preview popup.
+- Use the shortcuts from the *Opened function history* section below to go back to the caller.
 
 [![Profiling UI screenshot](img/assembly-call-hover_922x278.png)](img/assembly-call-hover_922x278.png){:target="_blank"}  
 
@@ -128,13 +129,24 @@ The profiling toolbar provides more advanced functionality for identifying the s
 
 ##### Profile
 
+Displays a menu with the slowest instructions, sorted by execution time in decreasing order.  
+*Click* on a menu entry selects and brings the instruction into view.  
+The red *Flame* icon jumps to the slowest instruction in the function.  
+The +/- buttons jump to the next/previous slowest instruction in the sequence.
+
 [![Profiling UI screenshot](img/assembly-profile_782x436.png){: style="width:550px"}](img/assembly-profile_782x436.png){:target="_blank"}  
 
 ##### Blocks
 
+Displays a menu with the slowest blocks, sorted by execution time in decreasing order.  
+*Click* on a menu entry selects and brings start of the block into view.
+
 [![Profiling UI screenshot](img/assembly-blocks_560x439.png){: style="width:400px"}](img/assembly-blocks_560x439.png){:target="_blank"}  
 
 ##### Inlinees
+
+Displays a menu with the inlinees (inlined functions) that directly contribute slow instructions, sorted by the execution time of all instructions originating from a particular inlinee in decreasing order.
+*Click* on a menu entry selects all instruction associated with the inlinee and brings the first one into view.
 
 [![Profiling UI screenshot](img/assembly-inlinees_1303x459.png)](img/assembly-inlinees_1303x459.png){:target="_blank"}  
 
