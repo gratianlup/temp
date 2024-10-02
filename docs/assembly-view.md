@@ -148,9 +148,17 @@ Displays a menu with the slowest blocks, sorted by execution time in decreasing 
 Displays a menu with the inlinees (inlined functions) that directly contribute slow instructions, sorted by the execution time of all instructions originating from a particular inlinee in decreasing order.
 *Click* on a menu entry selects all instruction associated with the inlinee and brings the first one into view.
 
+In the example below, most of the execution time (46.79%) is taken by instructions originating in the *std::_Rng_from_...* inlinee, while only 3.60% of execution time is from non-inlined instructions.
+
 [![Profiling UI screenshot](img/assembly-inlinees_1303x459.png)](img/assembly-inlinees_1303x459.png){:target="_blank"}  
 
 ##### Instances
+
+By default the Assembly view displays the instruction execution time accumulated across all instances the function (see the [Flame Graph view](flame-graph-panel.md) documentation for more details about instances).
+
+The Instances menu displays the call paths leading to all instances of the function, with their execution time percentage and value. The menu entries use a compact form of the call path, hover over an entry to display a tooltip with the complete call path.
+
+*Click* on a menu entry to filter the profile data to include only the selected instance, updating the execution time and all profiling annotations for instructions and basic blocks.
 
 [![Profiling UI screenshot](img/assembly-instances_1027x182.png)](img/assembly-instances_1027x182.png){:target="_blank"}  
 
