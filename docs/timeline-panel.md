@@ -1,3 +1,6 @@
+
+[![Profiling UI screenshot](img/timeline-view_1028x418.png)](img/timeline-view_1028x418.png){:target="_blank"}
+
 - display all and each thread
 - threads have ID and optional name, color code by name
 - selection with sync selects functions executing in time range and thread (all threads when done on all)

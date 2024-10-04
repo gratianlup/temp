@@ -58,6 +58,12 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
 
 [![Profiling UI screenshot](img/flame-graph-root_946x435.png)](img/flame-graph-root_946x435.png){:target="_blank"}
 
+#### Searching functions
+
+Use the *search input box* in the toolbar to search for functions with a specific name using a case-insensitive substring search. Matching nodes and function names are marked and the *up/down* buttons showing on the right can be used to navigate between results. Press the Escape key to reset the search or the X button next to the input box.
+
+[![Profiling UI screenshot](img/flame-graph-search_1078x286.png)](img/flame-graph-search_1078x286.png){:target="_blank"}
+
 #### Flame graph view interaction
 
 ???+ abstract "Toolbar"
@@ -182,5 +188,4 @@ The tabs below describe each page of the options panel:
 
 #### Documentation in progress
 - Marking nodes
-- Searching
 - View options

@@ -56,6 +56,11 @@ li + li {
     margin-top: -5px;
 }
 
+.md-typeset .tabbed-labels>label {
+    font-size: .7rem;
+    color:black;
+}
+
 html {
     font-size:larger;
 }

@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -488,6 +488,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching functions
+    </span>
+  </a>
   
 </li>
       
@@ -971,6 +980,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#searching-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#flame-graph-view-interaction" class="md-nav__link">
     <span class="md-ellipsis">
       Flame graph view interaction
@@ -1054,9 +1072,9 @@ In the example above, the <em>main</em> function is considered the process entry
 <p>When the called function nodes are too small to be visible in the view, they are collapsed under a placeholder node rendered with a hatch pattern. Placeholder nodes are expanded into individual nodes when zooming in the view.  </p>
 </details>
 <h5 id="navigating-the-flame-graph">Navigating the Flame graph</h5>
-<p>A double-click on a node enlarges it to cover the entire view and may expand the collapsed nodes. For example, the called nodes become visible after double-clicking the node hovered in the screenshot above.<br />
+<p>A double-click on a node expands it to cover the entire view and may expand the collapsed nodes. For example, the called nodes become visible after double-clicking the node hovered in the screenshot above.<br />
 <a href="img/flame-graph-expand_944x428.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-expand_944x428.png" /></a></p>
-<p>The node enlarging can be repeated to go deeper down the call path. The <em>Back</em> button in the toolbar (or <em>Backspace</em> key/<em>Back</em> mouse button) undoes the operation and returns the view to its previous state.  </p>
+<p>Expanding a node can be repeated to go deeper down the call path. The <em>Back</em> button in the toolbar (or <em>Backspace</em> key/<em>Back</em> mouse button) undoes the operation and returns the view to its previous state.  </p>
 <p><a href="img/flame-graph-expand2_947x456.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-expand2_947x456.png" /></a></p>
 <details class="note" open="open">
 <summary>Note</summary>
@@ -1067,6 +1085,9 @@ In the example above, the <em>main</em> function is considered the process entry
 <p>To change the root node, from the right-click context menu, select <em>Set Function as Root</em> (alternatively, use the <em>Alt+Double-click</em> shortcut). After the switch, the toolbar displays the name of the current root node. Setting a new root node can be repeated in the new view.</p>
 <p>To remove the root node and view the entire Flame graph, click the <em>X</em> button next to its name in the toolbar. If multiple nested root nodes were set, removing the current node activates the previous one.</p>
 <p><a href="img/flame-graph-root_946x435.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-root_946x435.png" /></a></p>
+<h4 id="searching-functions">Searching functions</h4>
+<p>Use the <em>search input box</em> in the toolbar to search for functions with a specific name using a case-insensitive substring search. Matching nodes and function names are marked and the <em>up/down</em> buttons showing on the right can be used to navigate between results. Press the Escape key to reset the search or the X button next to the input box.</p>
+<p><a href="img/flame-graph-search_1078x286.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-search_1078x286.png" /></a></p>
 <h4 id="flame-graph-view-interaction">Flame graph view interaction</h4>
 <details class="abstract" open="open">
 <summary>Toolbar</summary>
@@ -1080,7 +1101,7 @@ In the example above, the <em>main</em> function is considered the process entry
 <tbody>
 <tr>
 <td><img alt="" src="img/flame-graph-toolbar-back.png" /></td>
-<td>Undoes the previous action, such as enlarging a node or changing the root node.</td>
+<td>Undoes the previous action, such as expanding a node or changing the root node.</td>
 </tr>
 <tr>
 <td><img alt="" src="img/flame-graph-toolbar-reset.png" /></td>
@@ -1145,7 +1166,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tr>
 <tr>
 <td>Double-click</td>
-<td>Enlarges (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly.</td>
+<td>Expands (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly.</td>
 </tr>
 <tr>
 <td>Ctrl+Double-click</td>
@@ -1161,7 +1182,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tr>
 <tr>
 <td>Back</td>
-<td>If the mouse has an optional <em>Back</em> button, this undoes the previous action, such as enlarging a node (double-click) or changing the root node. An alternative is pressing the <em>Backspace</em> key or the <em>Back</em> button in the toolbar.</td>
+<td>If the mouse has an optional <em>Back</em> button, this undoes the previous action, such as expanding a node (double-click) or changing the root node. An alternative is pressing the <em>Backspace</em> key or the <em>Back</em> button in the toolbar.</td>
 </tr>
 <tr>
 <td>Right-click</td>
@@ -1207,7 +1228,7 @@ In the example above, the <em>main</em> function is considered the process entry
 <tbody>
 <tr>
 <td>Return</td>
-<td>Enlarges (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly.</td>
+<td>Expands (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly.</td>
 </tr>
 <tr>
 <td>Ctrl+Return</td>
@@ -1239,7 +1260,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tr>
 <tr>
 <td>Backspace</td>
-<td>Undoes the previous action, such as enlarging a node (double-click) or changing the root node.</td>
+<td>Undoes the previous action, such as expanding a node (double-click) or changing the root node.</td>
 </tr>
 <tr>
 <td>Ctrl+=</td>
@@ -1352,7 +1373,6 @@ In the example above, the <em>main</em> function is considered the process entry
 <h4 id="documentation-in-progress">Documentation in progress</h4>
 <ul>
 <li>Marking nodes</li>
-<li>Searching</li>
 <li>View options</li>
 </ul>
 
@@ -1445,7 +1465,7 @@ In the example above, the <em>main</em> function is considered the process entry
     <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.instant", "navigation.top", "header.autohide", "navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="assets/javascripts/bundle.525ec568.min.js"></script>
       
     
   </body>

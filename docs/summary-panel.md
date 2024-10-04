@@ -35,6 +35,9 @@ The function list is by default sorted by the self (exclusive) execution time in
 
 If marking of functions based on their name or module is active, the function entries use the marking background color.
 
+Hovering over a function displays a popup with the stack trace (call path) end with the slowest function's instance. Pin or drag the popup to keep it open.  
+[![Profiling UI screenshot](img/summary-preview_654x551.png){: style="width:450px"}](img/summary-preview_654x551.png){:target="_blank"}
+
 #### Summary view interaction
 
 ???+ abstract "Toolbar"
@@ -48,7 +51,7 @@ If marking of functions based on their name or module is active, the function en
 ???+ abstract "Mouse shortcuts"
     | Action | Description |
     | ------ | ------------|
-    | Hover | Hovering over a function displays a popup with the stack trace (call path) end with the slowest function's instance. Pin or drag the popup to keep it open. |
+    | Hover | Hovering over a function displays a popup with the stack trace (call path) end with the slowest function's instance. Pin or drag the popup to keep it open.|
     | Click | Selects the function in the other views if *Sync* is enabled in the toolbar and displays the source in the Source file view if *Source* is enabled in the toolbar.  |
     | Double-click | Opens the Assembly view of the selected function in the current tab. |
     | Shift+Double-click | Opens the Assembly view of the selected function in a new tab. |

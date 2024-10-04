@@ -165,11 +165,14 @@ The Instances menu displays the call paths leading to all instances of the funct
 *Click* on a menu entry to filter the profile data to include only the selected instance, updating the execution time and all profiling annotations for instructions and basic blocks.  
 
 The menu entries are checkboxes which allows selecting multiple instances to be included.  
-Use the *All instances* entry or uncheck all instances to view the entire function profile again.
+Use the *All Instances* entry or uncheck all instances to view the entire function profile again.
 
 ##### Threads
 
-By default the Assembly view displays the function profile accumulated across all threads the function executed on. Similar to instances, the profile can be filtered to consider only a subset of the threads. The Threads menu displays the threads IDs and their execution time percentage and value.
+By default the Assembly view displays the function profile accumulated across all threads the function executed on. Similar to instances, the profile can be filtered to consider only a subset of the threads. The Threads menu displays the threads IDs and their execution time percentage and value.  
+
+The menu entries are checkboxes which allows selecting multiple threads to be included.  
+Use the *All Threads* entry or uncheck all instances to view the entire function profile again.
 
 [![Profiling UI screenshot](img/assembly-threads_560x214.png){: style="width:350px"}](img/assembly-threads_560x214.png){:target="_blank"}  
 
