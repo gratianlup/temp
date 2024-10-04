@@ -38,10 +38,10 @@ By default, the nodes are color-coded based on the module names to which the fun
 
 ##### Navigating the Flame graph
 
-A double-click on a node enlarges it to cover the entire view and may expand the collapsed nodes. For example, the called nodes become visible after double-clicking the node hovered in the screenshot above.  
+A double-click on a node expands it to cover the entire view and may expand the collapsed nodes. For example, the called nodes become visible after double-clicking the node hovered in the screenshot above.  
 [![Profiling UI screenshot](img/flame-graph-expand_944x428.png)](img/flame-graph-expand_944x428.png){:target="_blank"}
 
-The node enlarging can be repeated to go deeper down the call path. The *Back* button in the toolbar (or *Backspace* key/*Back* mouse button) undoes the operation and returns the view to its previous state.  
+Expanding a node can be repeated to go deeper down the call path. The *Back* button in the toolbar (or *Backspace* key/*Back* mouse button) undoes the operation and returns the view to its previous state.  
 
 [![Profiling UI screenshot](img/flame-graph-expand2_947x456.png)](img/flame-graph-expand2_947x456.png){:target="_blank"}
 
@@ -63,7 +63,7 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
 ???+ abstract "Toolbar"
     | Button | Description |
     | ------ | ------------|
-    | ![](img/flame-graph-toolbar-back.png) | Undoes the previous action, such as enlarging a node or changing the root node. |
+    | ![](img/flame-graph-toolbar-back.png) | Undoes the previous action, such as expanding a node or changing the root node. |
     | ![](img/flame-graph-toolbar-reset.png) | Resets the view to it's original state, displaying the entire Flame graph. |
     | ![](img/flame-graph-toolbar-minus.png) | Zooms out the view around the center point. |
     | ![](img/flame-graph-toolbar-plus.png) | Zooms in the view around the center point. |
@@ -80,11 +80,11 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
     | Click | Selects the pointed node and deselects any previously selected nodes. The *Details panel* is updated and, if *Sync* is enabled in the toolbar, the function is selected in the other panels. Displays the associated function in the Source file view if *Source* is enabled in the toolbar.. <br><br>Clicking an empty part of the view deselects all nodes. |
     | Ctrl+Click | Selects the pointed node and keeps the previously selected nodes (append). The *Details panel* is updated to display a combined view of all selected nodes. |
     | Shift+Click | When a node is selected, it expands the selection to include all nodes in the call stack between the pointed node and the selected one. The *Details panel* is updated to display a combined view of all selected nodes. |
-    | Double-click | Enlarges (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly. |
+    | Double-click | Expands (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly. |
     | Ctrl+Double-click | Opens the Assembly view of the selected function in the current tab. |
     | Ctrl+Shift+Double-click | Opens the Assembly view of the selected function in a new tab. |
     | Alt+Double-click | Sets the selected node as the root node of the Flame graph. |
-    | Back | If the mouse has an optional *Back* button, this undoes the previous action, such as enlarging a node (double-click) or changing the root node. An alternative is pressing the *Backspace* key or the *Back* button in the toolbar.|
+    | Back | If the mouse has an optional *Back* button, this undoes the previous action, such as expanding a node (double-click) or changing the root node. An alternative is pressing the *Backspace* key or the *Back* button in the toolbar.|
     | Right-click | Shows the context menu for the selected nodes. |
     | Click+Drag | If the flame graph is larger than the view, clicking on and dragging an empty part of the view moves the view in the direction of the mouse. |
     | Scroll wheel | Scrolls the view vertically if the flame graph is larger than the view |
@@ -99,7 +99,7 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
 ???+ abstract "Keyboard shortcuts"
     | Keys | Description |
     | ------ | ------------|
-    | Return | Enlarges (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly. |
+    | Return | Expands (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly. |
     | Ctrl+Return | Opens the Assembly view of the selected function in the current tab. |
     | Ctrl+Shift+Return | Opens the Assembly view of the selected function in a new tab. |
     | Alt+Return | Opens a preview popup with the assembly of the selected function. Press the *Escape* key to close the popup.<br><br>Multiple preview popups can be can be kept open at the same time. |
@@ -107,7 +107,7 @@ To remove the root node and view the entire Flame graph, click the *X* button ne
     | Ctrl+C | Copies to clipboard a HTML and Markdown table with a summary of the selected nodes. |
     | Ctrl+Shift+C | Copies to clipboard the function names of the selected nodes. |
     | Ctrl+Alt+C | Copies to clipboard the mangled/decorated function names of the selected nodes. |
-    | Backspace | Undoes the previous action, such as enlarging a node (double-click) or changing the root node. |
+    | Backspace | Undoes the previous action, such as expanding a node (double-click) or changing the root node. |
     | Ctrl+= | Zooms in the view around the center point. |
     | Ctrl+- | Zooms out the view around the center point. |
     | Ctrl+0<br> Ctrl+R | Resets the view to the initial state. |
