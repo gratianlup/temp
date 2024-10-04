@@ -7,6 +7,8 @@
     text-transform: none;
     font-size: 18px;
     font-weight: 500;
+    padding: 0;
+    margin: 0;
 }
 
 .md-typeset h1,

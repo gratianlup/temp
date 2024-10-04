@@ -20,7 +20,7 @@
     
     
       
-        <title>Assembly Code view - Profile Explorer</title>
+        <title>Assembly view - Profile Explorer</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Assembly Code view
+              Assembly view
             
           </span>
         </div>
@@ -547,7 +547,7 @@
           
   
   <span class="md-ellipsis">
-    Assembly Code view
+    Assembly view
   </span>
   
 
@@ -558,7 +558,7 @@
         
   
   <span class="md-ellipsis">
-    Assembly Code view
+    Assembly view
   </span>
   
 
@@ -710,6 +710,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      View
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -734,9 +752,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#more-documentation-in-progress" class="md-nav__link">
+  <a href="#view-options" class="md-nav__link">
     <span class="md-ellipsis">
-      More documentation in progress
+      View options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Column options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation in progress
     </span>
   </a>
   
@@ -1148,6 +1184,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#export" class="md-nav__link">
+    <span class="md-ellipsis">
+      Export
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      View
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1172,9 +1226,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#more-documentation-in-progress" class="md-nav__link">
+  <a href="#view-options" class="md-nav__link">
     <span class="md-ellipsis">
-      More documentation in progress
+      View options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#column-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Column options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation in progress
     </span>
   </a>
   
@@ -1195,10 +1267,10 @@
                   
 
 
-  <h1>Assembly Code view</h1>
+  <h1>Assembly view</h1>
 
 <h4 id="overview">Overview</h4>
-<p>The Assembly Code view shows the function's machine code after disassembly, with syntax highlighting for x86_64/ARM64 architectures. The view is interactive, with the text being parsed into instructions with operands and higher-level constructs such as <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> and loops are recovered.</p>
+<p>The Assembly view shows the function's machine code after disassembly, with syntax highlighting for x86_64/ARM64 architectures. The view is interactive, with the text being parsed into instructions with operands and higher-level constructs such as <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> and loops are recovered.</p>
 <p>The assembly instructions are augmented with annotations from the debug information files, such as source line numbers and inlinees, and combined with the execution time from the profile trace.</p>
 <p><a href="img/assembly-view_1164x473.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-view_1164x473.png" /></a></p>
 <p>The view has four parts:  </p>
@@ -1225,7 +1297,7 @@
 </ul>
 <h5 id="source-lines">Source lines</h5>
 <p>The debug information files usually contain a mapping between the source line numbers and the instructions that were generated for those lines. If available, the source line number is appended at the end of an instruction. Note that accuracy of this mapping usually depends on the compiler optimization level, with higher levels being less accurate or even lacking the mapping for some instructions.</p>
-<p>Hovering over the line number shows a tooltip with the name and path of the source file. To copy this info to clipboard, first <em>click</em> the line number, then press <em>Ctrl+C</em>.  </p>
+<p><em>Hovering</em> over the line number shows a tooltip with the name and path of the source file. To copy this info to clipboard, first <em>click</em> the line number, then press <em>Ctrl+C</em>.  </p>
 <p><a href="img/assemlby-line-number_816x106.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assemlby-line-number_816x106.png" style="width:500px" /></a>  </p>
 <details class="note" open="open">
 <summary>Note</summary>
@@ -1236,7 +1308,7 @@
 <h5 id="inlinees">Inlinees</h5>
 <p>During function inlining, the compiler may preserve additional details about the functions code being inlined so that the origin of an instruction can be saved into the debug information file. If available, the inlinees (inlined functions) are appended after the source line number, separated by the | letter.</p>
 <p>For example, if the function contains a call chain like <em>foo() -&gt; bar()</em>, with both calls being inlined, the final instructions will record the fact that they originate from <em>bar</em>, which got inlined into <em>foo</em>, then <em>foo</em> inlined into the function.</p>
-<p>Hovering over the inlinee shows a tooltip with the call path (stack trace) of the functions inlined at that point. To copy this info to clipboard, first <em>click</em> the inlinee, then press <em>Ctrl+C</em>:  </p>
+<p><em>Hovering</em> over the inlinee shows a tooltip with the call path (stack trace) of the functions inlined at that point. To copy this info to clipboard, first <em>click</em> the inlinee, then press <em>Ctrl+C</em>:  </p>
 <p><a href="img/assembly-inlinees_926x222.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-inlinees_926x222.png" style="width:500px" /></a></p>
 <h5 id="basic-blocks">Basic blocks</h5>
 <p>The assembly is parsed and analyzed to recover the function's <a href="https://en.wikipedia.org/wiki/Control-flow_graph">control-flow graph (CFG)</a>, identifying <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> and loops. This information is used to split the assembly text into basic blocks and to display the Flow Graph view.</p>
@@ -1259,7 +1331,7 @@
 </ul>
 <p><a href="img/assembly-marking-blocks_793x203.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-marking-blocks_793x203.png" /></a>  </p>
 <ul>
-<li>the basic blocks have a label with the block's execution time percentage, as a sum of its instruction's execution time (in the example above, the 55.73% label for B4). Hovering over the label shows the block's execution time value. The label background color uses the same color coding.</li>
+<li>the basic blocks have a label with the block's execution time percentage, as a sum of its instruction's execution time (in the example above, the 55.73% label for B4). <em>Hovering</em> over the label shows the block's execution time value. The label background color uses the same color coding.</li>
 <li>the basic blocks in the <em>Flow Graph</em> view have below the same execution time percentage label as in the Assembly view, with the corresponding background color.</li>
 </ul>
 <details class="note" open="open">
@@ -1274,7 +1346,7 @@ When the function is displayed subsequently, the last vertical scroll position i
 <li>for direct calls (target is an function name/address), a black arrow is used.</li>
 <li>for indirect or virtual function calls (target is a register or memory operand), a green arrow is used.</li>
 </ul>
-<p>Hovering with the mouse over the arrow displays a target functions list, with details about their execution time. For example, the indirect call below at runtime has the <em>std::_Random_device</em> function as the only target:</p>
+<p><em>Hovering</em> with the mouse over the arrow displays a target functions list, with details about their execution time. For example, the indirect call below at runtime has the <em>std::_Random_device</em> function as the only target:</p>
 <p><a href="img/assembly-call-target_691x172.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-call-target_691x172.png" style="width:500px" /></a> </p>
 <details class="note" open="open">
 <summary>Note</summary>
@@ -1284,7 +1356,7 @@ When the function is displayed subsequently, the last vertical scroll position i
 <ul>
 <li><em>Double-click</em> on the function name (or the Return key with the name selected) opens the called function in the same tab.  </li>
 <li><em>Shift+Double-Click</em> (or Shift+Return) opens the called function in a new tab.  </li>
-<li><em>Alt+Return</em> shows a preview popup with the called function's assembly. Press the <em>Escape</em> key to close hte popup.  </li>
+<li><em>Alt+Return</em> shows a preview popup with the called function's assembly. Press the <em>Escape</em> key to close the popup.  </li>
 <li><em>Hovering</em> with the mouse over the function name also shows the preview popup.</li>
 <li>Use the shortcuts from the <em>Opened function history</em> section below to go back to the caller.</li>
 </ul>
@@ -1328,10 +1400,17 @@ When the function is displayed subsequently, the last vertical scroll position i
 Use the <em>All instances</em> entry or uncheck all instances to view the entire function profile again.</p>
 <h5 id="threads">Threads</h5>
 <p>By default the Assembly view displays the function profile accumulated across all threads the function executed on. Similar to instances, the profile can be filtered to consider only a subset of the threads. The Threads menu displays the threads IDs and their execution time percentage and value.</p>
+<p><a href="img/assembly-threads_560x214.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-threads_560x214.png" style="width:350px" /></a>  </p>
 <details class="note" open="open">
 <summary>Note</summary>
-<p>Hovering with the mouse over the Assembly view'a tab displays a tooltip with details such as the total/self execution time, module and complete function name and if filtering is used, the name of the instances and threads included in the view. </p>
+<p><em>Hovering</em> with the mouse over the Assembly view tab displays a tooltip with details such as the total/self execution time, module and complete function name and if filtering is used, the name of the instances and threads included in the view. </p>
 </details>
+<h5 id="export">Export</h5>
+<p>See the <a href="#exporting">Exporting</a> documentation section below.</p>
+<h5 id="view">View</h5>
+<p>Displays a menu which allows selecting the columns that should be displayed.<br />
+The settings are saved across sessions when closing the application.</p>
+<p><a href="img/assembly-view-menu_523x243.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-view-menu_523x243.png" style="width:350px" /></a> </p>
 <h4 id="assembly-view-interaction">Assembly view interaction</h4>
 <details class="abstract" open="open">
 <summary>Toolbar</summary>
@@ -1481,6 +1560,10 @@ Use the <em>All instances</em> entry or uncheck all instances to view the entire
 <td>Ctrl+Arrow Down</td>
 <td>Jumps to the next basic block.</td>
 </tr>
+<tr>
+<td>Page Up/Down<br>Arrow keys</td>
+<td>Scroll text view similar to other text editors.</td>
+</tr>
 </tbody>
 </table>
 </details>
@@ -1496,9 +1579,32 @@ Use the <em>All instances</em> entry or uncheck all instances to view the entire
 </ul>
 <p>The Export menu in the toolbar also has an option to copy to clipboard the function's assembly as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).  </p>
 <p>The Ctrl+C keyboard shortcut copies to clipboard only the selected instructions as a HTML/Markdown table.</p>
-<h4 id="more-documentation-in-progress">More documentation in progress</h4>
+<h4 id="view-options">View options</h4>
+<p><em>Click</em> on the <em>Gears</em> icon in the top-right part of the view displays the options panel (alternatively, use the <em>Assembly Code</em> tab in the application <em>Settings</em> window.).  </p>
+<p>The tabs below describe each page of the options panel:  </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">General</label><label for="__tabbed_1_2">Appearance</label><label for="__tabbed_1_3">Source File</label><label for="__tabbed_1_4">Profiling</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a href="img/details-panel-info_565x786.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-options-general_559x643.png" style="width:400px" /></a>  </p>
+</div>
+<div class="tabbed-block">
+<p><a href="img/assembly-options-appearance_554x501.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-options-appearance_554x501.png" style="width:400px" /></a>  </p>
+</div>
+<div class="tabbed-block">
+<p><a href="img/assembly-options-source_553x422.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-options-source_553x422.png" style="width:400px" /></a>  </p>
+</div>
+<div class="tabbed-block">
+<p><a href="img/assembly-options-profiling_555x758.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-options-profiling_555x758.png" style="width:400px" /></a>  </p>
+</div>
+</div>
+</div>
+<h4 id="column-options">Column options</h4>
+<p><em>Right-click</em> on a column, such as the <em>Time</em> columns, displays the option panel that allows changing the style and displayed information by the selected column. Each column can have a different style if desired.  </p>
+<p><a href="img/assembly-column-options_463x393.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-column-options_463x393.png" style="width:320px" /></a>  </p>
+<h4 id="documentation-in-progress">Documentation in progress</h4>
 <ul>
-<li>options panel</li>
+<li>View options</li>
+<li>Column options</li>
 </ul>
 
 

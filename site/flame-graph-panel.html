@@ -510,9 +510,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#more-documentation-in-progress" class="md-nav__link">
+  <a href="#view-options" class="md-nav__link">
     <span class="md-ellipsis">
-      More documentation in progress
+      View options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation in progress
     </span>
   </a>
   
@@ -645,7 +654,7 @@
         
   
   <span class="md-ellipsis">
-    Assembly Code view
+    Assembly view
   </span>
   
 
@@ -980,9 +989,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#more-documentation-in-progress" class="md-nav__link">
+  <a href="#view-options" class="md-nav__link">
     <span class="md-ellipsis">
-      More documentation in progress
+      View options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation in progress
     </span>
   </a>
   
@@ -1011,7 +1029,7 @@
 <p>Nodes are sorted in the horizontal direction based on decreasing time relative to their parent node, while the ordering in the vertical direction forms a stack trace (a path in the call tree). The function taking the most time in the application is then found in the leftmost, bottom part of the Flame graph.</p>
 <p><img alt="Flame graph diagram" src="img/flame-graph.png" style="width:320px" /><br />
 In the example above, the <em>main</em> function is considered the process entry point, calling <em>foo</em> and <em>bar</em>, with <em>foo</em> taking 60% of the time and <em>bar</em> 40%. Function <em>foo</em> spends a part of its total (inclusive) time in the calls to <em>baz</em> and <em>etc1</em>, while the rest is self (exclusive) time, meaning instructions part of <em>foo</em> which are not calls to other functions.  </p>
-<p>Note that there are two instances of the function <em>baz</em> with different execution time, each with a unique path to it in the call tree starting from <em>main</em> (all other functions have a single instance). You can see the time of each instance by hovering with the mouse over it or in the <em>Details panel</em> after it's selected.</p>
+<p>Note that there are two instances of the function <em>baz</em> with different execution time, each with a unique path to it in the call tree starting from <em>main</em> (all other functions have a single instance). You can see the time of each instance by <em>hovering</em> with the mouse over it or in the <em>Details panel</em> after it's selected.</p>
 <p>The following links provide an introduction to the flame graph visualization concept, its history, and how it's being used across the industry for performance investigations.  </p>
 <ul>
 <li><a href="https://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html">CPU Flame Graphs (brendangregg.com)</a></li>
@@ -1252,14 +1270,16 @@ In the example above, the <em>main</em> function is considered the process entry
 <p>The information displayed in the tabs below is for the selected function instance only; the Info tab displays statistics for all instances.</p>
 <details class="note" open="open">
 <summary>Note</summary>
-<p>All functions in the lists have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. <em>Double-click/Ctrl+Return</em> opens the Assembly view for the selected function. Combine these shortcuts with the <em>Shift</em> key to open the Assembly view in a new tab instead.  </p>
+<p>Functions in the lists have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views.  </p>
+<p><em>Double-click/Ctrl+Return</em> opens the Assembly view for the selected function. Combine these shortcuts with the <em>Shift</em> key to open the Assembly view in a new tab instead.<br />
+<em>Hovering</em> with the mouse over a function opens a preview popup with the function's assembly.    </p>
 <p>When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.</p>
 </details>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Info</label><label for="__tabbed_1_2">Stack</label><label for="__tabbed_1_3">Functions</label><label for="__tabbed_1_4">Modules</label><label for="__tabbed_1_5">Categories</label><label for="__tabbed_1_6">Instances</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a href="img/details-panel-info_565x786.png" target="_blank"><img alt="Profiling UI screenshot" src="img/details-panel-info_565x786.png" style="width:380px" /></a>  </p>
-<p>The Info tab displays statistics about all function instance nodes.  </p>
+<p>The Info tab displays details and statistics about all instances of the selected funcion node.  </p>
 <table>
 <thead>
 <tr>
@@ -1274,7 +1294,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tr>
 <tr>
 <td>Histogram</td>
-<td>The histogram displays the time distribution across all function instances. Instances with similar times are grouped, and the number of instances in each group is shown above, with more details when hovering over a group with the mouse.<br><br><em>Clicking</em> on a group selects the first node from the group in the Flame graph view. The <em>Total/Self</em> radio buttons switch between using the total time or self time for the histogram.<br><br>In the above example, there are 3 instances of function <em>genString</em>, one with an execution time of ~1.5ms and two, binned together, with ~1sec each. The time of the selected instance is marked with a green arrow, and the average/median times are indicated by red/blue dotted lines.</td>
+<td>The histogram displays the time distribution across all function instances. Instances with similar times are grouped, and the number of instances in each group is shown above, with more details when <em>hovering</em> over a group with the mouse.<br><br><em>Clicking</em> on a group selects the first node from the group in the Flame graph view. The <em>Total/Self</em> radio buttons switch between using the total time or self time for the histogram.<br><br>In the above example, there are 3 instances of function <em>genString</em>, one with an execution time of ~1.5ms and two, binned together, with ~1sec each. The time of the selected instance is marked with a green arrow, and the average/median times are indicated by red/blue dotted lines.</td>
 </tr>
 <tr>
 <td>Threads</td>
@@ -1313,17 +1333,27 @@ In the example above, the <em>main</em> function is considered the process entry
 </div>
 </div>
 </div>
-<h4 id="more-documentation-in-progress">More documentation in progress</h4>
+<h4 id="view-options">View options</h4>
+<p><em>Click</em> on the <em>Gears</em> icon in the top-right part of the view displays the options panel (alternatively, use the <em>Flame Graph</em> tab in the application <em>Settings</em> window.).  </p>
+<p>The tabs below describe each page of the options panel:  </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">General</label><label for="__tabbed_2_2">Appearance</label><label for="__tabbed_2_3">Details Panel</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a href="img/flame-graph-options-general_586x337.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-options-general_586x337.png" style="width:400px" /></a>  </p>
+</div>
+<div class="tabbed-block">
+<p><a href="img/flame-graph-options-appearance_592x809.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-options-appearance_592x809.png" style="width:400px" /></a>  </p>
+</div>
+<div class="tabbed-block">
+<p><a href="img/flame-graph-options-details_590x690.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-options-details_590x690.png" style="width:400px" /></a>  </p>
+</div>
+</div>
+</div>
+<h4 id="documentation-in-progress">Documentation in progress</h4>
 <ul>
-<li>Context menu</li>
 <li>Marking nodes</li>
 <li>Searching</li>
-<li>Options:<ul>
-<li>General</li>
-<li>Appearance</li>
-<li>Details panel</li>
-</ul>
-</li>
+<li>View options</li>
 </ul>
 
 

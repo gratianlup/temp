@@ -6,7 +6,7 @@
     ![Flame graph diagram](img/flame-graph.png){: style="width:320px"}  
     In the example above, the *main* function is considered the process entry point, calling *foo* and *bar*, with *foo* taking 60% of the time and *bar* 40%. Function *foo* spends a part of its total (inclusive) time in the calls to *baz* and *etc1*, while the rest is self (exclusive) time, meaning instructions part of *foo* which are not calls to other functions.  
 
-    Note that there are two instances of the function *baz* with different execution time, each with a unique path to it in the call tree starting from *main* (all other functions have a single instance). You can see the time of each instance by hovering with the mouse over it or in the *Details panel* after it's selected.
+    Note that there are two instances of the function *baz* with different execution time, each with a unique path to it in the call tree starting from *main* (all other functions have a single instance). You can see the time of each instance by *hovering* with the mouse over it or in the *Details panel* after it's selected.
 
     The following links provide an introduction to the flame graph visualization concept, its history, and how it's being used across the industry for performance investigations.  
 
@@ -125,19 +125,22 @@ The top shows the *Total* (inclusive) execution time and *Self* (exclusive) exec
 The information displayed in the tabs below is for the selected function instance only; the Info tab displays statistics for all instances.
 
 ???+ note
-    All functions in the lists have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. *Double-click/Ctrl+Return* opens the Assembly view for the selected function. Combine these shortcuts with the *Shift* key to open the Assembly view in a new tab instead.  
+    Functions in the lists have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views.  
+
+    *Double-click/Ctrl+Return* opens the Assembly view for the selected function. Combine these shortcuts with the *Shift* key to open the Assembly view in a new tab instead.  
+    *Hovering* with the mouse over a function opens a preview popup with the function's assembly.    
     
     When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.
 
 === "Info"
     [![Profiling UI screenshot](img/details-panel-info_565x786.png){: style="width:380px"}](img/details-panel-info_565x786.png){:target="_blank"}  
 
-    The Info tab displays statistics about all function instance nodes.  
+    The Info tab displays details and statistics about all instances of the selected funcion node.  
 
     | Section | Description |
     | ------ | ------------|
     | Instances | Displays total execution time (sum), average, and median across all function instances, as a total/self execution time percentage relative to the entire trace and execution time value. |
-    | Histogram | The histogram displays the time distribution across all function instances. Instances with similar times are grouped, and the number of instances in each group is shown above, with more details when hovering over a group with the mouse.<br><br>*Clicking* on a group selects the first node from the group in the Flame graph view. The *Total/Self* radio buttons switch between using the total time or self time for the histogram.<br><br>In the above example, there are 3 instances of function *genString*, one with an execution time of ~1.5ms and two, binned together, with ~1sec each. The time of the selected instance is marked with a green arrow, and the average/median times are indicated by red/blue dotted lines. |
+    | Histogram | The histogram displays the time distribution across all function instances. Instances with similar times are grouped, and the number of instances in each group is shown above, with more details when *hovering* over a group with the mouse.<br><br>*Clicking* on a group selects the first node from the group in the Flame graph view. The *Total/Self* radio buttons switch between using the total time or self time for the histogram.<br><br>In the above example, there are 3 instances of function *genString*, one with an execution time of ~1.5ms and two, binned together, with ~1sec each. The time of the selected instance is marked with a green arrow, and the average/median times are indicated by red/blue dotted lines. |
     | Threads | Displays the list of threads on which all function instances execute, with each thread's total/self execution time percentage and execution time value.<br><br>*Right-clicking* a thread shows a context menu with options to open the Assembly view with profile data filtered to include only the selected thread and multiple options for changing the thread filtering for the entire trace.<br><br>*Double-clicking* a thread filters the entire trace to show only code executing on that thread. |
     | Module | Displays the name of the module to which the function belongs. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <td>![](img/details-panel-mark-module.png){: style="width:24px"}</td>  <td>Marks all function nodes belonging to the module with a color.</td>  </tr> <tr>  <td>![](img/details-panel-copy.png){: style="width:24px"}</td>  <td>Copies to clipboard the module name.</td>  </tr>   </tbody>  </table> |
     | Function | Displays the complete function name, followed by the execution context as U/K/M standing for User/Kernel/Managed mode. Shortcut buttons on the right side:<br> <table>  <tbody>  <tr>  <tr>  <td>![](img/details-panel-preview.png){: style="width:24px"}</td>  <td>Opens a preview popup with the function's assembly.</td>  </tr>  <tr>  <td>![](img/details-panel-tab.png){: style="width:24px"}</td>  <td>Opens the function's Assembly view in a new tab.</td>  </tr>  <td>![](img/details-panel-mark-module.png){: style="width:24px"}</td>  <td>Marks all function nodes with a color.</td>  </tr> <tr>  <td>![](img/details-panel-copy.png){: style="width:24px"}</td>  <td>Copies to clipboard the function name.</td>  </tr>   </tbody>  </table> |
@@ -163,12 +166,21 @@ The information displayed in the tabs below is for the selected function instanc
 
     The Instances tab lists all instances of the function, sorted by total (inclusive) execution time.
 
+#### View options
 
-#### More documentation in progress
-- Context menu
+*Click* on the *Gears* icon in the top-right part of the view displays the options panel (alternatively, use the *Flame Graph* tab in the application *Settings* window.).  
+
+The tabs below describe each page of the options panel:  
+=== "General"
+    [![Profiling UI screenshot](img/flame-graph-options-general_586x337.png){: style="width:400px"}](img/flame-graph-options-general_586x337.png){:target="_blank"}  
+
+=== "Appearance"
+    [![Profiling UI screenshot](img/flame-graph-options-appearance_592x809.png){: style="width:400px"}](img/flame-graph-options-appearance_592x809.png){:target="_blank"}  
+
+=== "Details Panel"
+    [![Profiling UI screenshot](img/flame-graph-options-details_590x690.png){: style="width:400px"}](img/flame-graph-options-details_590x690.png){:target="_blank"}  
+
+#### Documentation in progress
 - Marking nodes
 - Searching
-- Options:
-    - General
-    - Appearance
-    - Details panel
+- View options

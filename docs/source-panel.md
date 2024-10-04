@@ -1,3 +1,8 @@
+#### Overview
+
+[![Profiling UI screenshot](img/assembly-view_1164x473.png)](img/assembly-view_1164x473.png){:target="_blank"}
+
+
 - source file loading
 - combined asm toggle, expand sections
 - selection, time in status bar
