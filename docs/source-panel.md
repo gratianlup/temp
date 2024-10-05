@@ -2,6 +2,22 @@
 
 [![Profiling UI screenshot](img/assembly-view_1164x473.png)](img/assembly-view_1164x473.png){:target="_blank"}
 
+The Source File view displays the source code of the function in the active assembly view. When a function is opened in the Assembly view, using the debug information file, its corresponding source file is identified, downloaded if needed from a [Source Server](https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing) and the function's source code displayed, with source lines annotated with profiling information.
+
+Note: call target may have a function that doesn't appear in source line due to inlining
+
+Finding file steps:
+- check local file system
+- check symbol server, try to download using SourceLink (authentication options in profile load window)
+- ask user for location, save mapping
+- source file signature checked (todo future option to ignore)
+- give mapping example sent in in email to Guillerme
+
+Toolbar buttons:
+- Open: open file manually
+- Path: options to show file in Explorer, open in editor, copy path
+- Reset: reset mapping/restrictions for current file (also in options panel)
+
 
 - source file loading
 - combined asm toggle, expand sections
