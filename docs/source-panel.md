@@ -1,23 +1,53 @@
 #### Overview
 
-[![Profiling UI screenshot](img/assembly-view_1164x473.png)](img/assembly-view_1164x473.png){:target="_blank"}
+The Source File view displays the source code of the function in the active assembly view. When a function is opened in the Assembly view, using the debug info file, its corresponding source file is identified, downloaded if needed and loaded in the view, with source lines annotated with profiling information.
 
-The Source File view displays the source code of the function in the active assembly view. When a function is opened in the Assembly view, using the debug information file, its corresponding source file is identified, downloaded if needed from a [Source Server](https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing) and the function's source code displayed, with source lines annotated with profiling information.
+[![Profiling UI screenshot](img/source-view_1109x476.png)](img/source-view_1109x476.png){:target="_blank"}
 
-Note: call target may have a function that doesn't appear in source line due to inlining
+##### Finding source files
 
-Finding file steps:
-- check local file system
-- check symbol server, try to download using SourceLink (authentication options in profile load window)
-- ask user for location, save mapping
-- source file signature checked (todo future option to ignore)
+Locating the source file to load is done with the help of the debug info file, which usually records the file path associated with each function. In some cases, additional information is available that allows locating and downloading source files from remote locations and [Source Servers](https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing).
+
+Steps for locating the source file:  
+
+- check the local file system using the debug info file path. This handles the case of the trace being opened on the same machine where the application was built or the source is available at the same file system location.
+- check and download the source file from a [Source Server](https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing) if the debug info file has additional remote mapping information such as  [SourceLink](https://github.com/dotnet/sourcelink) or built-in commands for retrieving the file. In case authentication is needed, it can be configured in the *Load Profile Trace* window [options](trace-loading.md#authentication).
+- if neither of the above steps work, ask the user to manually locate the source file on a local file system or network share. The mapping between the expected and actual source file location is saved across sessions when closing the application. See the [Mapping source files](#mapping-source-files) section below for more details.
+
+Once a source file is available, it's signature is computed and compared with the expected signature from the debug info file. If it does not match, it means the source file was modified between the time the application was build and the trace being loaded and it will be rejected (a future version will allow ignoring such a mismatch).
+
+##### Mapping source files
+
 - give mapping example sent in in email to Guillerme
+
+#### Source code view
+
+The view is similar to the Assembly view, having four parts:  
+
+- a main toolbar at the top, with general action buttons.
+- a secondary toolbar underneath with profiling-specific info and action buttons.
+- the text view with the source file.
+- several columns on the right side with the profiling data for each source line. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  
+
+##### Assembly code sections
+
+
+##### Profiling annotations
+
+##### Call targets
+
+##### Source code outline
+
+
+[![Profiling UI screenshot](img/source-outline_953_289.png)](img/source-outline_953_289.png){:target="_blank"}
 
 Toolbar buttons:
 - Open: open file manually
 - Path: options to show file in Explorer, open in editor, copy path
 - Reset: reset mapping/restrictions for current file (also in options panel)
 
+
+Note: call target may have a function that doesn't appear in source line due to inlining
 
 - source file loading
 - combined asm toggle, expand sections

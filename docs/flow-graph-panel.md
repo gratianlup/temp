@@ -1,4 +1,4 @@
-[![Profiling UI screenshot](img/flow-graph-view_501x693.png){: style="width:400px"}](img/flow-graph-view_501x693.png){:target="_blank"}
+[![Profiling UI screenshot](img/flow-graph-view_501x693.png){: style="width:350px"}](img/flow-graph-view_501x693.png){:target="_blank"}
 
 The Flow Graph view displays the [control-flow graph (CFG)](https://en.wikipedia.org/wiki/Control-flow_graph) of the function in the active assembly view, with basic blocks annotated with profiling information.
 

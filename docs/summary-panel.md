@@ -1,6 +1,6 @@
 #### Overview
 
-The summary view displays all modules (binaries) and functions that have profile data in the trace, and makes it easy to identify the functions where most time spent. 
+The summary view displays all modules (binaries) and functions that have profile data in the trace, and makes it easy to identify the functions where most time spent, the application hotspots.
 
 [![Profiling UI screenshot](img/summary-panel_1233x417.png)](img/summary-panel_1233x417.png){:target="_blank"}
 
