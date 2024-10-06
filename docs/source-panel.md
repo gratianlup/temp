@@ -2,7 +2,7 @@
 
 The Source File view displays the source code of the function in the active assembly view. When a function is opened in the Assembly view, using the debug info file, its corresponding source file is identified, downloaded if needed and loaded in the view, with source lines annotated with profiling information.
 
-[![Profiling UI screenshot](img/source-view_1109x476.png)](img/source-view_1109x476.png){:target="_blank"}
+[![Profiling UI screenshot](img/source-view_1000x503.png)](img/source-view_1000x503.png){:target="_blank"}
 
 ##### Finding source files
 
@@ -45,6 +45,10 @@ For each such statement and expression, the execution time is computed by accumu
 Example of the outline for a function having three nested loops, with an if/else statement in the last level loop.
 
 [![Profiling UI screenshot](img/source-outline_953_289.png)](img/source-outline_953_289.png){:target="_blank"}
+
+Hovering over a statement marking shows the execution time as a percentage and value relative to the function time and highlights the source lines part of the statement.
+
+[![Profiling UI screenshot](img/source-outline-loop_991x228.png)](img/source-outline-loop_991x228.png){:target="_blank"}
 
 Toolbar buttons:
 - Open: open file manually

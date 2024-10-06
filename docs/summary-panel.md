@@ -47,6 +47,7 @@ Hovering over a function displays a popup with the stack trace (call path) end w
     | ![](img/flame-graph-toolbar-source.png) | If enabled, selecting a function also displays the source in the Source file view, with the source lines annotated with profiling data. |
     | Export | Export the current function list into one of multiple formats (Excel, HTML and Markdown) or copy to clipboard the function list as  a HTML/Markdown table. |
     | Search box | Search for functions with a specific name using a case-insensitive substring search. Searching filters the list down to display only the matching entries. Press the *Escape* key to reset the search or the *X* button next to the input box. |
+    | ![](img/summary-toolbar-up.png) | Scrolls up the list to the start (equivalent to pressing Ctrl+Home). |
 
 ???+ abstract "Mouse shortcuts"
     | Action | Description |
