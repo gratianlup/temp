@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -605,6 +605,81 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding source files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mapping source files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source code view
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Source code view">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assembly-code-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly code sections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling annotations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call targets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code-outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source code outline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -893,6 +968,81 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding source files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapping-source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mapping source files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source code view
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Source code view">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assembly-code-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assembly code sections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling annotations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call targets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-code-outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source code outline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -940,7 +1090,42 @@
   <h1>Source File view</h1>
 
 <h4 id="overview">Overview</h4>
-<p><a href="img/assembly-view_1164x473.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-view_1164x473.png" /></a></p>
+<p>The Source File view displays the source code of the function in the active assembly view. When a function is opened in the Assembly view, using the debug info file, its corresponding source file is identified, downloaded if needed and loaded in the view, with source lines annotated with profiling information.</p>
+<p><a href="img/source-view_1109x476.png" target="_blank"><img alt="Profiling UI screenshot" src="img/source-view_1109x476.png" /></a></p>
+<h5 id="finding-source-files">Finding source files</h5>
+<p>Locating the source file to load is done with the help of the debug info file, which usually records the file path associated with each function. In some cases, additional information is available that allows locating and downloading source files from remote locations and <a href="https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing">Source Servers</a>.</p>
+<p>Steps for locating the source file:  </p>
+<ul>
+<li>check the local file system using the debug info file path. This handles the case of the trace being opened on the same machine where the application was built or the source is available at the same file system location.</li>
+<li>check and download the source file from a <a href="https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing">Source Server</a> if the debug info file has additional remote mapping information such as  <a href="https://github.com/dotnet/sourcelink">SourceLink</a> or built-in commands for retrieving the file. In case authentication is needed, it can be configured in the <em>Load Profile Trace</em> window <a href="trace-loading.html#authentication">options</a>.</li>
+<li>if neither of the above steps work, ask the user to manually locate the source file on a local file system or network share. The mapping between the expected and actual source file location is saved across sessions when closing the application. See the <a href="#mapping-source-files">Mapping source files</a> section below for more details.</li>
+</ul>
+<p>Once a source file is available, it's signature is computed and compared with the expected signature from the debug info file. If it does not match, it means the source file was modified between the time the application was build and the trace being loaded and it will be rejected (a future version will allow ignoring such a mismatch).</p>
+<h5 id="mapping-source-files">Mapping source files</h5>
+<ul>
+<li>give mapping example sent in in email to Guillerme</li>
+</ul>
+<h4 id="source-code-view">Source code view</h4>
+<p>The view is similar to the Assembly view, having four parts:  </p>
+<ul>
+<li>a main toolbar at the top, with general action buttons.</li>
+<li>a secondary toolbar underneath with profiling-specific info and action buttons.</li>
+<li>the text view with the source file.</li>
+<li>several columns on the right side with the profiling data for each source line. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  </li>
+</ul>
+<h5 id="assembly-code-sections">Assembly code sections</h5>
+<h5 id="profiling-annotations">Profiling annotations</h5>
+<h5 id="call-targets">Call targets</h5>
+<h5 id="source-code-outline">Source code outline</h5>
+<p>On load, C/C++ source files are parsed using <a href="https://tree-sitter.github.io/tree-sitter/">tree-sitter</a> in order to build an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree (AST)</a>. The AST is used to identify and mark some of the high-level parts of the function's source code, such as if/else/switch statements, for/do/while loops and call expressions.  </p>
+<p>For each such statement and expression, the execution time is computed by accumulating the time of each source line found in its range. This makes it easier, for example, to see the amount of time spent in an entire <em>loop</em> (or <em>nested loop</em>), the <em>then/else</em> branch of an <em>if</em> statement or a specific <em>case</em> of a <em>switch</em> statement.  </p>
+<p>Example of the outline for a function having three nested loops, with an if/else statement in the last level loop.</p>
+<p><a href="img/source-outline_953_289.png" target="_blank"><img alt="Profiling UI screenshot" src="img/source-outline_953_289.png" /></a></p>
+<p>Toolbar buttons:
+- Open: open file manually
+- Path: options to show file in Explorer, open in editor, copy path
+- Reset: reset mapping/restrictions for current file (also in options panel)</p>
+<p>Note: call target may have a function that doesn't appear in source line due to inlining</p>
 <ul>
 <li>source file loading</li>
 <li>combined asm toggle, expand sections</li>
@@ -1111,7 +1296,7 @@
     <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.instant", "navigation.top", "header.autohide", "navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>
