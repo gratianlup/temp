@@ -6,10 +6,39 @@ This view is helpful to identify the threads and time ranges that had CPU activi
 
 The view has three parts:
 - a main toolbar at the top, with general action buttons.
-- a histogram showing the activity of the entire application, with the activity across all threads.
+- a histogram showing the activity of the entire application, with the activity across all threads combined.
 - for each thread, a histogram showing the thread's activity.
 
+Thread names
+[![Profiling UI screenshot](img/timeline-threads_708x240.png)](img/timeline-threads_708x240.png){:target="_blank"}
 
+Hover
+
+
+
+Selecting a time range:  
+
+- all threads  
+    [![Profiling UI screenshot](img/timeline-select_879x239.png)](img/timeline-select_879x239.png){:target="_blank"}
+- single thread
+    [![Profiling UI screenshot](img/timeline-select-single_879x199.png)](img/timeline-select-single_879x199.png){:target="_blank"}
+
+##### Filtering
+
+- time range
+    [![Profiling UI screenshot](img/timeline-filter-time_878x320.png)](img/timeline-filter-time_878x320.png){:target="_blank"}
+- threads
+    [![Profiling UI screenshot](img/timeline-filter-time-thread_889x317.png)](img/timeline-filter-time-thread_889x317.png){:target="_blank"}
+
+- threads context menu
+    [![Profiling UI screenshot](img/timeline-thread-menu_480x317.png)](img/timeline-thread-menu_480x317.png){:target="_blank"}
+
+Longer hover
+[![Profiling UI screenshot](img/timeline-hover_829x604.png)](img/timeline-hover_829x604.png){:target="_blank"}
+
+Marking
+
+[![Profiling UI screenshot](img/timeline-marking_929x333.png)](img/timeline-marking_929x333.png){:target="_blank"}
 
 - display all and each thread
 - threads have ID and optional name, color code by name
