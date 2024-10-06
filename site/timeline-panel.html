@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#filtering" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -431,6 +436,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Timeline view
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="timeline-panel.html" class="md-nav__link md-nav__link--active">
         
   
@@ -440,6 +456,32 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtering
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -811,6 +853,23 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtering
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -826,7 +885,67 @@
 
   <h1>Timeline view</h1>
 
+<p>The Timeline view displays the activity of the application for the entire duration of the trace, with each thread having a histogram showing the CPU usage based on the number profile samples collected over time.</p>
+<p>This view is helpful to identify the threads and time ranges that had CPU activity (or lack of it due to locks and I/O) and also has features for filtering the entire profile data to consider only specific threads and time ranges.</p>
 <p><a href="img/timeline-view_1028x418.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-view_1028x418.png" /></a></p>
+<p>The view has three parts:</p>
+<ul>
+<li>a main toolbar at the top, with general action buttons.</li>
+<li>a graph showing the activity of the entire application, with the activity across all threads combined.</li>
+<li>for each thread, a graph showing the thread's activity. The thread list is sorted by the execution time in descending order.</li>
+</ul>
+<p>Each thread entry has the following values and buttons:</p>
+<ul>
+<li>"eye" button indicating if the thread is included in the profile data or not. Click to toggle between included or excluded state. 2 pics with icon states</li>
+<li>"stacks" button that shows a menu with thread actions for filtering.</li>
+<li>the thread ID.</li>
+<li>the thread execution time, as a sum of the duration of all samples that ran on the thread.</li>
+<li>if available in the trace, the thread name.</li>
+</ul>
+<p><a href="img/timeline-threads_708x240.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-threads_708x240.png" /></a></p>
+<p>Hover
+- gliding over show time position and CPU usage
+- hover longer shows call stack of slowst samples</p>
+<p>Selecting a time range:  </p>
+<ul>
+<li>To select a time range that includes all threads, <em>click and drag</em> over the desired range in the top <em>All Threads</em> graph. The duration of the current select is displayed in the top <em>All Threads</em> graph.
+    <a href="img/timeline-select_879x239.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-select_879x239.png" /></a></li>
+<li>To select a time range for a single thread, <em>click and drag</em> over the desired range in the specific thread graph. To include another thread in the same time range, from the thread action menu click <em>Include thread</em> or use its <em>Eye</em> icon.
+    <a href="img/timeline-select-single_879x199.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-select-single_879x199.png" /></a></li>
+</ul>
+<details class="note" open="open">
+<summary>Note</summary>
+<p>If the <em>Sync</em> option is enabled, selecting a time range also selects the functions executing during that time in the other views.</p>
+</details>
+<h5 id="filtering">Filtering</h5>
+<p>When filtering the entire profile data to consider only specific threads and time ranges, all views are updated and recomputed to consider only the included samples. The current filter is displayed in both the toolbar and in the application menu bar.</p>
+<p>Filtering based on a time range: select the desired time range then <em>double-click</em> the selection (alternatively, right-click the selection and click "Filter to Time Range*).</p>
+<ul>
+<li>time range
+    <a href="img/timeline-filter-time_878x320.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-filter-time_878x320.png" /></a></li>
+</ul>
+<p>Filtering based on a thread:</p>
+<ul>
+<li>to include a single thread, <em>double-click</em> the thread name, or <em>click</em> "Filter to Thread* from the thread action menu.</li>
+<li>to include another thread, click its eye icon, or <em>click</em> "Include Thread" from the thread action menu.</li>
+<li>to include all threads with the same name, <em>click</em> the ...</li>
+<li>to exclude a thread, click the <em>eye</em> icon, or ...</li>
+<li>
+<p>to exlude all threads with the same name, </p>
+</li>
+<li>
+<p>threads
+    <a href="img/timeline-filter-time-thread_889x317.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-filter-time-thread_889x317.png" /></a></p>
+</li>
+<li>
+<p>threads context menu
+    <a href="img/timeline-thread-menu_480x317.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-thread-menu_480x317.png" /></a></p>
+</li>
+</ul>
+<p>Longer hover
+<a href="img/timeline-hover_829x604.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-hover_829x604.png" /></a></p>
+<p>Marking</p>
+<p><a href="img/timeline-marking_929x333.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-marking_929x333.png" /></a></p>
 <ul>
 <li>display all and each thread</li>
 <li>threads have ID and optional name, color code by name</li>
