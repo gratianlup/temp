@@ -462,9 +462,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary-view-interaction" class="md-nav__link">
+  <a href="#view-interaction" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary view interaction
+      View interaction
     </span>
   </a>
   
@@ -944,9 +944,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary-view-interaction" class="md-nav__link">
+  <a href="#view-interaction" class="md-nav__link">
     <span class="md-ellipsis">
-      Summary view interaction
+      View interaction
     </span>
   </a>
   
@@ -1001,7 +1001,7 @@
 <p>By default the <em>All</em> entry is active and the function list displays all functions with profile data in the trace.  </p>
 <p><em>Double-click</em> a module (or use the Return key) to display only its functions. Selecting a module while the <em>All</em> entry is active selects its functions in the list.</p>
 <h5 id="functions-list">Functions list</h5>
-<p>The function list has an entry for each function with profile data. Each entry has the demangled (undecorated) function name, module and self (exclusive) execution time and total (inclusive) execution time. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  </p>
+<p>The function list has an entry for each function with profile data. An entry has the demangled (undecorated) function name, module and self (exclusive) execution time and total (inclusive) execution time. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  </p>
 <p>The list is filtered based on the active module. The displayed columns and style can be customized in the Summary options.</p>
 <p>The function list is by default sorted by the self (exclusive) execution time in decreasing order.<br />
 <em>Click</em> the same column header to toggle between decreasing and  increasing order.<br />
@@ -1009,12 +1009,12 @@
 <details class="note" open="open">
 <summary>Note</summary>
 <p>The same sorting actions apply to other list views in the application. Not all list views support sorting currently.  </p>
-<p>The columns in all list views can be resized and reorder.   The new layout is saved across sessions when closing the application.</p>
+<p>The columns in all list views can be resized and reorder. The new layout is saved across sessions when closing the application.</p>
 </details>
 <p>If marking of functions based on their name or module is active, the function entries use the marking background color.</p>
 <p>Hovering over a function displays a popup with the stack trace (call path) end with the slowest function's instance. Pin or drag the popup to keep it open.<br />
 <a href="img/summary-preview_654x551.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-preview_654x551.png" style="width:450px" /></a></p>
-<h4 id="summary-view-interaction">Summary view interaction</h4>
+<h4 id="view-interaction">View interaction</h4>
 <details class="abstract" open="open">
 <summary>Toolbar</summary>
 <table>
@@ -1068,7 +1068,7 @@
 </tr>
 <tr>
 <td>Double-click</td>
-<td>Opens the Assembly view of the selected function in the current tab.</td>
+<td>Opens the Assembly view of the selected function in the active tab.</td>
 </tr>
 <tr>
 <td>Shift+Double-click</td>
@@ -1097,7 +1097,7 @@
 <tbody>
 <tr>
 <td>Return</td>
-<td>Opens the Assembly view of the selected function in the current tab.</td>
+<td>Opens the Assembly view of the selected function in the active tab.</td>
 </tr>
 <tr>
 <td>Shift+Return</td>

@@ -501,9 +501,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flame-graph-view-interaction" class="md-nav__link">
+  <a href="#view-interaction" class="md-nav__link">
     <span class="md-ellipsis">
-      Flame graph view interaction
+      View interaction
     </span>
   </a>
   
@@ -989,9 +989,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flame-graph-view-interaction" class="md-nav__link">
+  <a href="#view-interaction" class="md-nav__link">
     <span class="md-ellipsis">
-      Flame graph view interaction
+      View interaction
     </span>
   </a>
   
@@ -1065,7 +1065,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </ul>
 <h5 id="flame-graph-nodes">Flame graph nodes</h5>
 <p>The flame graph displays nodes representing functions stacked top to bottom according to the call tree paths forming the stack traces. Each node is a unique instance of a function — a function having multiple instances means there are several paths in the call tree that call the function.  </p>
-<p>Each node has the function name, optionally prepended with the module name, followed by the execution time percentage relative to the entire trace and the execution time.  </p>
+<p>Each node has the demangled (undecorated) function name, optionally prepended with the module name, followed by the execution time percentage relative to the entire trace and the execution time.  </p>
 <p>By default, the nodes are color-coded based on the module names to which the functions belong. Nodes for functions executing in the kernel/managed context are marked with a different text and border color (blue by default). The displayed text fields and colors can be customized in the Flame graph options.  </p>
 <details class="note" open="open">
 <summary>Note</summary>
@@ -1088,7 +1088,7 @@ In the example above, the <em>main</em> function is considered the process entry
 <h4 id="searching-functions">Searching functions</h4>
 <p>Use the <em>search input box</em> in the toolbar to search for functions with a specific name using a case-insensitive substring search. Matching nodes and function names are marked and the <em>up/down</em> buttons showing on the right can be used to navigate between results. Press the Escape key to reset the search or the X button next to the input box.</p>
 <p><a href="img/flame-graph-search_1078x286.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flame-graph-search_1078x286.png" /></a></p>
-<h4 id="flame-graph-view-interaction">Flame graph view interaction</h4>
+<h4 id="view-interaction">View interaction</h4>
 <details class="abstract" open="open">
 <summary>Toolbar</summary>
 <table>
@@ -1154,7 +1154,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tr>
 <tr>
 <td>Click</td>
-<td>Selects the pointed node and deselects any previously selected nodes. The <em>Details panel</em> is updated and, if <em>Sync</em> is enabled in the toolbar, the function is selected in the other panels. Displays the associated function in the Source file view if <em>Source</em> is enabled in the toolbar.. <br><br>Clicking an empty part of the view deselects all nodes.</td>
+<td>Selects a node and deselects any previously selected nodes. The <em>Details panel</em> is updated and, if <em>Sync</em> is enabled in the toolbar, the function is selected in the other panels. Displays the associated function in the Source file view if <em>Source</em> is enabled in the toolbar. <br><br>Clicking an empty part of the view deselects all nodes.</td>
 </tr>
 <tr>
 <td>Ctrl+Click</td>
@@ -1170,7 +1170,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tr>
 <tr>
 <td>Ctrl+Double-click</td>
-<td>Opens the Assembly view of the selected function in the current tab.</td>
+<td>Opens the Assembly view of the selected function in the active tab.</td>
 </tr>
 <tr>
 <td>Ctrl+Shift+Double-click</td>
@@ -1232,7 +1232,7 @@ In the example above, the <em>main</em> function is considered the process entry
 </tr>
 <tr>
 <td>Ctrl+Return</td>
-<td>Opens the Assembly view of the selected function in the current tab.</td>
+<td>Opens the Assembly view of the selected function in the active tab.</td>
 </tr>
 <tr>
 <td>Ctrl+Shift+Return</td>
@@ -1271,7 +1271,7 @@ In the example above, the <em>main</em> function is considered the process entry
 <td>Zooms out the view around the center point.</td>
 </tr>
 <tr>
-<td>Ctrl+0<br> Ctrl+R</td>
+<td>Ctrl+0<br>Ctrl+R</td>
 <td>Resets the view to the initial state.</td>
 </tr>
 <tr>

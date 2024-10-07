@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -452,6 +457,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Call Tree view
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="call-tree-panel.html" class="md-nav__link md-nav__link--active">
         
   
@@ -461,6 +477,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      View interaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation in progress
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -811,6 +880,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      View interaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation in progress
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -826,14 +939,165 @@
 
   <h1>Call Tree view</h1>
 
-<p><a href="img/call-tree-view_1081x540.png" target="_blank"><img alt="Profiling UI screenshot" src="img/call-tree-view_1081x540.png" /></a></p>
-<p>The Call Tree view displays the tree derived from combining the call stacks associated with all profile samples in the trace, with each node representing a unique instance of a function. The node total execution time is computed by accumulating the time of all samples that have the instance in the call stack. The node's children represents the callees (called functions) and the parent the caller function.  </p>
-<p>By default, the call path with the longest execution time is expanded in the view.</p>
+<h4 id="overview">Overview</h4>
+<p>The Call Tree view displays the tree derived from combining the call stacks associated with all profile samples in the trace, with each node representing a unique instance of a function. The node's children represents the callees (called functions) and the parent the caller function.  </p>
+<p><em>Total (inclusive) execution time</em> is computed by accumulating the time of all samples that have the instance in the call stack.<br />
+<em>Self (exclusive) execution time</em> is computed by subtracting the time spent in children nodes from the total execution time.</p>
+<p><a href="img/call-tree-view_1081x540.png" target="_blank"><img alt="Profiling UI screenshot" src="img/call-tree-view_1081x540.png" style="width:700px" /></a></p>
+<p>The view has two parts:  </p>
 <ul>
-<li>expand hottest path</li>
-<li>right-click context menu</li>
-<li>mouse, keyboard shortcuts</li>
-<li>hover shows preview like in flame graph (details panel)</li>
+<li>a toolbar at the top, with action buttons and the <em>Search</em> input box.</li>
+<li>the tree list view displaying the call tree.  </li>
+</ul>
+<p>A function node has the demangled (undecorated) function name, optionally prepended with the module name, the total execution time percentage (relative to the entire trace),  followed by total/self execution time and module columns.</p>
+<details class="note" open="open">
+<summary>Note</summary>
+<p>By default, several levels of the call path with the longest execution time is expanded. This can be configured in the <em>Call Tree options</em> panel.  </p>
+<p>The columns in all list views can be resized and reorder. The new layout is saved across sessions when closing the application.</p>
+</details>
+<h4 id="searching-functions">Searching functions</h4>
+<p>Use the <em>search input box</em> in the toolbar to search for functions with a specific name using a case-insensitive substring search. Matching nodes and function names are marked and the <em>up/down</em> buttons showing on the right can be used to navigate between results. Press the Escape key to reset the search or the X button next to the input box.</p>
+<p><a href="img/call-tree-search_1077x402.png" target="_blank"><img alt="Profiling UI screenshot" src="img/call-tree-search_1077x402.png" style="width:700px" /></a></p>
+<h4 id="view-interaction">View interaction</h4>
+<details class="abstract" open="open">
+<summary>Toolbar</summary>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-reset.png" /></td>
+<td>Resets the view to the initial state.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/call-tree-toobar-flame.png" /></td>
+<td>Expands several levels of the the slowest path in the call tree.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-sync.png" /></td>
+<td>If enabled, selecting a node also selects the associated function in the other profiling views.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-source.png" /></td>
+<td>If enabled, selecting a node also displays the associated function in the Source file view, with the source lines annotated with profiling data.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-module.png" /></td>
+<td>If enabled, display the module name before the function name in the nodes as module!function.</td>
+</tr>
+<tr>
+<td>Search box</td>
+<td>Search for nodes with a specific function name using a case-insensitive substring search. Press the <em>Escape</em> key to reset the search or the <em>X</em> button next to the input box.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="abstract" open="open">
+<summary>Mouse shortcuts</summary>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hover</td>
+<td>Hovering over a node briefly displays a preview popup with the complete function name and total/self execution times, similar to the Flame Graph view.</td>
+</tr>
+<tr>
+<td>Click</td>
+<td>Selects the function. If <em>Sync</em> is enabled in the toolbar, the function is selected in the other panels. Displays the associated function in the Source file view if <em>Source</em> is enabled in the toolbar.</td>
+</tr>
+<tr>
+<td>Ctrl+Double-click</td>
+<td>Opens the Assembly view of the selected function in the active tab.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Double-click</td>
+<td>Opens the Assembly view of the selected function in a new tab.</td>
+</tr>
+<tr>
+<td>Right-click</td>
+<td>Shows the context menu for the selected function.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="abstract" open="open">
+<summary>Keyboard shortcuts</summary>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl+Return</td>
+<td>Opens the Assembly view of the selected function in the active tab.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Return</td>
+<td>Opens the Assembly view of the selected function in a new tab.</td>
+</tr>
+<tr>
+<td>Alt+Return</td>
+<td>Opens a preview popup with the assembly of the selected function. Press the <em>Escape</em> key to close the popup.<br><br>Multiple preview popups can be can be kept open at the same time.</td>
+</tr>
+<tr>
+<td>Alt+Shift+Return</td>
+<td>Opens a preview popup with the assembly of the selected function, with profile data filtered to include only the selected instance.</td>
+</tr>
+<tr>
+<td>Ctrl+C</td>
+<td>Copies to clipboard a HTML and Markdown table with a summary of the selected nodes.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+C</td>
+<td>Copies to clipboard the function names of the selected nodes.</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+C</td>
+<td>Copies to clipboard the mangled/decorated function names of the selected nodes.</td>
+</tr>
+<tr>
+<td>Ctrl+=</td>
+<td>Expands several levels of the the slowest path of children of the selected function.</td>
+</tr>
+<tr>
+<td>Ctrl+-</td>
+<td>Collapses all children of the selected function.</td>
+</tr>
+<tr>
+<td>Ctrl+0<br>Ctrl+R</td>
+<td>Resets the view to the initial state.</td>
+</tr>
+<tr>
+<td>Left-arrow key</td>
+<td>Collapses the children of the selected function and goes up one level.</td>
+</tr>
+<tr>
+<td>Right-arrow key</td>
+<td>Expands the children of the selected function and goes down one level.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="abstract" open="open">
+<summary>Right-click context menu</summary>
+<p><a href="img/call-tree-context-menu_524x517.png" target="_blank"><img alt="Profiling UI screenshot" src="img/call-tree-context-menu_524x517.png" style="width:380px" /></a>  </p>
+</details>
+<h4 id="documentation-in-progress">Documentation in progress</h4>
+<ul>
+<li>Marking nodes</li>
+<li>View options</li>
 </ul>
 
 

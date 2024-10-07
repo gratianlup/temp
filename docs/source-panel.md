@@ -74,7 +74,7 @@ Similar to the Assembly view, execution time is displayed and annotated on sever
 
 ##### Assembly code sections
 
-If enabled, each source line can be followed by a section with the assembly instructions generated for it, based on the debug info file. By default, the sections are collapsed and can be expanded by pressing the + button on the left of the source lines. Each line of assembly has the same kind of profiling annotations as the source lines.
+If enabled, each source line is followed by a section with the assembly instructions generated for it, based on the debug info file. By default, the sections are collapsed and can be expanded by pressing the + button on the left of the source lines. Each line of assembly has the same kind of profiling annotations as the source lines.
 
 [![Profiling UI screenshot](img/source-assembly_816x233.png)](img/source-assembly_816x233.png){:target="_blank"}
 
@@ -123,37 +123,34 @@ Displays a menu with the slowest source lines, sorted by execution time in decre
 
 [![Profiling UI screenshot](img/source-profile_920x251.png){: style="width:550px"}](img/source-profile_920x251.png){:target="_blank"}  
 
+##### Outline
 
-Toolbar buttons:
-- Open: open file manually
-- Path: options to show file in Explorer, open in editor, copy path
-- Reset: reset mapping/restrictions for current file (also in options panel)
+Displays a menu that summarizes  the nested statements and their execution time.  
+See the [Source code outline](#source-code-outline) section above for documentation.
 
-- selection, time in status bar
-- click on line selects instrs in assembly view
+##### Instances
 
-- mouse, keyboard shortcuts
-- profiling toolbar
-  - jump to hottest
-  - lines
-  - blocks
-  - inlinees
-  - instances
-  - threads
+The Instances menu displays the call paths leading to all instances of the function, with their execution time percentage and value, similar to the *Assembly view* feature.  
+See the [Profiling toolbar: Instances](assembly-view.md#instances) section in the *Assembly view* page for details.
+
+##### Threads
+
+The Threads menu displays the threads IDs and their execution time percentage and value, similar to the *Assembly view* feature.  
+See the [Profiling toolbar: Threads](assembly-view.md#threads) section in the *Assembly view* page for details.
 
 #### View interaction
 
 ???+ abstract "Toolbar"
     | Button | Description |
     | ------ | ------------|
-    | ![](img/source-toolbar-open.png) | If enabled, selecting a function also selects it in the other profiling views. |
-    | ![](img/source-toolbar-reset.png) | If enabled, selecting a function also selects it in the other profiling views. |
-    | ![](img/source-toolbar-path.png) | If enabled, selecting a function also selects it in the other profiling views. |
-    | ![](img/flame-graph-toolbar-sync.png) | If enabled, selecting a function also selects it in the other profiling views. |
-    | ![](img/source-toolbar-inlinees.png) | If enabled, selecting a function also selects it in the other profiling views. |
-    | ![](img/source-toolbar-asm.png) | If enabled, selecting a function also selects it in the other profiling views. |
-    | ![](img/source-toolbar-asm-collapse.png) | If enabled, selecting a function also selects it in the other profiling views. |
-    | ![](img/source-toolbar-asm-expand.png) | If enabled, selecting a function also selects it in the other profiling views. |
+    | ![](img/source-toolbar-open.png) | Shows an *Open File* dialog to select a local source file to load in the view. |
+    | ![](img/source-toolbar-reset.png) | Displays a menu with options for resetting any exclusions set on the current source file or all source files. |
+    | ![](img/source-toolbar-path.png) | Displays a menu with options for copying the source file path to clipboard, navigating to the source file in *File Explorer* and opening the source file in the default editor. |
+    | ![](img/flame-graph-toolbar-sync.png) | If enabled, selecting a source lines also selects all associated instructions in the *Assembly view*. |
+    | ![](img/source-toolbar-inlinees.png) | If enabled, inlinees (inlined functions) debug info is used to load the deepest inlinee function and its source file instead of the current function in the *Assembly view*. |
+    | ![](img/source-toolbar-asm.png) | If enabled, each source line is followed by a section with the assembly instructions generated for it, based on the debug info file. See [Assembly code sections](#assembly-code-sections) above for details. |
+    | ![](img/source-toolbar-asm-collapse.png) | Hides (collapses) all assembly sections. |
+    | ![](img/source-toolbar-asm-expand.png) | Shows (expands) all assembly sections. |
     | ![](img/assembly-toolbar-popup.png) | Opens the current source file into a new preview popup. |
 
 #### Exporting

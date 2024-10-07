@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -473,6 +478,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Caller/Callee view
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="caller-panel.html" class="md-nav__link md-nav__link--active">
         
   
@@ -482,6 +498,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      View interaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation in progress
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -811,6 +871,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      View interaction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-in-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation in progress
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -826,19 +921,184 @@
 
   <h1>Caller/Callee view</h1>
 
-<p>The Caller/Callee panel displays the list of callers (functions calling it) and callees (function being called by it) for the active function (selected in the Summary or other views).  </p>
-<p><a href="img/caller-view_1002x539.png" target="_blank"><img alt="Profiling UI screenshot" src="img/.png" /></a></p>
-<p>By default all function instances are displayed combined, with the lists of callers and callees merged and execution time summed up. To display individual instances instead, toggle the <em>Combine</em> button in the toolbar.</p>
+<h4 id="overview">Overview</h4>
+<p>The Caller/Callee view displays the active function's list of callers and callees (function being called by it). It can be viewed as an extension of the <a href="call-tree-panel.html">Call Tree view</a> focused on a single function.     </p>
+<p><a href="img/caller-view_1002x539.png" target="_blank"><img alt="Profiling UI screenshot" src="img/caller-view_1002x539.png" style="width:700px" /></a></p>
+<p>The view has four parts:  </p>
+<ul>
+<li>a toolbar at the top, with action buttons and the <em>Search</em> input box.</li>
+<li>a function node representing the active function, with a 100% total execution time.</li>
+<li>the <em>Calling</em> tree list view displaying the callee functions.</li>
+<li>the <em>Callers</em> tree list view displaying the caller functions.</li>
+</ul>
+<p>A function node has the demangled (undecorated) function name, optionally prepended with the module name, the total execution time percentage (relative to the entire trace),  followed by total/self execution time and module columns.</p>
+<details class="note" open="open">
+<summary>Note</summary>
+<p>The columns in all list views can be resized and reorder. The new layout is saved across sessions when closing the application.</p>
+</details>
+<p>By default all function instances are displayed combined, with the lists of callers and callees merged and execution time summed up. To display individual instances instead, disable <em>Combine</em> in the toolbar.</p>
+<p><a href="img/call-tree-instances_1005x311.png" target="_blank"><img alt="Profiling UI screenshot" src="img/call-tree-instances_1005x311.png" style="width:700px" /></a></p>
 <p>Expanding a caller function form the list goes up the call tree, showing a list of callers which forms a stack trace leading to the entry function. This makes it easy to see the call path that leads to a caller.</p>
-<p>TODO: IMAGE</p>
+<p><a href="img/caller-expand-caller_804x233.png" target="_blank"><img alt="Profiling UI screenshot" src="img/caller-expand-caller_804x233.png" style="width:500px" /></a></p>
 <p>Expanding a callee function from the list goes down the call tree, showing a list of callees until a leaf node is reached. This makes it easy to see which functions are being called starting with a callee.</p>
-<p>TODO: IMAGE</p>
-<p>To navigate, double-click or Return key.
-Ctr+Return opens assembly view</p>
-<p>TODO:
-- right-click context menu
-- mouse, keyboard shortcuts
-- hover shows preview like in flame graph (details panel)</p>
+<p><a href="img/caller-expand-calling_724x210.png" target="_blank"><img alt="Profiling UI screenshot" src="img/caller-expand-calling_724x210.png" style="width:500px" /></a></p>
+<h4 id="view-interaction">View interaction</h4>
+<details class="abstract" open="open">
+<summary>Toolbar</summary>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-back.png" /></td>
+<td>Navigates back to the previous viewed function in the view.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-sync.png" /></td>
+<td>If enabled, selecting a node also selects the associated function in the other profiling views.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-source.png" /></td>
+<td>If enabled, selecting a node also displays the associated function in the Source file view, with the source lines annotated with profiling data.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/call-tree-toolbar-combine.png" /></td>
+<td>If enabled, all function instances are displayed combined, with the lists of callers and callees merged and execution time summed up.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-module.png" /></td>
+<td>If enabled, display the module name before the function name in the nodes as module!function.</td>
+</tr>
+<tr>
+<td>Search box</td>
+<td>Search for nodes with a specific function name using a case-insensitive substring search. Press the <em>Escape</em> key to reset the search or the <em>X</em> button next to the input box.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="abstract" open="open">
+<summary>Mouse shortcuts</summary>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hover</td>
+<td>Hovering over a node briefly displays a preview popup with the complete function name and total/self execution times, similar to the Flame Graph view.</td>
+</tr>
+<tr>
+<td>Click</td>
+<td>Selects the function. If <em>Sync</em> is enabled in the toolbar, the function is selected in the other panels. Displays the associated function in the Source file view if <em>Source</em> is enabled in the toolbar.</td>
+</tr>
+<tr>
+<td>Double-click</td>
+<td>Switches the view to display the selected function instead.</td>
+</tr>
+<tr>
+<td>Ctrl+Double-click</td>
+<td>Opens the Assembly view of the selected function in the active tab.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Double-click</td>
+<td>Opens the Assembly view of the selected function in a new tab.</td>
+</tr>
+<tr>
+<td>Right-click</td>
+<td>Shows the context menu for the selected function.</td>
+</tr>
+<tr>
+<td>Back</td>
+<td>If the mouse has an optional <em>Back</em> button, navigates back to the previous viewed function in the view.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="abstract" open="open">
+<summary>Keyboard shortcuts</summary>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Return</td>
+<td>Switches the view to display the selected function instead.</td>
+</tr>
+<tr>
+<td>Ctrl+Return</td>
+<td>Opens the Assembly view of the selected function in the active tab.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+Return</td>
+<td>Opens the Assembly view of the selected function in a new tab.</td>
+</tr>
+<tr>
+<td>Alt+Return</td>
+<td>Opens a preview popup with the assembly of the selected function. Press the <em>Escape</em> key to close the popup.<br><br>Multiple preview popups can be can be kept open at the same time.</td>
+</tr>
+<tr>
+<td>Alt+Shift+Return</td>
+<td>Opens a preview popup with the assembly of the selected function, with profile data filtered to include only the selected instance.</td>
+</tr>
+<tr>
+<td>Ctrl+C</td>
+<td>Copies to clipboard a HTML and Markdown table with a summary of the selected nodes.</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+C</td>
+<td>Copies to clipboard the function names of the selected nodes.</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+C</td>
+<td>Copies to clipboard the mangled/decorated function names of the selected nodes.</td>
+</tr>
+<tr>
+<td>Backspace</td>
+<td>navigates back to the previous viewed function in the view.</td>
+</tr>
+<tr>
+<td>Ctrl+=</td>
+<td>Expands several levels of the the slowest path of children of the selected function.</td>
+</tr>
+<tr>
+<td>Ctrl+-</td>
+<td>Collapses all children of the selected function.</td>
+</tr>
+<tr>
+<td>Ctrl+0<br>Ctrl+R</td>
+<td>Resets the view to the initial state.</td>
+</tr>
+<tr>
+<td>Left-arrow key</td>
+<td>Collapses the children of the selected function and goes up one level.</td>
+</tr>
+<tr>
+<td>Right-arrow key</td>
+<td>Expands the children of the selected function and goes down one level.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="abstract" open="open">
+<summary>Right-click context menu</summary>
+<p><a href="img/call-tree-context-menu_524x517.png" target="_blank"><img alt="Profiling UI screenshot" src="img/call-tree-context-menu_524x517.png" style="width:380px" /></a>  </p>
+</details>
+<h4 id="documentation-in-progress">Documentation in progress</h4>
+<ul>
+<li>Marking nodes</li>
+<li>View options</li>
+</ul>
 
 
 
