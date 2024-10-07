@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -578,6 +583,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Flow Graph view
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="flow-graph-panel.html" class="md-nav__link md-nav__link--active">
         
   
@@ -587,6 +603,32 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -809,6 +851,23 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -824,8 +883,9 @@
 
   <h1>Flow Graph view</h1>
 
-<p><a href="img/flow-graph-view_501x693.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flow-graph-view_501x693.png" style="width:320px" /></a></p>
+<h4 id="overview">Overview</h4>
 <p>The Flow Graph view displays the <a href="https://en.wikipedia.org/wiki/Control-flow_graph">control-flow graph (CFG)</a> of the function in the active assembly view, with basic blocks annotated with profiling information.</p>
+<p><a href="img/flow-graph-view_501x693.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flow-graph-view_501x693.png" style="width:320px" /></a></p>
 <p>The function CFG makes it easier to see the structure of a function, loops. Blocks and arrows color-coded, ex default colors for loops, exit blocks TODO</p>
 <p>Example img with selection sync on block click.</p>
 <p><a href="img/flow-graph-select_1277x370.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flow-graph-select_1277x370.png" /></a> </p>
