@@ -194,7 +194,7 @@ The settings are saved across sessions when closing the application.
 
 [![Profiling UI screenshot](img/assembly-view-menu_523x243.png){: style="width:350px"}](img/assembly-view-menu_523x243.png){:target="_blank"} 
 
-#### Assembly view interaction
+#### View interaction
 
 ???+ abstract "Toolbar"
     | Button | Description |
@@ -212,7 +212,7 @@ The settings are saved across sessions when closing the application.
     | ------ | ------------|
     | Hover | Hovering over a call target function name displays a popup with the function's assembly. Pin or drag the popup to keep it open. |
     | Click | Selects an instruction and also selects and brings into view its corresponding source line in the *Source File* view and its basic block in the *Flow Graph* view. |
-    | Double-click | If an instruction operand is selected, jumps to its definition.<br>For jump/branch target address, jumps to the destination basic block.<br>For call target function names, it opens the target function in the current tab. |
+    | Double-click | If an instruction operand is selected, jumps to its definition.<br>For jump/branch target address, jumps to the destination basic block.<br>For call target function names, it opens the target function in the active tab. |
     | Shift+Double-click | For call target function names, it opens the target function in a new tab.  |
     | Right-click | Shows the context menu for the selected instructions. |
     | Back | If the mouse has an optional *Back* button, navigates back to the previous opened function in the tab. |
@@ -221,7 +221,7 @@ The settings are saved across sessions when closing the application.
 ???+ abstract "Keyboard shortcuts"
     | Keys | Description |
     | ------ | ------------|
-    | Return | If an instruction operand is selected, jumps to its definition.<br>For jump/branch target address, jumps to the destination basic block.<br>For call target function names, it opens the target function in the current tab. |
+    | Return | If an instruction operand is selected, jumps to its definition.<br>For jump/branch target address, jumps to the destination basic block.<br>For call target function names, it opens the target function in the active tab. |
     | Shift+Return | For call target function names, it opens the target function in a new tab. |
     | Alt+Return | For direct call target function names, displays a preview popup with the target function's assembly. |
     | Backspace | Navigates back to the previous opened function in the tab. |
@@ -245,11 +245,11 @@ The settings are saved across sessions when closing the application.
 The function's assembly, combined with source line numbers and profiling annotations and execution time can be exported and saved into multiple formats, with the slowest instructions marked using a similar style as in the application:
 
 - Excel worksheet (*.xlsx)  
-  [![Profiling UI screenshot](img/assembly-export-excel_780x441.png){: style="width:450px"}](img/assembly-export-excel_780x441.png){:target="_blank"}
+  [![Profiling UI screenshot](img/assembly-export-excel_780x441.png){: style="width:480px"}](img/assembly-export-excel_780x441.png){:target="_blank"}
 - HTML table (*.html)  
-  [![Profiling UI screenshot](img/assembly-export-html_721x536.png){: style="width:450px"}](img/summary-export-html_1209x287.png){:target="_blank"}
+  [![Profiling UI screenshot](img/assembly-export-html_721x536.png){: style="width:480px"}](img/summary-export-html_1209x287.png){:target="_blank"}
 - Markdown table (*.md)  
-  [![Profiling UI screenshot](img/assembly-export-markdown_984x365.png)](img/assembly-export-markdown_984x365.png){:target="_blank"}
+  [![Profiling UI screenshot](img/assembly-export-markdown_984x365.png){: style="width:480px"}](img/assembly-export-markdown_984x365.png){:target="_blank"}
 
 The Export menu in the toolbar also has an option to copy to clipboard the function's assembly as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).  
 

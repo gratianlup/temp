@@ -12,14 +12,32 @@ Steps for locating the source file:
 
 - check the local file system using the debug info file path. This handles the case of the trace being opened on the same machine where the application was built or the source is available at the same file system location.
 - check and download the source file from a [Source Server](https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing) if the debug info file has additional remote mapping information such as  [SourceLink](https://github.com/dotnet/sourcelink) or built-in commands for retrieving the file. In case authentication is needed, it can be configured in the *Load Profile Trace* window [options](trace-loading.md#authentication).
-- if neither of the above steps work, ask the user to manually locate the source file on a local file system or network share. The mapping between the expected and actual source file location is saved across sessions when closing the application. See the [Mapping source files](#mapping-source-files) section below for more details.
+- if neither of the above steps work, ask the user to manually locate the source file on a local file system or network share. The mapping between the expected and actual source file location is saved across sessions when closing the application. See the [Mapping source files](#mapping-source-file-locations) section below for more details.
 
 Once a source file is available, it's signature is computed and compared with the expected signature from the debug info file. If it does not match, it means the source file was modified between the time the application was build and the trace being loaded and it will be rejected (a future version will allow ignoring such a mismatch).
 
-##### Mapping source files
+##### Mapping source file locations
 
-TODO:
-- give mapping example sent in in email to Guillerme
+When a local source file is manually selected, a mapping between the original, debug file path and the local file path is created. This is used both to locate the same source file later, but also to help locating other source files found in the same or a nearby location.  
+
+For example, if the original path from the build machine was saved in the debug info file as:  
+```C:\server\src\subdir\source.cpp```
+
+and the selected local file path is:  
+```D:\local\project\src\subdir\source.cpp```
+
+several path mappings are created between the original and local directories such as:  
+```C:\build\src\subdir  ->  D:\local\project\src\subdir```  
+```C:\build\src  ->  D:\local\project\src```  
+```C:\build  ->  D:\local\project```  
+
+When another source file is searched using the debug info path, the mappings are used to locate it in the local file system. The mapping also works with intermediate directories found between the file name and the mapped directories. For example:
+
+```C:\build\src\other\nested\subdir\file.cpp``` found as  
+```D:\local\project\src\other\nested\subdir\file.cpp```
+
+???+ note
+    The mappings are saved across sessions when closing the application and can be viewed and edited in the *Source File options* panel.
 
 #### Source code view
 
@@ -32,7 +50,7 @@ The view is similar to the Assembly view, having four parts:
 
 Each line corresponds to one source line, with the following values and buttons from left to right:
 
-[![Profiling UI screenshot](img/source-line_911x65.png)](img/source-line_911x65.png){:target="_blank"}
+[![Profiling UI screenshot](img/source-line_911x65.png){: style="width:550px"}](img/source-line_911x65.png){:target="_blank"}
 
 - source line number.
 - optional ASM section expand/collapse +/- button.
@@ -123,7 +141,7 @@ Toolbar buttons:
   - instances
   - threads
 
-#### Assembly view interaction
+#### View interaction
 
 ???+ abstract "Toolbar"
     | Button | Description |
@@ -143,11 +161,11 @@ Toolbar buttons:
 The function's source code, combined with profiling annotations and execution time can be exported and saved into multiple formats, with the slowest source lines marked using a similar style as in the application:
 
 - Excel worksheet (*.xlsx)  
-  [![Profiling UI screenshot](img/assembly-export-excel_780x441.png){: style="width:450px"}](img/assembly-export-excel_780x441.png){:target="_blank"}
+  [![Profiling UI screenshot](img/source-export-excel_876x439.png){: style="width:480px"}](img/source-export-excel_876x439.png){:target="_blank"}
 - HTML table (*.html)  
-  [![Profiling UI screenshot](img/assembly-export-html_721x536.png){: style="width:450px"}](img/summary-export-html_1209x287.png){:target="_blank"}
+  [![Profiling UI screenshot](img/source-export-html_926x537.png){: style="width:480px"}](img/source-export-html_926x537.png){:target="_blank"}
 - Markdown table (*.md)  
-  [![Profiling UI screenshot](img/assembly-export-markdown_984x365.png)](img/assembly-export-markdown_984x365.png){:target="_blank"}
+  [![Profiling UI screenshot](img/source-export-markdown_987x453.png){: style="width:480px"}](img/source-export-markdown_987x453.png){:target="_blank"}
 
 The Export menu in the toolbar also has an option to copy to clipboard the function's source code as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).  
 

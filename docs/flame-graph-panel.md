@@ -29,7 +29,7 @@ The view has three parts:
 
 The flame graph displays nodes representing functions stacked top to bottom according to the call tree paths forming the stack traces. Each node is a unique instance of a function — a function having multiple instances means there are several paths in the call tree that call the function.  
 
-Each node has the function name, optionally prepended with the module name, followed by the execution time percentage relative to the entire trace and the execution time.  
+Each node has the demangled (undecorated) function name, optionally prepended with the module name, followed by the execution time percentage relative to the entire trace and the execution time.  
 
 By default, the nodes are color-coded based on the module names to which the functions belong. Nodes for functions executing in the kernel/managed context are marked with a different text and border color (blue by default). The displayed text fields and colors can be customized in the Flame graph options.  
 
@@ -64,7 +64,7 @@ Use the *search input box* in the toolbar to search for functions with a specifi
 
 [![Profiling UI screenshot](img/flame-graph-search_1078x286.png)](img/flame-graph-search_1078x286.png){:target="_blank"}
 
-#### Flame graph view interaction
+#### View interaction
 
 ???+ abstract "Toolbar"
     | Button | Description |
@@ -83,11 +83,11 @@ Use the *search input box* in the toolbar to search for functions with a specifi
     | Action | Description |
     | ------ | ------------|
     | Hover | Hovering over a node briefly displays a preview popup with the complete function name and total/self execution times. Clicking the *Pin button* or dragging the popup expands it into a panel equivalent to the *Details panel*. Multiple such panels can be kept open at the same time. |
-    | Click | Selects the pointed node and deselects any previously selected nodes. The *Details panel* is updated and, if *Sync* is enabled in the toolbar, the function is selected in the other panels. Displays the associated function in the Source file view if *Source* is enabled in the toolbar.. <br><br>Clicking an empty part of the view deselects all nodes. |
+    | Click | Selects a node and deselects any previously selected nodes. The *Details panel* is updated and, if *Sync* is enabled in the toolbar, the function is selected in the other panels. Displays the associated function in the Source file view if *Source* is enabled in the toolbar. <br><br>Clicking an empty part of the view deselects all nodes. |
     | Ctrl+Click | Selects the pointed node and keeps the previously selected nodes (append). The *Details panel* is updated to display a combined view of all selected nodes. |
     | Shift+Click | When a node is selected, it expands the selection to include all nodes in the call stack between the pointed node and the selected one. The *Details panel* is updated to display a combined view of all selected nodes. |
     | Double-click | Expands (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly. |
-    | Ctrl+Double-click | Opens the Assembly view of the selected function in the current tab. |
+    | Ctrl+Double-click | Opens the Assembly view of the selected function in the active tab. |
     | Ctrl+Shift+Double-click | Opens the Assembly view of the selected function in a new tab. |
     | Alt+Double-click | Sets the selected node as the root node of the Flame graph. |
     | Back | If the mouse has an optional *Back* button, this undoes the previous action, such as expanding a node (double-click) or changing the root node. An alternative is pressing the *Backspace* key or the *Back* button in the toolbar.|
@@ -106,7 +106,7 @@ Use the *search input box* in the toolbar to search for functions with a specifi
     | Keys | Description |
     | ------ | ------------|
     | Return | Expands (zooms-in) the pointed node to cover the view's width, adjusting child node widths accordingly. |
-    | Ctrl+Return | Opens the Assembly view of the selected function in the current tab. |
+    | Ctrl+Return | Opens the Assembly view of the selected function in the active tab. |
     | Ctrl+Shift+Return | Opens the Assembly view of the selected function in a new tab. |
     | Alt+Return | Opens a preview popup with the assembly of the selected function. Press the *Escape* key to close the popup.<br><br>Multiple preview popups can be can be kept open at the same time. |
     | Alt+Shift+Return | Opens a preview popup with the assembly of the selected function, with profile data filtered to include only the selected instance. |
@@ -116,7 +116,7 @@ Use the *search input box* in the toolbar to search for functions with a specifi
     | Backspace | Undoes the previous action, such as expanding a node (double-click) or changing the root node. |
     | Ctrl+= | Zooms in the view around the center point. |
     | Ctrl+- | Zooms out the view around the center point. |
-    | Ctrl+0<br> Ctrl+R | Resets the view to the initial state. |
+    | Ctrl+0<br>Ctrl+R | Resets the view to the initial state. |
     | Arrow keys | Scrolls the view in the horizontal and vertical directions if the flame graph is larger than the view. |
 
 ???+ abstract "Right-click context menu"
