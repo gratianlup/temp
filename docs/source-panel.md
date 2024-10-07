@@ -18,6 +18,7 @@ Once a source file is available, it's signature is computed and compared with th
 
 ##### Mapping source files
 
+TODO:
 - give mapping example sent in in email to Guillerme
 
 #### Source code view
@@ -28,6 +29,16 @@ The view is similar to the Assembly view, having four parts:
 - a secondary toolbar underneath with profiling-specific info and action buttons.
 - the text view with the source file.
 - several columns on the right side with the profiling data for each source line. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  
+
+Each line corresponds to one source line, with the following values and buttons from left to right:
+
+[![Profiling UI screenshot](img/source-line_911x65.png)](img/source-line_911x65.png){:target="_blank"}
+
+- source line number.
+- optional ASM section expand/collapse +/- button.
+- optional marking icons for statements and call targets.
+- source line text.
+- profiling data columns, such as the execution time percentage and value.
 
 ##### Profiling annotations
 
@@ -47,6 +58,8 @@ Similar to the Assembly view, execution time is displayed and annotated on sever
 
 If enabled, each source line can be followed by a section with the assembly instructions generated for it, based on the debug info file. By default, the sections are collapsed and can be expanded by pressing the + button on the left of the source lines. Each line of assembly has the same kind of profiling annotations as the source lines.
 
+[![Profiling UI screenshot](img/source-assembly_816x233.png)](img/source-assembly_816x233.png){:target="_blank"}
+
 To view the assembly sections, toggle the ASM button in the toolbar (enabled by default). The *Expand* and *Collapse* buttons in the toolbar can be used to toggle the visibility of all assembly sections together.
 
 ##### Call targets
@@ -56,9 +69,9 @@ Combining the parsed assembly and profiling information, source lines with assoc
 - for direct calls (target is an function name/address), a black arrow is used.
 - for indirect or virtual function calls (target is a register or memory operand), a green arrow is used.
 
-*Hovering* with the mouse over the arrow displays a target functions list, with details about their execution time. Note that due to function inlining, the list may contain a function that doesn't appear directly in the source code.
+*Hovering* with the mouse over the arrow displays a target functions list, with details about their execution time. Note that due to function inlining, the list may contain a function that doesn't appear directly in the source code, like in the example below.
 
-TODO: Call target image example
+[![Profiling UI screenshot](img/source-call-target_845x164.png)](img/source-call-target_845x164.png){:target="_blank"}
 
 ##### Source code outline
 
@@ -66,13 +79,32 @@ On load, source files are parsed using [tree-sitter](https://tree-sitter.github.
 
 For each such statement and expression, the execution time is computed by accumulating the time of each source line found in its range. This makes it easier, for example, to see the amount of time spent in an entire *loop* (or *nested loop*), the *then/else* branch of an *if* statement or a specific *case* of a *switch* statement.  
 
-Example of the outline for a function having three nested loops, with an if/else statement in the last level loop.
+Source lines that start a statement are marked with an icon based on statement kind on the left side and in the execution time percentage column (configurable in the Source File options).  
+
+*Hovering* with the mouse over a statement marking shows the execution time as a percentage and value relative to the function time and highlights the source lines part of the statement.  
+
+[![Profiling UI screenshot](img/source-outline-loop_991x228.png)](img/source-outline-loop_991x228.png){:target="_blank"}
+
+Use the *Outline* button from the profiling toolbar displays to display a menu that summarizes the nested statements and their execution time. Each menu entry has the source line number, statement kind icon, statement start source code and execution time percentage and value. *Click* on a menu entry to jump to the statement start. *Hovering* with the mouse over a menu entry highlights the source lines part of the statement.
+
+Example of the outline of function having three nested loops, with if/else statements in the last level loop.
 
 [![Profiling UI screenshot](img/source-outline_953_289.png)](img/source-outline_953_289.png){:target="_blank"}
 
-Hovering over a statement marking shows the execution time as a percentage and value relative to the function time and highlights the source lines part of the statement.
+#### Profiling toolbar
 
-[![Profiling UI screenshot](img/source-outline-loop_991x228.png)](img/source-outline-loop_991x228.png){:target="_blank"}
+The profiling toolbar provides more advanced functionality for identifying the slow parts of a function and filtering the profiling data based on a function instance and the threads the function executed on. The following sections document the main functionality.  
+
+##### Profile
+
+Displays a menu with the slowest source lines, sorted by execution time in decreasing order. Even if assembly sections are enabled, instructions are not included.    
+
+- *Click* on a menu entry to select and bring the source line into view.  
+- The red *Flame* icon jumps to the slowest source line in the function.  
+- The +/- buttons jump to the next/previous slowest source line in the sequence.
+
+[![Profiling UI screenshot](img/source-profile_920x251.png){: style="width:550px"}](img/source-profile_920x251.png){:target="_blank"}  
+
 
 Toolbar buttons:
 - Open: open file manually
@@ -96,10 +128,15 @@ Toolbar buttons:
 ???+ abstract "Toolbar"
     | Button | Description |
     | ------ | ------------|
+    | ![](img/source-toolbar-open.png) | If enabled, selecting a function also selects it in the other profiling views. |
+    | ![](img/source-toolbar-reset.png) | If enabled, selecting a function also selects it in the other profiling views. |
+    | ![](img/source-toolbar-path.png) | If enabled, selecting a function also selects it in the other profiling views. |
     | ![](img/flame-graph-toolbar-sync.png) | If enabled, selecting a function also selects it in the other profiling views. |
-    | ![](img/flame-graph-toolbar-source.png) | If enabled, selecting a function also displays the source in the Source file view, with the source lines annotated with profiling data. |
-    | Export | Export the current function list into one of multiple formats (Excel, HTML and Markdown) or copy to clipboard the function list as  a HTML/Markdown table. |
-    | Search box | Search for functions with a specific name using a case-insensitive substring search. Searching filters the list down to display only the matching entries. Press the *Escape* key to reset the search or the *X* button next to the input box. |
+    | ![](img/source-toolbar-inlinees.png) | If enabled, selecting a function also selects it in the other profiling views. |
+    | ![](img/source-toolbar-asm.png) | If enabled, selecting a function also selects it in the other profiling views. |
+    | ![](img/source-toolbar-asm-collapse.png) | If enabled, selecting a function also selects it in the other profiling views. |
+    | ![](img/source-toolbar-asm-expand.png) | If enabled, selecting a function also selects it in the other profiling views. |
+    | ![](img/assembly-toolbar-popup.png) | Opens the current source file into a new preview popup. |
 
 #### Exporting
 

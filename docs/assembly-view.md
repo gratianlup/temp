@@ -21,12 +21,16 @@ The view has four parts:
 
 The function assembly area can be treated a read-only code editor. Each line corresponds to one instruction, with the following values from left to right:
 
-- instruction number (line number in the text)
-- instruction virtual address (blue text)
-- instruction opcode (bold text)
-- an optional list of instruction operands
+[![Profiling UI screenshot](img/assembly-line_1018x41.png)](img/assembly-line_1018x41.png){:target="_blank"}
+
+- instruction number (line number in the text).
+- optional marking icon for call targets.
+- instruction virtual address (blue text).
+- instruction opcode (bold text).
+- an optional list of instruction operands.
 - source line number associated with the instruction, obtained from the debug info (gray text).
 - inlinees (inlined functions) associated with the instruction, obtained from the debug info (green text).
+- profiling data columns, such as the execution time percentage and value.
 
 ##### Source lines
 
@@ -195,10 +199,13 @@ The settings are saved across sessions when closing the application.
 ???+ abstract "Toolbar"
     | Button | Description |
     | ------ | ------------|
-    | ![](img/flame-graph-toolbar-sync.png) | If enabled, selecting a function also selects it in the other profiling views. |
-    | ![](img/flame-graph-toolbar-source.png) | If enabled, selecting a function also displays the source in the Source file view, with the source lines annotated with profiling data. |
-    | Export | Export the current function list into one of multiple formats (Excel, HTML and Markdown) or copy to clipboard the function list as  a HTML/Markdown table. |
-    | Search box | Search for functions with a specific name using a case-insensitive substring search. Searching filters the list down to display only the matching entries. Press the *Escape* key to reset the search or the *X* button next to the input box. |
+    | ![](img/assembly-toolbar-nav.png)| Navigate back to a previously opened function or the next one in the sequence. See the [Opened functions history](#opened-functions-history) section for more details. |
+    | ![](img/assembly-toolbar-block-nav.png){: style="width:200px"} | The dropdown displays a list of all basic blocks, selecting one jumps to it. |
+    | ![](img/assemlby-toolbar-block-updown.png) | Jumps to the previous/next basic block in the function. |
+    | ![](img/assembly-toolbar-bookmarks.png) | Displays a menu with options for viewing, setting and removing bookmarks associated with instructions. The up/down arrows jump to the previous/next bookmark. |
+    | ![](img/assembly-toolbar-clear.png) | Displays a menu with options for removing markings from the selected or all instructions and operands. |
+    | ![](img/assembly-toolbar-popup.png) | Opens the current function into a new preview popup. |
+    | ![](img/assembly-toolbar-search.png) | Displays the text search panel. Press the *Escape* key to reset the search and close the panel. |
 
 ???+ abstract "Mouse shortcuts"
     | Action | Description |

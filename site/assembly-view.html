@@ -1287,13 +1287,16 @@
 </details>
 <h4 id="assembly-text-view">Assembly text view</h4>
 <p>The function assembly area can be treated a read-only code editor. Each line corresponds to one instruction, with the following values from left to right:</p>
+<p><a href="img/assembly-line_1018x41.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-line_1018x41.png" /></a></p>
 <ul>
-<li>instruction number (line number in the text)</li>
-<li>instruction virtual address (blue text)</li>
-<li>instruction opcode (bold text)</li>
-<li>an optional list of instruction operands</li>
+<li>instruction number (line number in the text).</li>
+<li>optional marking icon for call targets.</li>
+<li>instruction virtual address (blue text).</li>
+<li>instruction opcode (bold text).</li>
+<li>an optional list of instruction operands.</li>
 <li>source line number associated with the instruction, obtained from the debug info (gray text).</li>
 <li>inlinees (inlined functions) associated with the instruction, obtained from the debug info (green text).</li>
+<li>profiling data columns, such as the execution time percentage and value.</li>
 </ul>
 <h5 id="source-lines">Source lines</h5>
 <p>The debug info files usually contain a mapping between the source line numbers and the instructions that were generated for those lines. If available, the source line number is appended at the end of an instruction. Note that accuracy of this mapping usually depends on the compiler optimization level, with higher levels being less accurate or even lacking the mapping for some instructions.</p>
@@ -1425,20 +1428,32 @@ The settings are saved across sessions when closing the application.</p>
 </thead>
 <tbody>
 <tr>
-<td><img alt="" src="img/flame-graph-toolbar-sync.png" /></td>
-<td>If enabled, selecting a function also selects it in the other profiling views.</td>
+<td><img alt="" src="img/assembly-toolbar-nav.png" /></td>
+<td>Navigate back to a previously opened function or the next one in the sequence. See the <a href="#opened-functions-history">Opened functions history</a> section for more details.</td>
 </tr>
 <tr>
-<td><img alt="" src="img/flame-graph-toolbar-source.png" /></td>
-<td>If enabled, selecting a function also displays the source in the Source file view, with the source lines annotated with profiling data.</td>
+<td><img alt="" src="img/assembly-toolbar-block-nav.png" style="width:200px" /></td>
+<td>The dropdown displays a list of all basic blocks, selecting one jumps to it.</td>
 </tr>
 <tr>
-<td>Export</td>
-<td>Export the current function list into one of multiple formats (Excel, HTML and Markdown) or copy to clipboard the function list as  a HTML/Markdown table.</td>
+<td><img alt="" src="img/assemlby-toolbar-block-updown.png" /></td>
+<td>Jumps to the previous/next basic block in the function.</td>
 </tr>
 <tr>
-<td>Search box</td>
-<td>Search for functions with a specific name using a case-insensitive substring search. Searching filters the list down to display only the matching entries. Press the <em>Escape</em> key to reset the search or the <em>X</em> button next to the input box.</td>
+<td><img alt="" src="img/assembly-toolbar-bookmarks.png" /></td>
+<td>Displays a menu with options for viewing, setting and removing bookmarks associated with instructions. The up/down arrows jump to the previous/next bookmark.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/assembly-toolbar-clear.png" /></td>
+<td>Displays a menu with options for removing markings from the selected or all instructions and operands.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/assembly-toolbar-popup.png" /></td>
+<td>Opens the current function into a new preview popup.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/assembly-toolbar-search.png" /></td>
+<td>Displays the text search panel. Press the <em>Escape</em> key to reset the search and close the panel.</td>
 </tr>
 </tbody>
 </table>
