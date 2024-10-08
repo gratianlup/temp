@@ -480,13 +480,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#view-interaction" class="md-nav__link">
+  <a href="#mouse-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      View interaction
+      Mouse actions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="View interaction">
+    <nav class="md-nav" aria-label="Mouse actions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -504,13 +504,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filtering-profile" class="md-nav__link">
+  <a href="#filtering-the-profile" class="md-nav__link">
     <span class="md-ellipsis">
-      Filtering profile
+      Filtering the profile
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Filtering profile">
+    <nav class="md-nav" aria-label="Filtering the profile">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -540,6 +540,15 @@
   <a href="#marking" class="md-nav__link">
     <span class="md-ellipsis">
       Marking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      View interaction
     </span>
   </a>
   
@@ -944,13 +953,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#view-interaction" class="md-nav__link">
+  <a href="#mouse-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      View interaction
+      Mouse actions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="View interaction">
+    <nav class="md-nav" aria-label="Mouse actions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -968,13 +977,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filtering-profile" class="md-nav__link">
+  <a href="#filtering-the-profile" class="md-nav__link">
     <span class="md-ellipsis">
-      Filtering profile
+      Filtering the profile
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Filtering profile">
+    <nav class="md-nav" aria-label="Filtering the profile">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1004,6 +1013,15 @@
   <a href="#marking" class="md-nav__link">
     <span class="md-ellipsis">
       Marking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      View interaction
     </span>
   </a>
   
@@ -1045,7 +1063,8 @@
 <li>a graph showing the activity of the entire application, with the activity across all threads combined.</li>
 <li>for each thread, a graph showing the thread's activity. The thread list is sorted by the execution time in descending order.</li>
 </ul>
-<p>Each thread entry has the following values and buttons:</p>
+<p>The <em>All Threads</em> entry displays on top the trace duration range, split into time units. On the left it also displays the maximum number of <em>CPU cores</em> used by the application. Individual threads are considered to use at most one core.</p>
+<p>Each individual thread entry has the following values and buttons:</p>
 <p><a href="img/timeline-threads_599x159.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-threads_599x159.png" style="width:500px" /></a></p>
 <ul>
 <li>thread visibility button indicating if the samples from the thread is included in the profile data or not. <em>Click</em> to toggle between included <img alt="" src="img/timeline-eye-button.png" /> or excluded state <img alt="" src="img/timeline-eye-button-disabled.png" />.</li>
@@ -1053,13 +1072,13 @@
 <li>the thread ID number.</li>
 <li>the thread execution time, as a sum of the duration of all samples that ran on the thread.</li>
 <li>if available in the trace, the thread name.</li>
-<li>the <em>All Threads</em> entry also displays the maximum number of <em>CPU cores</em> used by the application. Individual threads are considered to use at most one core.</li>
 </ul>
-<h4 id="view-interaction">View interaction</h4>
+<h4 id="mouse-actions">Mouse actions</h4>
 <p><em>Moving</em> the mouse over the graphs shows the time position and the approximate number of cores used at that point.</p>
 <p><a href="img/timeline-position_570x116.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-position_570x116.png" style="width:500px" /></a></p>
 <p><em>Hovering</em> with the mouse over the graph shows a preview popup with the slowest call path (stack trace) active at that point.  </p>
 <p><a href="img/timeline-hover_829x394.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-hover_829x394.png" style="width:600px" /></a></p>
+<p><em>Clicking</em> a thread ID or name creates for the thread a time range selection covering the entire trace duration. If <em>Sync</em> is enabled in the toolbar, all functions executing on the selected thread are also selected in the other profiling views.</p>
 <h5 id="selecting-a-time-range">Selecting a time range</h5>
 <ul>
 <li>
@@ -1073,12 +1092,12 @@
 </ul>
 <details class="note" open="open">
 <summary>Note</summary>
-<p>If the <em>Sync</em> option is enabled, selecting a time range also selects the functions executing during that time in the other views, taking into consideration if all threads or a subset is included.</p>
+<p>If the <em>Sync</em> option is enabled, selecting a time range also selects the functions executing during that time in the other profiling views, taking into consideration if all threads or a subset is included.</p>
 </details>
-<h4 id="filtering-profile">Filtering profile</h4>
-<p>When filtering the entire profile data to consider only specific threads and time ranges, all views are updated to consider only the included samples. The active filter is displayed in both the toolbar and in the application menu bar.</p>
+<h4 id="filtering-the-profile">Filtering the profile</h4>
+<p>The entire profile can be filtered so that only specific threads and time ranges are displayed, with the profiling views updated to include only the profile samples accepted by the filter. The active filter is displayed in both the toolbar and in the application menu bar.</p>
 <h5 id="filtering-based-on-a-time-range">Filtering based on a time range</h5>
-<p>Select the desired time range then <em>double-click</em> the selection (alternatively, right-click the selection and click "Filter to Time Range*).  </p>
+<p>Select the desired time range then <em>double-click</em> the selection (alternatively, right-click the selection and click "Filter to Time Range*). If the selection is done for a single thread, a thread filter that displays only the selected thread and excludes all others is also added.  </p>
 <p><a href="img/timeline-filter-time_878x320.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-filter-time_878x320.png" /></a></p>
 <h5 id="filtering-based-on-a-thread">Filtering based on a thread</h5>
 <p>There are multiple way to filter based on one or multiple threads, optionally combined with a time range filter.  </p>
@@ -1099,6 +1118,40 @@
 <p>The <em>Markers</em> menu in the toolbar displays the currently marked functions. <br />
 <em>Click</em> on a menu entry to remove the marker.  </p>
 <p><a href="img/timeline-marking_929x333.png" target="_blank"><img alt="Profiling UI screenshot" src="img/timeline-marking_929x333.png" /></a></p>
+<h4 id="view-interaction">View interaction</h4>
+<details class="abstract" open="open">
+<summary>Toolbar</summary>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-reset.png" /></td>
+<td>Resets the view to it's original state, displaying the thread graphs for the entire trace duration.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-minus.png" /></td>
+<td>Zooms out the thread graphs and updates the time units.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-plus.png" /></td>
+<td>Zooms in the thread graphs and updates the time units.</td>
+</tr>
+<tr>
+<td><img alt="" src="img/flame-graph-toolbar-sync.png" /></td>
+<td>If enabled, selecting a time range also selects executing during that time in the other profiling views.</td>
+</tr>
+<tr>
+<td>Markers</td>
+<td>Search for nodes with a specific function name using a case-insensitive substring search. Press the <em>Escape</em> key to reset the search or the <em>X</em> button next to the input box.</td>
+</tr>
+</tbody>
+</table>
+</details>
 <h4 id="documentation-in-progress">Documentation in progress</h4>
 <ul>
 <li>View options</li>
