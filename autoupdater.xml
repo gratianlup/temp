@@ -2,6 +2,6 @@
 <item>
   <version>1.0.1.9</version>
   <url>https://github.com/gratianlup/temp/releases/download/tag1/setup.exe</url>
-  <changelog>https://github.com/gratianlup/temp/releases/download/tag1/changelog.html</changelog>
+  <changelog>https://gratianlup.github.io/temp/changelog.html</changelog>
   <mandatory>false</mandatory>
 </item>
