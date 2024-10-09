@@ -618,6 +618,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#missing-source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missing source files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#mapping-source-file-locations" class="md-nav__link">
     <span class="md-ellipsis">
       Mapping source file locations
@@ -1050,6 +1059,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#missing-source-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Missing source files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#mapping-source-file-locations" class="md-nav__link">
     <span class="md-ellipsis">
       Mapping source file locations
@@ -1232,13 +1250,17 @@
 <p><a href="img/source-view_1000x503.png" target="_blank"><img alt="Profiling UI screenshot" src="img/source-view_1000x503.png" /></a></p>
 <h5 id="finding-source-files">Finding source files</h5>
 <p>Locating the source file to load is done with the help of the debug info file, which usually records the file path associated with each function. In some cases, additional information is available that allows locating and downloading source files from remote locations and <a href="https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing">Source Servers</a>.</p>
-<p>Steps for locating the source file:  </p>
+<p>Steps for locating a source file:  </p>
 <ul>
 <li>check the local file system using the debug info file path. This handles the case of the trace being opened on the same machine where the application was built or the source is available at the same file system location.</li>
-<li>check and download the source file from a <a href="https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing">Source Server</a> if the debug info file has additional remote mapping information such as  <a href="https://github.com/dotnet/sourcelink">SourceLink</a> or built-in commands for retrieving the file. In case authentication is needed, it can be configured in the <em>Load Profile Trace</em> window <a href="trace-loading.html#authentication">options</a>.</li>
+<li>check and download the source file from a <a href="https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing">Source Server</a> if the debug info file has additional remote file mapping information such as <a href="https://github.com/dotnet/sourcelink">SourceLink</a> or built-in commands for retrieving the file. In case authentication is needed, it can be configured in the <em>Load Profile Trace</em> window <a href="trace-loading.html#authentication">options</a>.</li>
 <li>if neither of the above steps work, ask the user to manually locate the source file on a local file system or network share. The mapping between the expected and actual source file location is saved across sessions when closing the application. See the <a href="#mapping-source-file-locations">Mapping source files</a> section below for more details.</li>
 </ul>
-<p>Once a source file is available, it's signature is computed and compared with the expected signature from the debug info file. If it does not match, it means the source file was modified between the time the application was build and the trace being loaded and it will be rejected (a future version will allow ignoring such a mismatch).</p>
+<p>Once a source file is available, it's signature is computed and compared with the expected signature from the debug info file. If it does not match, it means the source file was modified between the time the application was built and the trace being loaded and the file will be rejected (a future version will allow ignoring such a mismatch).  </p>
+<h5 id="missing-source-files">Missing source files</h5>
+<p>If a source file cannot be found, the app will show a dialog asking if it should continue trying to locate the same source file in the future; if not, the file is added on an exclusion list saved across sessions.  </p>
+<p>The same dialog also has an option to stop asking to manually locate source files altogether during the current session.</p>
+<p>Use the <em>Reset</em> button in the toolbar to remove the exclusion from the current file, all files or clear all exclusion and mapping settings. The <a href="#view-options">Source File options</a> displays editable lists of exclusions and mappings.  </p>
 <h5 id="mapping-source-file-locations">Mapping source file locations</h5>
 <p>When a local source file is manually selected, a mapping between the original, debug file path and the local file path is created. This is used both to locate the same source file later, but also to help locating other source files found in the same or a nearby location.  </p>
 <p>For example, if the original path from the build machine was saved in the debug info file as:<br />
@@ -1249,13 +1271,9 @@
 <code>C:\build\src\subdir  -&gt;  D:\local\project\src\subdir</code><br />
 <code>C:\build\src  -&gt;  D:\local\project\src</code><br />
 <code>C:\build  -&gt;  D:\local\project</code>  </p>
-<p>When another source file is searched using the debug info path, the mappings are used to locate it in the local file system. The mapping also works with intermediate directories found between the file name and the mapped directories. For example:</p>
+<p>When another source file is searched starting with the debug info path, the mappings are used to locate it in the local file system. The mapping also works with intermediate directories found between the file name and the mapped directories. For example:</p>
 <p><code>C:\build\src\other\nested\subdir\file.cpp</code> found as<br />
 <code>D:\local\project\src\other\nested\subdir\file.cpp</code></p>
-<details class="note" open="open">
-<summary>Note</summary>
-<p>The mappings are saved across sessions when closing the application and can be viewed and edited in the <em>Source File options</em> panel.</p>
-</details>
 <h4 id="source-code-view">Source code view</h4>
 <p>The view is similar to the Assembly view, having four parts:  </p>
 <ul>
@@ -1281,15 +1299,15 @@
 <h5 id="profiling-annotations">Profiling annotations</h5>
 <p>Similar to the Assembly view, execution time is displayed and annotated on several parts of the source lines and columns using text, colors and flame icons:</p>
 <ul>
-<li>the <em>Time (%)</em> column displays the source line's execution time percentage relative to the total function execution time. The column style can be changed in the Source File options.</li>
-<li>the <em>Time (ms)</em> column displays the source files's execution time value. The time unit and column style can be changed in the Source File options.</li>
+<li>the <em>Time (%)</em> column displays the source line's execution time percentage relative to the total function execution time. The column style can be changed in the <a href="#view-options">Source File options</a>.</li>
+<li>the <em>Time (ms)</em> column displays the source files's execution time value. The time unit and column style can be changed in the <a href="#view-options">Source File options</a>.</li>
 <li>the source line background is colored based on its execution time - the slowest source line has a red color, next slowest orange, then shades of yellow. The line is also marked in the vertical text scrollbar.</li>
 <li>the three slowest source lines also have a flame icon in the <em>Time (%)</em> column using the same color coding.</li>
 </ul>
+<p>When loading a source file, by default, the slowest source line is selected and brought into view (this can be configured in the <a href="#view-options">Source File options</a>).  </p>
+<p>To jump at any time to the slowest source line, <em>click</em> the <img alt="" src="img/flame-icon.png" /> icon from the toolbar or the <em>Ctrl+H</em> keyboard shortcut.  </p>
 <details class="note" open="open">
 <summary>Note</summary>
-<p>When loading a source file, by default, the slowest source line is selected and brought into view (this can be configured in the Source File options). </p>
-<p>To jump at any time to the slowest source line, <em>click</em> the <img alt="" src="img/flame-icon.png" /> icon from the toolbar or the <em>Ctrl+H</em> keyboard shortcut.  </p>
 <p>When multiple source lines are selected, the application status bar displays the sum of their execution time as a percentage and value.<br />
 <a href="img/source-selection_983x255.png" target="_blank"><img alt="Profiling UI screenshot" src="img/source-selection_983x255.png" /></a></p>
 </details>
@@ -1308,7 +1326,7 @@
 <h5 id="source-code-outline">Source code outline</h5>
 <p>On load, source files are parsed using <a href="https://tree-sitter.github.io/tree-sitter/">tree-sitter</a> in order to build an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree (AST)</a>. The AST is used to identify and mark some of the high-level parts of the function's source code, such as if/else/switch statements, for/do/while loops and call expressions. The supported languages are C, C++, C# and Rust.  </p>
 <p>For each such statement and expression, the execution time is computed by accumulating the time of each source line found in its range. This makes it easier, for example, to see the amount of time spent in an entire <em>loop</em> (or <em>nested loop</em>), the <em>then/else</em> branch of an <em>if</em> statement or a specific <em>case</em> of a <em>switch</em> statement.  </p>
-<p>Source lines that start a statement are marked with an icon based on statement kind on the left side and in the execution time percentage column (configurable in the Source File options).  </p>
+<p>Source lines that start a statement are marked with an icon based on statement kind on the left side and in the execution time percentage column (configurable in the <a href="#view-options">Source File options</a>).  </p>
 <p><em>Hovering</em> with the mouse over a statement marking shows the execution time as a percentage and value relative to the function time and highlights the source lines part of the statement.  </p>
 <p><a href="img/source-outline-loop_991x228.png" target="_blank"><img alt="Profiling UI screenshot" src="img/source-outline-loop_991x228.png" /></a></p>
 <p>Use the <em>Outline</em> button from the profiling toolbar displays to display a menu that summarizes the nested statements and their execution time. Each menu entry has the source line number, statement kind icon, statement start source code and execution time percentage and value. <em>Click</em> on a menu entry to jump to the statement start. <em>Hovering</em> with the mouse over a menu entry highlights the source lines part of the statement.</p>
@@ -1350,7 +1368,7 @@ See the <a href="#source-code-outline">Source code outline</a> section above for
 </tr>
 <tr>
 <td><img alt="" src="img/source-toolbar-reset.png" /></td>
-<td>Displays a menu with options for resetting any exclusions set on the current source file or all source files.</td>
+<td>Displays a menu with options for resetting exclusions set on the current source file or all source files.</td>
 </tr>
 <tr>
 <td><img alt="" src="img/source-toolbar-path.png" /></td>

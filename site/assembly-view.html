@@ -1305,8 +1305,6 @@
 <details class="note" open="open">
 <summary>Note</summary>
 <p><em>Click</em> on an instruction selects and brings into view its corresponding source line in the <em>Source File</em> view and its basic block in the <em>Flow Graph</em> view.  </p>
-<p>When multiple instructions are selected, the application status bar displays the sum of their execution time as a percentage and value.<br />
-<a href="img/assembly-selection_868x170.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-selection_868x170.png" /></a></p>
 </details>
 <h5 id="inlinees">Inlinees</h5>
 <p>During function inlining, the compiler may preserve additional details about the functions code being inlined so that the origin of an instruction can be saved into the debug info file. If available, the inlinees (inlined functions) are appended after the source line number, separated by the | letter.</p>
@@ -1327,8 +1325,8 @@
 <p>Instruction execution time is displayed and annotated on several parts of the assembly instructions, columns, basic blocks and the control-flow graph, using text, colors and flame icons:</p>
 <p><a href="img/assembly-marking_1235x202.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-marking_1235x202.png" /></a>  </p>
 <ul>
-<li>the <em>Time (%)</em> column displays the instruction's execution time percentage relative to the total function execution time. The column style can be changed in the Assembly options.</li>
-<li>the <em>Time (ms)</em> column displays the instruction's execution time value. The time unit and column style can be changed in the Assembly options.</li>
+<li>the <em>Time (%)</em> column displays the instruction's execution time percentage relative to the total function execution time. The column style can be changed in the <a href="#view-options">Assembly options</a>.</li>
+<li>the <em>Time (ms)</em> column displays the instruction's execution time value. The time unit and column style can be changed in the <a href="#view-options">Assembly options</a>..</li>
 <li>the instruction background is colored based on its execution time - the slowest instruction has a red color, next slowest orange, then shades of yellow. The instruction location is also marked in the vertical text scrollbar.</li>
 <li>the three slowest instructions also have a flame icon in the <em>Time (%)</em> column using the same color coding.</li>
 </ul>
@@ -1337,11 +1335,12 @@
 <li>the basic blocks have a label with the block's execution time percentage, as a sum of its instruction's execution time (in the example above, the 55.73% label for B4). <em>Hovering</em> over the label shows the block's execution time value. The label background color uses the same color coding.</li>
 <li>the basic blocks in the <em>Flow Graph</em> view have below the same execution time percentage label as in the Assembly view, with the corresponding background color.</li>
 </ul>
+<p>When displaying a function for the first time, by default, the slowest instruction is selected and brought into view (this can be configured in the <a href="#view-options">Assembly options</a>). When the function is displayed subsequently, the last vertical scroll position is used instead.  </p>
+<p>To jump at any time to the slowest instruction, <em>click</em> the red <img alt="" src="img/flame-icon.png" /> from the toolbar or the <em>Ctrl+H</em> keyboard shortcut.</p>
 <details class="note" open="open">
 <summary>Note</summary>
-<p>When displaying a function for the first time, by default, the slowest instruction is selected and brought into view (this can be configured in the Assembly options). 
-When the function is displayed subsequently, the last vertical scroll position is used instead.</p>
-<p>To jump at any time to the slowest instruction, <em>click</em> the red <img alt="" src="img/flame-icon.png" /> from the toolbar or the <em>Ctrl+H</em> keyboard shortcut.</p>
+<p>When multiple instructions are selected, the application status bar displays the sum of their execution time as a percentage and value.<br />
+<a href="img/assembly-selection_868x170.png" target="_blank"><img alt="Profiling UI screenshot" src="img/assembly-selection_868x170.png" /></a></p>
 </details>
 <h5 id="call-targets">Call targets</h5>
 <p>Combining the parsed assembly and profiling information, call instructions are marked with their target(s) and have an arrow icon placed before the call opcode:  </p>

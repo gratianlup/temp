@@ -8,13 +8,21 @@ The Source File view displays the source code of the function in the active asse
 
 Locating the source file to load is done with the help of the debug info file, which usually records the file path associated with each function. In some cases, additional information is available that allows locating and downloading source files from remote locations and [Source Servers](https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing).
 
-Steps for locating the source file:  
+Steps for locating a source file:  
 
 - check the local file system using the debug info file path. This handles the case of the trace being opened on the same machine where the application was built or the source is available at the same file system location.
-- check and download the source file from a [Source Server](https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing) if the debug info file has additional remote mapping information such as  [SourceLink](https://github.com/dotnet/sourcelink) or built-in commands for retrieving the file. In case authentication is needed, it can be configured in the *Load Profile Trace* window [options](trace-loading.md#authentication).
+- check and download the source file from a [Source Server](https://learn.microsoft.com/en-us/windows/win32/debug/source-server-and-source-indexing) if the debug info file has additional remote file mapping information such as [SourceLink](https://github.com/dotnet/sourcelink) or built-in commands for retrieving the file. In case authentication is needed, it can be configured in the *Load Profile Trace* window [options](trace-loading.md#authentication).
 - if neither of the above steps work, ask the user to manually locate the source file on a local file system or network share. The mapping between the expected and actual source file location is saved across sessions when closing the application. See the [Mapping source files](#mapping-source-file-locations) section below for more details.
 
-Once a source file is available, it's signature is computed and compared with the expected signature from the debug info file. If it does not match, it means the source file was modified between the time the application was build and the trace being loaded and it will be rejected (a future version will allow ignoring such a mismatch).
+Once a source file is available, it's signature is computed and compared with the expected signature from the debug info file. If it does not match, it means the source file was modified between the time the application was built and the trace being loaded and the file will be rejected (a future version will allow ignoring such a mismatch).  
+
+##### Missing source files
+
+If a source file cannot be found, the app will show a dialog asking if it should continue trying to locate the same source file in the future; if not, the file is added on an exclusion list saved across sessions.  
+
+The same dialog also has an option to stop asking to manually locate source files altogether during the current session.
+
+Use the *Reset* button in the toolbar to remove the exclusion from the current file, all files or clear all exclusion and mapping settings. The [Source File options](#view-options) displays editable lists of exclusions and mappings.  
 
 ##### Mapping source file locations
 
@@ -31,13 +39,10 @@ several path mappings are created between the original and local directories suc
 ```C:\build\src  ->  D:\local\project\src```  
 ```C:\build  ->  D:\local\project```  
 
-When another source file is searched using the debug info path, the mappings are used to locate it in the local file system. The mapping also works with intermediate directories found between the file name and the mapped directories. For example:
+When another source file is searched starting with the debug info path, the mappings are used to locate it in the local file system. The mapping also works with intermediate directories found between the file name and the mapped directories. For example:
 
 ```C:\build\src\other\nested\subdir\file.cpp``` found as  
 ```D:\local\project\src\other\nested\subdir\file.cpp```
-
-???+ note
-    The mappings are saved across sessions when closing the application and can be viewed and edited in the *Source File options* panel.
 
 #### Source code view
 
@@ -72,16 +77,17 @@ Vice versa, selecting an instruction in the Assembly view also selects the corre
 
 Similar to the Assembly view, execution time is displayed and annotated on several parts of the source lines and columns using text, colors and flame icons:
 
-- the *Time (%)* column displays the source line's execution time percentage relative to the total function execution time. The column style can be changed in the Source File options.
-- the *Time (ms)* column displays the source files's execution time value. The time unit and column style can be changed in the Source File options.
+- the *Time (%)* column displays the source line's execution time percentage relative to the total function execution time. The column style can be changed in the [Source File options](#view-options).
+- the *Time (ms)* column displays the source files's execution time value. The time unit and column style can be changed in the [Source File options](#view-options).
 - the source line background is colored based on its execution time - the slowest source line has a red color, next slowest orange, then shades of yellow. The line is also marked in the vertical text scrollbar.
 - the three slowest source lines also have a flame icon in the *Time (%)* column using the same color coding.
 
-???+ note
-    When loading a source file, by default, the slowest source line is selected and brought into view (this can be configured in the Source File options). 
-    
-    To jump at any time to the slowest source line, *click* the ![](img/flame-icon.png) icon from the toolbar or the *Ctrl+H* keyboard shortcut.  
 
+When loading a source file, by default, the slowest source line is selected and brought into view (this can be configured in the [Source File options](#view-options)).  
+
+To jump at any time to the slowest source line, *click* the ![](img/flame-icon.png) icon from the toolbar or the *Ctrl+H* keyboard shortcut.  
+
+???+ note
     When multiple source lines are selected, the application status bar displays the sum of their execution time as a percentage and value.  
     [![Profiling UI screenshot](img/source-selection_983x255.png)](img/source-selection_983x255.png){:target="_blank"}
 
@@ -110,7 +116,7 @@ On load, source files are parsed using [tree-sitter](https://tree-sitter.github.
 
 For each such statement and expression, the execution time is computed by accumulating the time of each source line found in its range. This makes it easier, for example, to see the amount of time spent in an entire *loop* (or *nested loop*), the *then/else* branch of an *if* statement or a specific *case* of a *switch* statement.  
 
-Source lines that start a statement are marked with an icon based on statement kind on the left side and in the execution time percentage column (configurable in the Source File options).  
+Source lines that start a statement are marked with an icon based on statement kind on the left side and in the execution time percentage column (configurable in the [Source File options](#view-options)).  
 
 *Hovering* with the mouse over a statement marking shows the execution time as a percentage and value relative to the function time and highlights the source lines part of the statement.  
 
@@ -159,7 +165,7 @@ See the [Profiling toolbar: Threads](assembly-view.md#threads) section in the *A
     | Button | Description |
     | ------ | ------------|
     | ![](img/source-toolbar-open.png) | Shows an *Open File* dialog to select a local source file to load in the view. |
-    | ![](img/source-toolbar-reset.png) | Displays a menu with options for resetting any exclusions set on the current source file or all source files. |
+    | ![](img/source-toolbar-reset.png) | Displays a menu with options for resetting exclusions set on the current source file or all source files. |
     | ![](img/source-toolbar-path.png) | Displays a menu with options for copying the source file path to clipboard, navigating to the source file in *File Explorer* and opening the source file in the default editor. |
     | ![](img/flame-graph-toolbar-sync.png) | If enabled, selecting a source lines also selects all associated instructions in the *Assembly view*. |
     | ![](img/source-toolbar-inlinees.png) | If enabled, inlinees (inlined functions) debug info is used to load the deepest inlinee function and its source file instead of the current function in the *Assembly view*. |

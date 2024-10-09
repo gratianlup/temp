@@ -42,9 +42,6 @@ The debug info files usually contain a mapping between the source line numbers a
 
 ???+ note
     *Click* on an instruction selects and brings into view its corresponding source line in the *Source File* view and its basic block in the *Flow Graph* view.  
-
-    When multiple instructions are selected, the application status bar displays the sum of their execution time as a percentage and value.  
-    [![Profiling UI screenshot](img/assembly-selection_868x170.png)](img/assembly-selection_868x170.png){:target="_blank"}
     
 ##### Inlinees
 
@@ -77,8 +74,8 @@ Instruction execution time is displayed and annotated on several parts of the as
 
 [![Profiling UI screenshot](img/assembly-marking_1235x202.png)](img/assembly-marking_1235x202.png){:target="_blank"}  
 
-- the *Time (%)* column displays the instruction's execution time percentage relative to the total function execution time. The column style can be changed in the Assembly options.
-- the *Time (ms)* column displays the instruction's execution time value. The time unit and column style can be changed in the Assembly options.
+- the *Time (%)* column displays the instruction's execution time percentage relative to the total function execution time. The column style can be changed in the [Assembly options](#view-options).
+- the *Time (ms)* column displays the instruction's execution time value. The time unit and column style can be changed in the [Assembly options](#view-options)..
 - the instruction background is colored based on its execution time - the slowest instruction has a red color, next slowest orange, then shades of yellow. The instruction location is also marked in the vertical text scrollbar.
 - the three slowest instructions also have a flame icon in the *Time (%)* column using the same color coding.
 
@@ -87,11 +84,13 @@ Instruction execution time is displayed and annotated on several parts of the as
 - the basic blocks have a label with the block's execution time percentage, as a sum of its instruction's execution time (in the example above, the 55.73% label for B4). *Hovering* over the label shows the block's execution time value. The label background color uses the same color coding.
 - the basic blocks in the *Flow Graph* view have below the same execution time percentage label as in the Assembly view, with the corresponding background color.
 
-???+ note
-    When displaying a function for the first time, by default, the slowest instruction is selected and brought into view (this can be configured in the Assembly options). 
-    When the function is displayed subsequently, the last vertical scroll position is used instead.
+When displaying a function for the first time, by default, the slowest instruction is selected and brought into view (this can be configured in the [Assembly options](#view-options)). When the function is displayed subsequently, the last vertical scroll position is used instead.  
 
-    To jump at any time to the slowest instruction, *click* the red ![](img/flame-icon.png) from the toolbar or the *Ctrl+H* keyboard shortcut.
+To jump at any time to the slowest instruction, *click* the red ![](img/flame-icon.png) from the toolbar or the *Ctrl+H* keyboard shortcut.
+
+???+ note
+    When multiple instructions are selected, the application status bar displays the sum of their execution time as a percentage and value.  
+    [![Profiling UI screenshot](img/assembly-selection_868x170.png)](img/assembly-selection_868x170.png){:target="_blank"}
 
 ##### Call targets
 
