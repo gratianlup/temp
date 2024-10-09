@@ -58,6 +58,16 @@ Each line corresponds to one source line, with the following values and buttons 
 - source line text.
 - profiling data columns, such as the execution time percentage and value.
 
+##### Selection sync
+
+When a source line is selected, if *Sync* is enabled in the toolbar, the associated instructions are also selected in the *Assembly* view.  
+
+In the example below, the start of the loop on line 21 is selected, with the instructions forming the loop header selected in the Assembly view; not visible in the screenshot are the selected instructions corresponding to the loop back-edge.
+
+[![Profiling UI screenshot](img/source-selection-sync_934x400.png)](img/source-selection-sync_934x400.png){:target="_blank"}
+
+Vice versa, selecting an instruction in the Assembly view also selects the corresponding source line.
+
 ##### Profiling annotations
 
 Similar to the Assembly view, execution time is displayed and annotated on several parts of the source lines and columns using text, colors and flame icons:

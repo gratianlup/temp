@@ -326,7 +326,7 @@
         
   
   <span class="md-ellipsis">
-    Demos
+    Video Demos
   </span>
   
 
@@ -640,6 +640,15 @@
   
     <nav class="md-nav" aria-label="Source code view">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selection-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selection sync
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#profiling-annotations" class="md-nav__link">
@@ -1065,6 +1074,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#selection-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selection sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#profiling-annotations" class="md-nav__link">
     <span class="md-ellipsis">
       Profiling annotations
@@ -1255,6 +1273,11 @@
 <li>source line text.</li>
 <li>profiling data columns, such as the execution time percentage and value.</li>
 </ul>
+<h5 id="selection-sync">Selection sync</h5>
+<p>When a source line is selected, if <em>Sync</em> is enabled in the toolbar, the associated instructions are also selected in the <em>Assembly</em> view.  </p>
+<p>In the example below, the start of the loop on line 21 is selected, with the instructions forming the loop header selected in the Assembly view; not visible in the screenshot are the selected instructions corresponding to the loop back-edge.</p>
+<p><a href="img/source-selection-sync_934x400.png" target="_blank"><img alt="Profiling UI screenshot" src="img/source-selection-sync_934x400.png" /></a></p>
+<p>Vice versa, selecting an instruction in the Assembly view also selects the corresponding source line.</p>
 <h5 id="profiling-annotations">Profiling annotations</h5>
 <p>Similar to the Assembly view, execution time is displayed and annotated on several parts of the source lines and columns using text, colors and flame icons:</p>
 <ul>
