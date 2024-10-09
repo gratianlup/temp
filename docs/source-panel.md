@@ -118,13 +118,15 @@ For each such statement and expression, the execution time is computed by accumu
 
 Source lines that start a statement are marked with an icon based on statement kind on the left side and in the execution time percentage column (configurable in the [Source File options](#view-options)).  
 
-*Hovering* with the mouse over a statement marking shows the execution time as a percentage and value relative to the function time and highlights the source lines part of the statement.  
+*Hovering* with the mouse over a statement marking shows its execution time as a percentage and value relative to the function time and highlights the source lines  part of the statement.  
 
 [![Profiling UI screenshot](img/source-outline-loop_991x228.png)](img/source-outline-loop_991x228.png){:target="_blank"}
 
-Use the *Outline* button from the profiling toolbar displays to display a menu that summarizes the nested statements and their execution time. Each menu entry has the source line number, statement kind icon, statement start source code and execution time percentage and value. *Click* on a menu entry to jump to the statement start. *Hovering* with the mouse over a menu entry highlights the source lines part of the statement.
+Use the *Outline* button from the profiling toolbar displays to display a menu that summarizes the nested statements and their execution time. Each menu entry has the source line number, statement kind icon, statement start source code and execution time percentage and value.  
 
-Example of the outline of function having three nested loops, with if/else statements in the last level loop.
+*Click* on a menu entry to jump to the statement start. *Hovering* with the mouse over a menu entry highlights the source lines part of the statement.
+
+The example blow shows the outline of a function having three nested loops, with if/else statements in the last level loop.
 
 [![Profiling UI screenshot](img/source-outline_953_289.png)](img/source-outline_953_289.png){:target="_blank"}
 
@@ -134,7 +136,7 @@ The profiling toolbar provides more advanced functionality for identifying the s
 
 ##### Profile
 
-Displays a menu with the slowest source lines, sorted by execution time in decreasing order. Even if assembly sections are enabled, instructions are not included.    
+Displays a menu with the slowest source lines, sorted by execution time in decreasing order. Even if assembly sections are enabled, instructions are not included.  
 
 - *Click* on a menu entry to select and bring the source line into view.  
 - *Click* the ![](img/flame-icon.png) icon to jump to the slowest source line in the function.  

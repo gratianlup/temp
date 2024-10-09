@@ -76,7 +76,7 @@ Example of a filter including a single thread (58540) and a time range of ~2 sec
 
 [![Profiling UI screenshot](img/timeline-filter-time-thread_889x317.png)](img/timeline-filter-time-thread_889x317.png){:target="_blank"}
 
-#### Marking
+#### Marking samples
 
 The samples corresponding to a function instance can be marked from the *Flame Graph view* using the right-click context menu of a node and selecting a color from the *Mark In Timeline* menu entry. 
 [![Profiling UI screenshot](img/timeline-mark-menu_907x233.png)](img/timeline-mark-menu_907x233.png){:target="_blank"}
