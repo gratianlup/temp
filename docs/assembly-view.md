@@ -34,7 +34,7 @@ The function assembly area can be treated a read-only code editor. Each line cor
 
 ##### Source lines
 
-The debug info files usually contain a mapping between the source line numbers and the instructions that were generated for those lines. If available, the source line number is appended at the end of an instruction. Note that accuracy of this mapping usually depends on the compiler optimization level, with higher levels being less accurate or even lacking the mapping for some instructions.
+The debug info files usually contain a mapping between the source line numbers and the instructions that were generated for those lines. The source line number is appended at the end of an instruction if available. Note that the accuracy of this mapping usually depends on the compiler optimization level, with higher levels being less accurate or even lacking the mapping for some instructions.  
 
 *Hovering* over the line number shows a tooltip with the name and path of the source file. To copy this info to clipboard, first *click* the line number, then press *Ctrl+C*.  
 
@@ -45,7 +45,7 @@ The debug info files usually contain a mapping between the source line numbers a
     
 ##### Inlinees
 
-During function inlining, the compiler may preserve additional details about the functions code being inlined so that the origin of an instruction can be saved into the debug info file. If available, the inlinees (inlined functions) are appended after the source line number, separated by the | letter.
+During function inlining, the compiler may preserve additional details about the function code being inlined so that the origin of an instruction can be saved into the debug info file. If available, the inlinees (inlined functions) are appended after the source line number, separated by the | letter.  
 
 For example, if the function contains a call chain like *foo() -> bar()*, with both calls being inlined, the final instructions will record the fact that they originate from *bar*, which got inlined into *foo*, then *foo* inlined into the function.
 
@@ -70,7 +70,7 @@ Notice how B5 is recognized for being a loop (the last instruction in the block 
 
 ##### Profiling annotations
 
-Instruction execution time is displayed and annotated on several parts of the assembly instructions, columns, basic blocks and the control-flow graph, using text, colors and flame icons:
+Instruction execution time is displayed and annotated on several parts of the assembly instructions, columns, basic blocks, and the control-flow graph using text, colors, and flame icons:
 
 [![Profiling UI screenshot](img/assembly-marking_1235x202.png)](img/assembly-marking_1235x202.png){:target="_blank"}  
 
@@ -99,12 +99,14 @@ Combining the parsed assembly and profiling information, call instructions are m
 - for direct calls (target is an function name/address), a black arrow is used.
 - for indirect or virtual function calls (target is a register or memory operand), a green arrow is used.
 
-*Hovering* with the mouse over the arrow displays a target functions list, with details about their execution time. For example, the indirect call below at runtime has the *std::_Random_device* function as the only target:
+*Hovering* with the mouse over the arrow displays a list of target functions with details about their execution time. For example, the indirect call below at runtime has the *std::_Random_device* function as the only target:  
 
 [![Profiling UI screenshot](img/assembly-call-target_691x172.png){: style="width:500px"}](img/assembly-call-target_691x172.png){:target="_blank"} 
 
 ???+ note
-    Functions in the list have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views. *Double-click/Ctrl+Return* opens the Assembly view for the selected function. Combine these shortcuts with the *Shift* key to open the Assembly view in a new tab instead.
+    Functions in the list have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views.  
+    
+    *Double-click/Ctrl+Return* opens the Assembly view for the selected function. Combine these shortcuts with the *Shift* key to open the Assembly view in a new tab instead.
 
  Call instructions with a known target have the function name operand changed into a link (underlined, bold, blue text). The link makes it easy to navigate to the called function and the function history to go back to the caller.
 
@@ -118,7 +120,7 @@ Combining the parsed assembly and profiling information, call instructions are m
 
 ##### Opened functions history
 
-When multiple functions are opened in the same tab, a history is kept per tab that makes it possible to go back/forward to a previous/next opened function. This is especially useful when navigating to a called function by double-clicking its name in the assembly, since it makes it easy to back to the caller.  
+When multiple functions were opened in the same tab, a history is kept per tab that makes it possible to go back/forward to a previous/next opened function. This is especially useful when navigating to a called function by double-clicking its name in the assembly, since it makes it easy to back to the caller.  
 
 - *Click* the *Back* button in the toolbar to navigate back to the previous function in the sequence (or press the *Backspace* key or the optional *Back* button on the mouse). The back button also has a menu that lists the previous functions.  
 
@@ -252,7 +254,7 @@ The function's assembly, combined with source line numbers and profiling annotat
 
 The Export menu in the toolbar also has an option to copy to clipboard the function's assembly as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).  
 
-The Ctrl+C keyboard shortcut copies to clipboard only the selected instructions as a HTML/Markdown table.
+The Ctrl+C keyboard shortcut copies to the clipboard only the selected instructions as a HTML/Markdown table.
 
 #### View options
 

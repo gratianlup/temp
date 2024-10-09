@@ -1006,7 +1006,7 @@
   <h1>Summary view</h1>
 
 <h4 id="overview">Overview</h4>
-<p>The summary view displays all modules (binaries) and functions that have profile data in the trace, and makes it easy to identify the functions where most time spent, the application hotspots.</p>
+<p>The summary view displays all modules (binaries) and functions that have profile data in the trace, making it easy to identify the functions where most time is spent — otherwise known as application hotspots.</p>
 <p><a href="img/summary-panel_1233x417.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-panel_1233x417.png" /></a></p>
 <p>The view has three parts:  </p>
 <ul>
@@ -1019,7 +1019,7 @@
 <p>By default the <em>All</em> entry is active and the function list displays all functions with profile data in the trace.  </p>
 <p><em>Double-click</em> a module (or use the Return key) to display only its functions. Selecting a module while the <em>All</em> entry is active selects its functions in the list.</p>
 <h5 id="functions-list">Functions list</h5>
-<p>The function list has an entry for each function with profile data. An entry has the demangled (undecorated) function name, module and self (exclusive) execution time and total (inclusive) execution time. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  </p>
+<p>The function list has an entry for each function with profile data. An entry has the demangled (undecorated) function name, module and self (exclusive) execution time, and total (inclusive) execution time. If CPU performance counters are found and loaded from the trace, the additional columns with metrics and the counters are appended after the last column.  </p>
 <p>The list is filtered based on the active module. The displayed columns and style can be customized in the Summary options.</p>
 <p>The function list is by default sorted by the self (exclusive) execution time in decreasing order.<br />
 <em>Click</em> the same column header to toggle between decreasing and  increasing order.<br />
@@ -1162,8 +1162,8 @@
 <li>Markdown table (*.md)<br />
 <a href="img/summary-export-markdown_1003x172.png" target="_blank"><img alt="Profiling UI screenshot" src="img/summary-export-markdown_1003x172.png" /></a></li>
 </ul>
-<p>The <em>Export</em> menu in the toolbar also has an option to copy to clipboard the current function list as a HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).  </p>
-<p>The Ctrl+C keyboard shortcut copies to clipboard only the selected functions as a HTML/Markdown table.</p>
+<p>The <em>Export</em> menu in the toolbar also has an option to copy to the clipboard the current function list as an HTML/Markdown table (pasting in an application supporting HTML - such as the Microsoft Office suite and online editors - will use the HTML version, code/text editors will use Markdown version instead).  </p>
+<p>The Ctrl+C keyboard shortcut copies to the clipboard only the selected functions as a HTML/Markdown table.</p>
 <h4 id="view-options">View options</h4>
 <p><em>Click</em> on the <em>Gears</em> icon in the top-right part of the view displays the options panel (alternatively, use the <em>Summary</em> tab in the application <em>Settings</em> window.).  </p>
 <p>The tabs below describe each page of the options panel:  </p>

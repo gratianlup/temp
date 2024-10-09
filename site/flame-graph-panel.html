@@ -1288,7 +1288,6 @@ In the example above, the <em>main</em> function is considered the process entry
 <h4 id="details-panel">Details panel</h4>
 <p>The Details panel shows extended information about the selected node(s) in the Flame graph. It provides a quick overview of the slowest functions and modules being called directly or through other functions starting with the selection.  </p>
 <p>The top shows the <em>Total</em> (inclusive) execution time and <em>Self</em> (exclusive) execution time values for the selected node (function instance). The right side shows the index of the chosen instance, among all instances, with the slowest instance having the lowest index. Use the left/right arrow buttons to switch to the previous/next function instance.  </p>
-<p>The information displayed in the tabs below is for the selected function instance only; the Info tab displays statistics for all instances.</p>
 <details class="note" open="open">
 <summary>Note</summary>
 <p>Functions in the lists have a right-click context menu with options to open the Assembly view, preview popup, and select the function in the other views.  </p>
@@ -1296,6 +1295,7 @@ In the example above, the <em>main</em> function is considered the process entry
 <em>Hovering</em> with the mouse over a function opens a preview popup with the function's assembly.    </p>
 <p>When multiple functions are selected, the application status bar displays the sum of their execution time as a percentage and value.</p>
 </details>
+<p>The information displayed in the tabs below is for the selected function instance only, except the <em>Info</em> tab which displays statistics for all instances instead.  </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Info</label><label for="__tabbed_1_2">Stack</label><label for="__tabbed_1_3">Functions</label><label for="__tabbed_1_4">Modules</label><label for="__tabbed_1_5">Categories</label><label for="__tabbed_1_6">Instances</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

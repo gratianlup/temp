@@ -627,6 +627,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#profiling-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling annotations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#view-interaction" class="md-nav__link">
     <span class="md-ellipsis">
       View interaction
@@ -885,6 +894,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#profiling-annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profiling annotations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#view-interaction" class="md-nav__link">
     <span class="md-ellipsis">
       View interaction
@@ -920,11 +938,27 @@
   <h1>Flow Graph view</h1>
 
 <h4 id="overview">Overview</h4>
-<p>The Flow Graph view displays the <a href="https://en.wikipedia.org/wiki/Control-flow_graph">control-flow graph (CFG)</a> of the function in the active assembly view, with basic blocks annotated with profiling information.</p>
+<p>The Flow Graph view displays the <a href="https://en.wikipedia.org/wiki/Control-flow_graph">control-flow graph (CFG)</a> of the function in the active assembly view, with <a href="https://en.wikipedia.org/wiki/Basic_block">basic blocks</a> annotated with profiling information.  </p>
+<p>The function CFG makes it easier to see the structure of a function and control-flow created by jumps, branches and loops.  </p>
 <p><a href="img/flow-graph-view_501x693.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flow-graph-view_501x693.png" style="width:320px" /></a></p>
-<p>The function CFG makes it easier to see the structure of a function, loops. Blocks and arrows color-coded, ex default colors for loops, exit blocks TODO</p>
-<p>Example img with selection sync on block click.</p>
+<p>Each basic block is represented by a rectangle, with the block number as the label. An edge between two blocks means the source and destination block are connected either through a jump/branch or fall-through code.  </p>
+<p>Color coding of both blocks and edges is used to help identify control flow. The used colors can be customized in the <a href="#view-options">Flow Graph options</a>.</p>
+<p>Block border colors coding (default colors):  </p>
+<ul>
+<li>blue: blocks ends with a branch instruction.</li>
+<li>green: block is the target of a loop back-edge (it's a loop header).</li>
+<li>red: block ends with a return instruction (it's a function exit),</li>
+</ul>
+<p>Edge color coding (default colors):  </p>
+<ul>
+<li>blue: target block is a branch target (branch in the source block jumps to it).</li>
+<li>green: loop back-edge, target block is a loop header (start of a  loop).</li>
+<li>red: target block is a function exit block.</li>
+<li>dotted: target block is the <a href="https://en.wikipedia.org/wiki/Dominator_(graph_theory)">immediate dominator</a> of the source block.</li>
+</ul>
+<p>When a block is selected, the block and its instructions are also selected in the <em>Assembly</em> view, like in the example below where B5 is selected. Notice that B5 is a single-block, nested loop, while B4 is the loop header block of a larger loop including B5.  </p>
 <p><a href="img/flow-graph-select_1277x370.png" target="_blank"><img alt="Profiling UI screenshot" src="img/flow-graph-select_1277x370.png" /></a> </p>
+<h4 id="profiling-annotations">Profiling annotations</h4>
 <h4 id="view-interaction">View interaction</h4>
 <details class="abstract" open="open">
 <summary>Toolbar</summary>
