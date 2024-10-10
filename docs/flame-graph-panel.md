@@ -93,8 +93,8 @@ Use the *search input box* in the toolbar to search for functions with a specifi
     | Back | If the mouse has an optional *Back* button, this undoes the previous action, such as expanding a node (double-click) or changing the root node. An alternative is pressing the *Backspace* key or the *Back* button in the toolbar.|
     | Right-click | Shows the context menu for the selected nodes. |
     | Click+Drag | If the flame graph is larger than the view, clicking on and dragging an empty part of the view moves the view in the direction of the mouse. |
-    | Scroll wheel | Scrolls the view vertically if the flame graph is larger than the view |
-    | Shift+Scroll wheel | Scrolls the view horizontally if the flame graph is larger than the view |
+    | Scroll wheel | Scrolls the view vertically if the flame graph is larger than the view. |
+    | Shift+Scroll wheel | Scrolls the view horizontally if the flame graph is larger than the view. |
     | Ctrl+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
     | Click+Scroll wheel | Zooms in or out the view around the mouse pointer position. |
 
