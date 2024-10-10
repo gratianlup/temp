@@ -3,9 +3,9 @@ use_directory_urls: false
 nav:
   - Introduction: intro.md
   - Getting started:
+    - About: about.md
     - Profiling UI overview: profiling-ui.md
     - Video Demos: demos.md
-    - About: about.md
   - Trace loading and recording:
     - Loading a trace: trace-loading.md
     - Recording a trace: trace-recording.md

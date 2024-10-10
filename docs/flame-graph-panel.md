@@ -17,7 +17,7 @@
 
 The Flame graph view is the main means of identifying the parts of the application where most time is spent. 
 
-[![Profiling UI screenshot](img/flame-graph-panel.png)](img/flame-graph-panel.png){:target="_blank"}
+[![Profiling UI screenshot](img/flame-graph-panel_1435x557.png)](img/flame-graph-panel_1435x557.png){:target="_blank"}
 
 The view has three parts:
 
